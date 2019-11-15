@@ -12,7 +12,7 @@ public class test {
 		test.add(viewTest);
 		test.setSize(640, 480);
 		test.setFocusable(true);
-		test.setVisible(true);
+		test.setUndecorated(true);
 		test.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		test.setVisible(true);
 		
