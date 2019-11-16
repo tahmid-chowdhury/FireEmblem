@@ -15,7 +15,7 @@ public class Viewport{
 	protected double scaleFactor;
 	
 	public Viewport(Map m) {
-		scaleFactor = 0.5;
+		scaleFactor = 0.25;
 		map = m;
 	}
 	
@@ -29,17 +29,17 @@ public class Viewport{
 						 * then add the width/height of the sprite to it
 						 */
 						
-						//source x co-ord 1
-						(int)(x*map.grid[x][y].sprite.getWidth()*scaleFactor), 
+						//destination x co-ord 1
+						(int)(x*map.grid[x][y].sprite.getWidth()*scaleFactor) + (int) (xOffset*(map.grid[x][y].sprite.getWidth()*scaleFactor*map.grid.length)), 
 						
-						//source y co-ord 1
-						(int)(y*map.grid[x][y].sprite.getHeight()*scaleFactor), 
+						//destination y co-ord 1
+						(int)(y*map.grid[x][y].sprite.getHeight()*scaleFactor) + (int) (yOffset*(map.grid[x][y].sprite.getHeight()*scaleFactor*map.grid[x].length)), 
 						
-						//source x co-ord 2
-						(int)(x*map.grid[x][y].sprite.getWidth()*scaleFactor + map.grid[x][y].sprite.getWidth()*scaleFactor), 
+						//destination x co-ord 2
+						(int)(x*map.grid[x][y].sprite.getWidth()*scaleFactor + map.grid[x][y].sprite.getWidth()*scaleFactor) + (int) (xOffset*(map.grid[x][y].sprite.getWidth()*scaleFactor*map.grid.length)), 
 						
-						//source y co-ord 2
-						(int)(y*map.grid[x][y].sprite.getHeight()*scaleFactor + map.grid[x][y].sprite.getHeight()*scaleFactor),
+						//destination y co-ord 2
+						(int)(y*map.grid[x][y].sprite.getHeight()*scaleFactor + map.grid[x][y].sprite.getHeight()*scaleFactor) + (int) (yOffset*(map.grid[x][y].sprite.getHeight()*scaleFactor*map.grid[x].length)),
 						
 						
 						/*source co-ords, don't touch these*/
