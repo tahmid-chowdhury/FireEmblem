@@ -19,4 +19,8 @@ public class AllTogether extends JPanel {
 		Graphics2D wnk = (Graphics2D) g;
 		viewport.paint(wnk);
 		}
+	
+	public void update(boolean[] a) {
+		viewport.move(a);
+	}
 }

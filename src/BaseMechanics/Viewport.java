@@ -52,6 +52,29 @@ public class Viewport{
 	}
 	//end of the paint method, keep track of those brackets!
 	public void move(boolean[] a) {
+		if(a[6]) {
+			xOffset += 0.01/scaleFactor;
+		}
+		if(a[9]) {
+			xOffset -= 0.01/scaleFactor;
+		}
 		
+		if(a[7]) {
+			yOffset += 0.01/scaleFactor;
+		}
+		if(a[8]) {
+			yOffset -= 0.01/scaleFactor;
+		}
+		
+		if(scaleFactor - 0.25 > 0) {
+		if(a[0]) {
+			scaleFactor -= 0.01;
+		}
+		}
+		
+		if(a[1]) {
+			scaleFactor += 0.01;
+		}
+
 	}
 }
