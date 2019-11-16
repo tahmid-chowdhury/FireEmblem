@@ -16,6 +16,10 @@ public class testMap extends BaseMechanics.Map {
 				grid[x][y] = new testTile();
 			}
 		}
+		grid[1][1] =  new testTile2();
+		grid[1][2] =  new testTile2();
+		grid[1][3] =  new testTile2();
+		grid[2][4] =  new testTile2();
 	}
 	
 	public class testTile extends BaseMechanics.Tile {
@@ -27,6 +31,23 @@ public class testMap extends BaseMechanics.Map {
 			//Drawing Stuff
 			 try {
 				sprite = ImageIO.read(new File("test_sprite.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				
+				e.printStackTrace();
+			};
+		}
+	}
+	
+	public class testTile2 extends BaseMechanics.Tile {
+		public testTile2() {
+			 terrainType = 0;
+			 zAxis = -1;
+			 passable = true;
+			 tall = false;			
+			//Drawing Stuff
+			 try {
+				sprite = ImageIO.read(new File("test_sprite_2.png"));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				
