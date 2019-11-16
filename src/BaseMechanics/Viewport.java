@@ -17,6 +17,9 @@ public class Viewport{
 	public Viewport(Map m) {
 		scaleFactor = 0.25;
 		map = m;
+		
+		xOffset=0.05;
+		yOffset=-0.05;
 	}
 	
 	public void paint(Graphics2D g){
@@ -46,5 +49,9 @@ public class Viewport{
 						0, 0, map.grid[x][y].sprite.getWidth(),  map.grid[x][y].sprite.getHeight(), null);
 			}
 		}
+	}
+	//end of the paint method, keep track of those brackets!
+	public void move(boolean[] a) {
+		
 	}
 }
