@@ -15,7 +15,7 @@ public class Viewport{
 	protected double scaleFactor;
 	
 	public Viewport(Map m) {
-		scaleFactor = 1;
+		scaleFactor = 0.5;
 		map = m;
 	}
 	
@@ -28,7 +28,18 @@ public class Viewport{
 						/* for each variable, subtract it's respective offset multiplied by the width/height of the frame
 						 * then add the width/height of the sprite to it
 						 */
-						dx1, dy1, dx2, dy2,
+						
+						//source x co-ord 1
+						(int)(x*map.grid[x][y].sprite.getWidth()*scaleFactor), 
+						
+						//source y co-ord 1
+						(int)(y*map.grid[x][y].sprite.getHeight()*scaleFactor), 
+						
+						//source x co-ord 2
+						(int)(x*map.grid[x][y].sprite.getWidth()*scaleFactor + map.grid[x][y].sprite.getWidth()*scaleFactor), 
+						
+						//source y co-ord 2
+						(int)(y*map.grid[x][y].sprite.getHeight()*scaleFactor + map.grid[x][y].sprite.getHeight()*scaleFactor),
 						
 						
 						/*source co-ords, don't touch these*/

@@ -7,8 +7,13 @@ import javax.swing.JPanel;
 
 public class AllTogether extends JPanel {
 	
-	Viewport viewport;
+	public AllTogether(Map m) {
+		this.map = m;
+		this.viewport = new Viewport(m);
+	}
 	
+	Viewport viewport;
+	Map map;
 	
 	public void paint(Graphics g){
 		Graphics2D wnk = (Graphics2D) g;

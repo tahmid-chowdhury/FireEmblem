@@ -2,13 +2,13 @@ package BaseMechanics;
 
 import java.awt.image.BufferedImage;
 
-public class Tile {
+public abstract class Tile {
 	//Game logic stuff
-	Unit occupyingUnit;
-	int terrainType;
-	int zAxis;
-	boolean passable;
-	boolean tall;
+	protected Unit occupyingUnit;
+	protected int terrainType;
+	protected int zAxis;
+	protected boolean passable;
+	protected boolean tall;
 	
 	//Drawing Stuff
 	protected BufferedImage sprite;
