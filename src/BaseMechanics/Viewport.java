@@ -67,13 +67,16 @@ public class Viewport{
 		}
 		
 		if(scaleFactor - 0.25 > 0) {
-		if(a[0]) {
-			scaleFactor -= 0.01;
-		}
+			if(a[0]) {
+				scaleFactor -= 0.01;
+			}
 		}
 		
 		if(a[1]) {
 			scaleFactor += 0.01;
+			if(scaleFactor > 4) {
+				scaleFactor = 4;
+			}
 		}
 
 	}
