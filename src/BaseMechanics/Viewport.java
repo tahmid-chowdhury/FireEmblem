@@ -83,7 +83,7 @@ public class Viewport{
 			yOffset -= speed/scaleFactor;
 		}
 		
-		if(scaleFactor - 0.25 > 0) {
+		if(scaleFactor > 0.25) {
 			if(a[0]) {
 				scaleFactor -= 0.01;
 			}
