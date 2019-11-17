@@ -23,12 +23,20 @@ public class testUnits {
 		}
 
 		@Override
-		public void paint(Graphics2D g, int x, int y, double scaleFactor, int xOffset, int yOffset) {
+		public void paint(Graphics2D g, int x, int y, double scaleFactor, double xOffset, double yOffset, int xSize, int ySize){
 			g.drawImage(sprites[0], 
-					x*sprites[0].getWidth()+xOffset, 
-					y*sprites[0].getHeight()+yOffset, 
-					(int)((x+1)*sprites[0].getWidth()*scaleFactor)+xOffset, 
-					(int)((y+1)*sprites[0].getHeight()*scaleFactor)+yOffset, 
+					//destination x co-ord 1
+					(int)(x*sprites[0].getWidth()*scaleFactor) + (int) (xOffset*(sprites[0].getWidth()*scaleFactor*xSize)), 
+					
+					//destination y co-ord 1
+					(int)(y*sprites[0].getHeight()*scaleFactor) + (int) (yOffset*(sprites[0].getHeight()*scaleFactor*ySize)), 
+					
+					//destination x co-ord 2
+					(int)(x*sprites[0].getWidth()*scaleFactor + sprites[0].getWidth()*scaleFactor) + (int) (xOffset*(sprites[0].getWidth()*scaleFactor*xSize)), 
+					
+					//destination y co-ord 2
+					(int)(y*sprites[0].getHeight()*scaleFactor + sprites[0].getHeight()*scaleFactor) + (int) (yOffset*(sprites[0].getHeight()*scaleFactor*ySize)),
+					
 					
 					0, 0, sprites[0].getWidth(), sprites[0].getHeight(), null);
 		}

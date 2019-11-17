@@ -51,7 +51,7 @@ public class Viewport{
 						//AAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHHHHHHHHHHHHHHHHH
 						
 						if(map.grid[x][y].occupyingUnit!=null) {
-							map.grid[x][y].occupyingUnit.paint(g, x, y, scaleFactor, (int) (xOffset*(map.grid[x][y].sprite.getWidth()*scaleFactor*map.grid.length)), (int) (yOffset*(map.grid[x][y].sprite.getHeight()*scaleFactor*map.grid[x].length)));
+							map.grid[x][y].occupyingUnit.paint(g, x, y, scaleFactor, xOffset, yOffset, map.grid.length, map.grid[x].length);
 						}
 			}
 		}
