@@ -14,7 +14,7 @@ public class testUnits {
 		public testSpear() {
 			sprites = new BufferedImage[1];
 			 try {
-					sprites[0] = ImageIO.read(new File("premium.png"));
+					sprites[0] = ImageIO.read(new File("sprites/premium.png"));
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					

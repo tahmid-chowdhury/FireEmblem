@@ -31,7 +31,7 @@ public class testMap extends BaseMechanics.Map {
 			 tall = false;			
 			//Drawing Stuff
 			 try {
-				sprite = ImageIO.read(new File("test_sprite.png"));
+				sprite = ImageIO.read(new File("sprites/test_sprite.png"));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				
@@ -48,7 +48,7 @@ public class testMap extends BaseMechanics.Map {
 			 tall = false;			
 			//Drawing Stuff
 			 try {
-				sprite = ImageIO.read(new File("test_sprite_2.png"));
+				sprite = ImageIO.read(new File("sprites/test_sprite_2.png"));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				
