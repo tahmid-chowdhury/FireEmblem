@@ -14,9 +14,12 @@ public class Viewport{
 	//do not let it fall below 0
 	protected double scaleFactor;
 	
+	protected double speed;
+	
 	public Viewport(Map m) {
 		scaleFactor = 0.25;
 		map = m;
+		speed = 0.01;
 		
 		xOffset=0.05;
 		yOffset=-0.05;
@@ -58,18 +61,26 @@ public class Viewport{
 	}
 	//end of the paint method, keep track of those brackets!
 	public void move(boolean[] a) {
+		if(a[6]||a[9]||a[7]||a[8]) {
+			if(speed < 0.025) {
+				speed += 0.0002;
+			}
+		}else {
+			speed = 0.0001;
+		}
+		
 		if(a[6]) {
-			xOffset += 0.01/scaleFactor;
+			xOffset += speed/scaleFactor;
 		}
 		if(a[9]) {
-			xOffset -= 0.01/scaleFactor;
+			xOffset -= speed/scaleFactor;
 		}
 		
 		if(a[7]) {
-			yOffset += 0.01/scaleFactor;
+			yOffset += speed/scaleFactor;
 		}
 		if(a[8]) {
-			yOffset -= 0.01/scaleFactor;
+			yOffset -= speed/scaleFactor;
 		}
 		
 		if(scaleFactor - 0.25 > 0) {
