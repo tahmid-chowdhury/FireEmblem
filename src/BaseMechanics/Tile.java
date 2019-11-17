@@ -4,7 +4,7 @@ import java.awt.image.BufferedImage;
 
 public abstract class Tile {
 	//Game logic stuff
-	protected Unit occupyingUnit;
+	public Unit occupyingUnit;
 	protected int terrainType;
 	protected int zAxis;
 	protected boolean passable;

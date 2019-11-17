@@ -20,6 +20,7 @@ public class testMap extends BaseMechanics.Map {
 		grid[1][2] =  new testTile2();
 		grid[1][3] =  new testTile2();
 		grid[2][4] =  new testTile2();
+		grid[0][0].occupyingUnit = new testUnits.testSpear();
 	}
 	
 	public class testTile extends BaseMechanics.Tile {
