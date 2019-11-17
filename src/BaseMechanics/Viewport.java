@@ -61,10 +61,10 @@ public class Viewport{
 	}
 	//end of the paint method, keep track of those brackets!
 	public void move(boolean[] a) {
-		if((a[6]^a[9])||(a[7]^a[8])) {
-			if(speed < 0.025) {
+		if(((a[6]^a[9])||(a[7]^a[8]))&&speed < 0.025) {
+			//if(speed < 0.025) {
 				speed += 0.0002;
-			}
+			//}
 		}else {
 			speed = 0.0001;
 		}
@@ -83,17 +83,15 @@ public class Viewport{
 			yOffset -= speed/scaleFactor;
 		}
 		
-		if(scaleFactor > 0.25) {
-			if(a[0]) {
+		if(scaleFactor > 0.25&&a[0]) {
 				scaleFactor -= 0.01;
-			}
 		}
 		
-		if(a[1]) {
+		if(a[1]&&scaleFactor < 4) {
 			scaleFactor += 0.01;
-			if(scaleFactor > 4) {
+			/*if(scaleFactor > 4) {
 				scaleFactor = 4;
-			}
+			}*/
 		}
 
 	}
