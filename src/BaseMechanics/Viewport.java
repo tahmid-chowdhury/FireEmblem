@@ -61,7 +61,7 @@ public class Viewport{
 	}
 	//end of the paint method, keep track of those brackets!
 	public void move(boolean[] a) {
-		if(a[6]||a[9]||a[7]||a[8]) {
+		if((a[6]^a[9])||(a[7]^a[8])) {
 			if(speed < 0.025) {
 				speed += 0.0002;
 			}
