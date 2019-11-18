@@ -65,7 +65,7 @@ public class Viewport{
 			//if(speed < 0.025) {
 				speed += 0.0002;
 			//}
-		}else {
+		}else if((speed >= 0.025)&&((a[6]^a[9])||(a[7]^a[8]))){}else {
 			speed = 0.0001;
 		}
 		

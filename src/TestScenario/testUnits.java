@@ -22,7 +22,7 @@ public class testUnits {
 				}
 		}
 
-		@Override
+	/*	@Override
 		public void paint(Graphics2D g, int x, int y, double scaleFactor, double xOffset, double yOffset, int xSize, int ySize){
 			g.drawImage(sprites[0], 
 					//destination x co-ord 1
@@ -39,7 +39,7 @@ public class testUnits {
 					
 					
 					0, 0, sprites[0].getWidth(), sprites[0].getHeight(), null);
-		}
+		}	*/
 		
 	}
 
