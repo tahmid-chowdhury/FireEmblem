@@ -11,9 +11,9 @@ public class Battle {
 	public static void main(String[] args){
 		System.out.print("test\n");
 		
-		JFrame test = new JFrame("tekst");
+		JFrame test = new JFrame("SUPER EPIC BATTLE GAME WANK WANK WANK DICKS DICKS DICKS");
 		
-		BaseMechanics.Map m = new testMap();
+		BaseMechanics.Map m = new Maps.OuterField();
 		
 		BaseMechanics.InputMethod.Keyboard1 i = new BaseMechanics.InputMethod.Keyboard1();
 		
