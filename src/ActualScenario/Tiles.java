@@ -14,7 +14,7 @@ public class Tiles {
 			 tall = false;			
 			//Drawing Stuff
 			 try {
-				sprite = ImageIO.read(new File(/*benis*/"sprites/basicGrass.png"));
+				sprite = ImageIO.read(new File(/*benis*/"sprites/betterGrass.png"));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				
