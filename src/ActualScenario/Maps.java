@@ -15,7 +15,7 @@ public class Maps {
 				grid[x][y] = new Tiles.BasicStone();
 				}
 				if(y == 2){
-					grid[x][y] = new Tiles.RightPathField();
+					grid[x][y] = new Tiles.BottomPathField();
 					}
 				
 			}

@@ -40,6 +40,23 @@ public class Tiles {
 		}
 	}
 	
+	public static class BottomPathField extends BaseMechanics.Tile {
+		public BottomPathField() {
+			 terrainType = 0;
+			 zAxis = 0;
+			 passable = true;
+			 tall = false;			
+			//Drawing Stuff
+			 try {
+				sprite = ImageIO.read(new File(/*benis*/"sprites/betterGrassBottom.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				
+				e.printStackTrace();
+			};
+		}
+	}
+	
 	public static class BasicStone extends BaseMechanics.Tile {
 		public BasicStone() {
 			 terrainType = 0;
