@@ -16,7 +16,10 @@ public class Maps {
 				}
 				if(y == 2){
 					grid[x][y] = new Tiles.BottomPathField();
+					}else if(y == 6){
+					grid[x][y] = new Tiles.TopPathField();
 					}
+				
 				
 			}
 		}
