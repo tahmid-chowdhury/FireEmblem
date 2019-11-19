@@ -14,6 +14,9 @@ public class Maps {
 				if(y >= 3 && y <= 5){
 				grid[x][y] = new Tiles.BasicStone();
 				}
+				if(y == 2){
+					grid[x][y] = new Tiles.BottomPathField();
+					}
 				
 			}
 		}
