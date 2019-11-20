@@ -90,4 +90,21 @@ public class Tiles {
 			};
 		}
 	}
+	
+	public static class Path extends BaseMechanics.Tile {
+		public Path() {
+			 terrainType = 0;
+			 zAxis = 0;
+			 passable = true;
+			 tall = false;			
+			//Drawing Stuff
+			 try {
+				sprite = ImageIO.read(new File(/*benis*/"sprites/path.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				
+				e.printStackTrace();
+			};
+		}
+	}
 }
