@@ -12,7 +12,7 @@ public class Maps {
 			for(int y = 0; y < grid[x].length; y++) {
 				grid[x][y] = new Tiles.BasicField();
 				if(y >= 3 && y <= 5){
-				grid[x][y] = new Tiles.BasicStone();
+				grid[x][y] = new Tiles.Path();
 				}
 				if(y == 2){
 					grid[x][y] = new Tiles.BottomPathField();
