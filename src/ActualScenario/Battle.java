@@ -19,7 +19,7 @@ public class Battle {
 		
 		BaseMechanics.UserInterface ui = new BaseMechanics.UserInterface();
 		
-		BaseMechanics.AllTogether viewTest = new BaseMechanics.AllTogether(m, null, i);
+		BaseMechanics.AllTogether viewTest = new BaseMechanics.AllTogether(m, ui, i);
 		
 		test.add(viewTest);
 		test.setSize(640, 480);

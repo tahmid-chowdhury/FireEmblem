@@ -16,6 +16,8 @@ public class UserInterface {
 			for(Element x: elements){
 				x.paint(g);
 			}
+		}else{
+			System.out.print("No elements in interface array to print!\n");
 		}
 	}
 	
@@ -24,6 +26,8 @@ public class UserInterface {
 			for(Element x: elements){
 				x.update(a);
 			}
+		}else{
+			System.out.print("No elements in interface array to update!\n");
 		}
 	}
 	

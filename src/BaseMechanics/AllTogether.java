@@ -27,5 +27,6 @@ public class AllTogether extends JPanel {
 	
 	public void update() {
 		viewport.move(input.returnInputs());
+		ui.update(this);
 	}
 }
