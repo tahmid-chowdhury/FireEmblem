@@ -23,6 +23,7 @@ public class Maps {
 				
 			}
 		}
+		grid[0][0].occupyingUnit = new Units.baseRanger();
 		
 	}
 }
