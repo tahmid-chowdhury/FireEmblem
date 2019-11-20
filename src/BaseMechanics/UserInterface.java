@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class UserInterface {
 	
-	ArrayList<Element> elements;
+	protected ArrayList<Element> elements;
 	
 	public UserInterface(){
 		this.elements = new ArrayList<Element>(0);

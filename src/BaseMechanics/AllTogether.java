@@ -15,9 +15,9 @@ public class AllTogether extends JPanel {
 	}
 	
 	Viewport viewport;
-	Map map;
+	public Map map;
 	UserInterface ui;
-	InputMethod input;
+	public InputMethod input;
 	
 	public void paint(Graphics g){
 		Graphics2D wnk = (Graphics2D) g;
