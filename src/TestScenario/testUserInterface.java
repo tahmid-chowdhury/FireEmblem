@@ -47,6 +47,5 @@ public class testUserInterface extends UserInterface {
 				leftDepressed = false;
 			}
 		}
-		
 	}
 }

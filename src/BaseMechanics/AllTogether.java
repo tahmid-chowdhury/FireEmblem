@@ -14,7 +14,7 @@ public class AllTogether extends JPanel {
 		this.input = input;
 	}
 	
-	Viewport viewport;
+	public Viewport viewport;
 	public Map map;
 	UserInterface ui;
 	public InputMethod input;
