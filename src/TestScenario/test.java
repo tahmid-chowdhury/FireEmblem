@@ -18,7 +18,9 @@ public class test {
 		
 		BaseMechanics.InputMethod.Keyboard1 i = new BaseMechanics.InputMethod.Keyboard1();
 		
-		BaseMechanics.AllTogether viewTest = new BaseMechanics.AllTogether(m);
+		BaseMechanics.UserInterface ui = new BaseMechanics.UserInterface();
+		
+		BaseMechanics.AllTogether viewTest = new BaseMechanics.AllTogether(m, ui, i);
 		
 		test.add(viewTest);
 		test.setSize(640, 480);
@@ -32,7 +34,7 @@ public class test {
 		Timer timer = new Timer();
 		timer.scheduleAtFixedRate(new TimerTask(){
 			public void run(){
-				viewTest.update(i.returnInputs());
+				viewTest.update();
 				test.repaint();
 			}
 		}
