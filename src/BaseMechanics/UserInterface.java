@@ -9,11 +9,13 @@ public class UserInterface {
 	
 	public void paint(Graphics2D g){
 		for(Element x: elements){
-			x.paint(g);		
+			x.paint(g);
+			x.update();
 		}
 	}
 	
 	public static abstract class Element {
 		public abstract void paint(Graphics2D g);
+		public abstract void update();
 	}
 }
