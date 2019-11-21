@@ -14,7 +14,7 @@ public class Tiles {
 			 tall = false;			
 			//Drawing Stuff
 			 try {
-				sprite = ImageIO.read(new File(/*benis*/"sprites/betterGrass.png"));
+				sprite = ImageIO.read(new File(/*benis*/"sprites/land/betterGrass.png"));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				
@@ -31,7 +31,7 @@ public class Tiles {
 			 tall = false;			
 			//Drawing Stuff
 			 try {
-				sprite = ImageIO.read(new File(/*benis*/"sprites/betterGrassRight.png"));
+				sprite = ImageIO.read(new File(/*benis*/"sprites/land/betterGrassRight.png"));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				
@@ -48,7 +48,7 @@ public class Tiles {
 			 tall = false;			
 			//Drawing Stuff
 			 try {
-				sprite = ImageIO.read(new File(/*benis*/"sprites/betterGrassBottom.png"));
+				sprite = ImageIO.read(new File(/*benis*/"sprites/land/betterGrassBottom.png"));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				
@@ -65,7 +65,7 @@ public class Tiles {
 			 tall = false;			
 			//Drawing Stuff
 			 try {
-				sprite = ImageIO.read(new File(/*benis*/"sprites/betterGrassTop.png"));
+				sprite = ImageIO.read(new File(/*benis*/"sprites/land/betterGrassTop.png"));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				
@@ -99,7 +99,7 @@ public class Tiles {
 			 tall = false;			
 			//Drawing Stuff
 			 try {
-				sprite = ImageIO.read(new File(/*benis*/"sprites/path.png"));
+				sprite = ImageIO.read(new File(/*benis*/"sprites/land/path.png"));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				
