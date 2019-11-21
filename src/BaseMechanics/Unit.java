@@ -15,6 +15,7 @@ public abstract class Unit {
 	protected BufferedImage[] sprites;
 	
 	public void paint(Graphics2D g, int x, int y, double scaleFactor, double xOffset, double yOffset, int xSize, int ySize){
+		
 		g.drawImage(sprites[0], 
 				//destination x co-ord 1
 				(int)(x*sprites[0].getWidth()*scaleFactor) + (int) (xOffset*(sprites[0].getWidth()*scaleFactor*xSize)), 
