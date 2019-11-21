@@ -17,7 +17,7 @@ public class Battle {
 		
 		BaseMechanics.InputMethod.Keyboard1 i = new BaseMechanics.InputMethod.Keyboard1();
 		
-		BaseMechanics.UserInterface ui = new BaseMechanics.UserInterface();
+		BaseMechanics.UserInterface ui = new ActualScenario.UserInterface();
 		
 		BaseMechanics.AllTogether viewTest = new BaseMechanics.AllTogether(m, ui, i);
 		
