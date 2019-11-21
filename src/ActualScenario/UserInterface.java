@@ -3,11 +3,19 @@ package ActualScenario;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import javax.swing.JFrame;
+
 import BaseMechanics.AllTogether;
 
 public class UserInterface extends BaseMechanics.UserInterface {
-	public UserInterface(){
+	
+	int xsize;
+	int ysize;
+	
+	public UserInterface(JFrame f){
 		super();
+		xsize = f.getWidth();
+		ysize = f.getHeight();
 		this.elements.add(new border());
 	}
 	
