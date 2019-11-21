@@ -7,6 +7,9 @@ public abstract class Unit {
 	//Actual Battle Logic
 	protected int type;
 	protected int health;
+	protected int team;
+	//0 = neutral, 1 = player 1, 2 = player 2
+
 	public void attack(Unit a){
 		
 	}
