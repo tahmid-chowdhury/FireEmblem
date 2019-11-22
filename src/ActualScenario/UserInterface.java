@@ -35,7 +35,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		public void paint(Graphics2D g) {
 			g.setColor(Color.red);
 			g.drawString("Look mom I'm on a computer screen!", 69, 69);
-			g.fillRect((int)(xsize*0.5), (int)(ysize*0.5), (int)(xsize*0.1), (int)(ysize*0.1));
+			g.fillRect((int)(xsize*0), (int)(ysize*0.75), (int)(xsize*1), (int)(ysize*0.25));
 		}
 
 		@Override
