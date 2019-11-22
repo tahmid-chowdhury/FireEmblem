@@ -9,14 +9,22 @@ import BaseMechanics.AllTogether;
 
 public class UserInterface extends BaseMechanics.UserInterface {
 	
-	int xsize;
-	int ysize;
+	static int xsize;
+	static int ysize;
+	JFrame j;
 	
 	public UserInterface(JFrame f){
 		super();
 		xsize = f.getWidth();
 		ysize = f.getHeight();
 		this.elements.add(new border());
+		j = f;
+	}
+	
+	public void update(AllTogether a) {
+		xsize = j.getWidth();
+		ysize = j.getHeight();
+		super.update(a);
 	}
 	
 	public static class border extends BaseMechanics.UserInterface.Element {
@@ -27,6 +35,10 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		public void paint(Graphics2D g) {
 			g.setColor(Color.red);
 			g.drawString("Look mom I'm on a computer screen!", 69, 69);
+			g.fillRect((int)(xsize*0.05), (int)(ysize*0.65), (int)(xsize*0.9), (int)(ysize*0.25));
+			
+			g.setColor(Color.WHITE);
+			
 		}
 
 		@Override
