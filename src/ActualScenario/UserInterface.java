@@ -59,9 +59,13 @@ public class UserInterface extends BaseMechanics.UserInterface {
 					
 					(int)(ysize*0.65), 
 					
-					(int)((xsize*0.05)+(sprites.get(0).getWidth()*ysize*0.9)) , 
+					(int)((xsize*0.05)+sprites.get(0).getWidth()) , 
 					
-					(int)((ysize*0.65)+(sprites.get(0).getHeight()*ysize*0.25)),
+					(int)((ysize*0.65)+sprites.get(0).getHeight()*ysize*0.25),
+					
+					/*(int)((xsize*0.05)+(sprites.get(0).getWidth()*ysize*0.9)) , 
+					
+					(int)((ysize*0.65)+(sprites.get(0).getHeight()*ysize*0.25)),*/
 					
 					0, 0, sprites.get(0).getWidth(), sprites.get(0).getHeight(), null);
 			
