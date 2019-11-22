@@ -38,7 +38,9 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		public border(){
 			sprites = new ArrayList<BufferedImage>(0);
 			try{
-				sprites.add(ImageIO.read(new File("sprites/Gui/gui top.png")));
+				sprites.add(ImageIO.read(new File("sprites/Gui/borderLeft.png")));
+				sprites.add(ImageIO.read(new File("sprites/Gui/borderMid.png")));
+				sprites.add(ImageIO.read(new File("sprites/Gui/borderRight.png")));
 
 			}catch(Exception e){
 				
@@ -48,7 +50,22 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		@Override
 		public void paint(Graphics2D g) {
 			
-			g.fillRect((int)(xsize*0.05), (int)(ysize*0.65), (int)(xsize*0.9), (int)(ysize*0.25));						
+		//	g.fillRect((int)(xsize*0.05), (int)(ysize*0.65), (int)(xsize*0.9), (int)(ysize*0.25));
+			
+			g.drawImage(sprites.get(0), 
+					//only scale the destination with height
+					
+					(int)(xsize*0.05), 
+					
+					(int)(ysize*0.65), 
+					
+					(int)((xsize*0.05)+(sprites.get(0).getWidth()*ysize*0.9)) , 
+					
+					(int)((ysize*0.65)+(sprites.get(0).getHeight()*ysize*0.25)),
+					
+					0, 0, sprites.get(0).getWidth(), sprites.get(0).getHeight(), null);
+			
+			
 		}
 
 		@Override
