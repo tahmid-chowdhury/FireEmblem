@@ -52,6 +52,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			
 		//	g.fillRect((int)(xsize*0.05), (int)(ysize*0.65), (int)(xsize*0.9), (int)(ysize*0.25));
 			
+			//IT'S A HARD KNOCK LIFE FOR US
 			g.drawImage(sprites.get(0), 
 					//only scale the destination with height
 					
@@ -61,7 +62,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 					
 					(int)((xsize*0.05)+(sprites.get(0).getWidth()*(xsize/ysize))) , 
 					
-					(int)((ysize*0.65)+(sprites.get(0).getHeight()*(xsize/ysize))),
+					(int)((ysize*0.75)+(sprites.get(0).getHeight()*(xsize/ysize))),
 					
 					0, 0, sprites.get(0).getWidth(), sprites.get(0).getHeight(), null);
 			
@@ -75,7 +76,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 					
 					(int)((xsize*0.9)/*-(sprites.get(2).getWidth()*(xsize/ysize))*/), 
 					
-					(int)((ysize*0.65)+(sprites.get(1).getHeight()*(xsize/ysize))),
+					(int)((ysize*0.75)+(sprites.get(1).getHeight()*(xsize/ysize))),
 					
 					0, 0, sprites.get(1).getWidth(), sprites.get(1).getHeight(), null);
 			
@@ -89,9 +90,10 @@ public class UserInterface extends BaseMechanics.UserInterface {
 					
 					(int)((xsize*0.9)+(sprites.get(2).getWidth()*(xsize/ysize))) , 
 					
-					(int)((ysize*0.65)+(sprites.get(2).getHeight()*(xsize/ysize))),
+					(int)((ysize*0.75)+(sprites.get(2).getHeight()*(xsize/ysize))),
 					
 					0, 0, sprites.get(2).getWidth(), sprites.get(2).getHeight(), null);
+			
 			
 			
 		}

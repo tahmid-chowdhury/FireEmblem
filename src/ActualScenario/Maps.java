@@ -13,14 +13,21 @@ public class Maps {
 				grid[x][y] = new Tiles.BasicField();
 				if(y >= 3 && y <= 5){
 				grid[x][y] = new Tiles.Path();
+					if(x == 2){
+						grid[x][y] = new Tiles.RightPathField();
+					}else if(x == 1){
+						grid[x][y] = new Tiles.LeftPathField();
+					}
 				}
 				if(y == 2){
+					if(x!=2&&x!=1){
 					grid[x][y] = new Tiles.BottomPathField();
-					}else if(y == 6){
-					grid[x][y] = new Tiles.TopPathField();
 					}
-				
-				
+				}else if(y == 6){
+						if(x!=2&&x!=1){
+						grid[x][y] = new Tiles.TopPathField();
+						}
+					}
 			}
 		}
 		grid[4][4].occupyingUnit = new Units.baseRanger();
