@@ -63,28 +63,35 @@ public class UserInterface extends BaseMechanics.UserInterface {
 					
 					(int)((ysize*0.65)+(sprites.get(0).getHeight()*(xsize/ysize))),
 					
-					/*(int)((xsize*0.05)+(sprites.get(0).getWidth()*ysize*0.9)) , 
-					
-					(int)((ysize*0.65)+(sprites.get(0).getHeight()*ysize*0.25)),*/
-					
 					0, 0, sprites.get(0).getWidth(), sprites.get(0).getHeight(), null);
 			
-			for(int i = 1; i < 20; i++){
-				g.drawImage(sprites.get(1), 
-						//only scale the destination with height
-						
-						(int)(xsize*0.05+(i*sprites.get(1).getWidth())), 
-						
-						(int)(ysize*0.65), 
-						
-						(int)((xsize*0.05+(i*sprites.get(1).getWidth()))+(sprites.get(1).getWidth()*(xsize/ysize))) , 
-						
-						(int)((ysize*0.65)+(sprites.get(1).getHeight()*(xsize/ysize))),
-						
-						//
-						
-						0, 0, sprites.get(1).getWidth(), sprites.get(1).getHeight(), null);
-			}
+
+			g.drawImage(sprites.get(1), 
+					//only scale the destination with height
+					
+					(int)((xsize*0.05)+(sprites.get(0).getWidth()*(xsize/ysize))), 
+					
+					(int)(ysize*0.65), 
+					
+					(int)((xsize*0.9)-(sprites.get(2).getWidth()*(xsize/ysize))), 
+					
+					(int)((ysize*0.65)+(sprites.get(1).getHeight()*(xsize/ysize))),
+					
+					0, 0, sprites.get(1).getWidth(), sprites.get(1).getHeight(), null);
+			
+			
+			g.drawImage(sprites.get(2), 
+					//only scale the destination with height
+					
+					(int)(xsize*0.9), 
+					
+					(int)(ysize*0.65), 
+					
+					(int)((xsize*0.9)+(sprites.get(2).getWidth()*(xsize/ysize))) , 
+					
+					(int)((ysize*0.65)+(sprites.get(2).getHeight()*(xsize/ysize))),
+					
+					0, 0, sprites.get(2).getWidth(), sprites.get(2).getHeight(), null);
 			
 			
 		}
