@@ -3,6 +3,8 @@ package BaseMechanics;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 
+import javax.swing.JComponent;
+
 public class UserInterface {
 	
 	protected ArrayList<Element> elements;
@@ -31,7 +33,7 @@ public class UserInterface {
 		}
 	}
 	
-	public static abstract class Element {
+	public static abstract class Element extends JComponent {
 		public abstract void paint(Graphics2D g);
 		public abstract void update(AllTogether a);
 	}

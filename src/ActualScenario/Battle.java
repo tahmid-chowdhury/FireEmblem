@@ -16,12 +16,14 @@ public class Battle {
 		BaseMechanics.Map m = new Maps.OuterField();
 		
 		BaseMechanics.InputMethod.Keyboard1 i = new BaseMechanics.InputMethod.Keyboard1();
+		BaseMechanics.InputMethod.Mouse mu = new BaseMechanics.InputMethod.Mouse();
 		
-		BaseMechanics.UserInterface ui = new ActualScenario.UserInterface(test);
+		BaseMechanics.UserInterface ui = new ActualScenario.UserInterface(test, mu);
 		
 		BaseMechanics.AllTogether viewTest = new BaseMechanics.AllTogether(m, ui, i);
 		
 		test.add(viewTest);
+		test.addMouseListener(mu);
 		test.setSize(640, 480);
 		test.addKeyListener(i);
 		test.setFocusable(true);

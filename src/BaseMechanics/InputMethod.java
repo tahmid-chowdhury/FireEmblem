@@ -2,6 +2,9 @@ package BaseMechanics;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+
+import javax.swing.event.MouseInputListener;
 
 public class InputMethod {
 	protected boolean[] CurrentInputs = new boolean[10];
@@ -130,5 +133,66 @@ public class InputMethod {
 		}
 		
 	}
+	
+	public static class Mouse implements MouseInputListener {
+
+		public int[] CurrentInputs;
+		UserInterface.Element parent;
+		
+		boolean lastFrame;
+		boolean newInput;
+		
+		public boolean pressed;
+		
+		public Mouse(){
+			CurrentInputs = new int[2];
+			lastFrame = false;
+			newInput = false;
+		}
+		
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+			CurrentInputs[0] = e.getXOnScreen();
+			CurrentInputs[1] = e.getYOnScreen();
+			pressed = true;
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			pressed = false;
+		}
+
+		@Override
+		public void mouseDragged(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseMoved(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	}
+
 
 }

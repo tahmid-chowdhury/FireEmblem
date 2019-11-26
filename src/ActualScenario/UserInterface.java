@@ -2,27 +2,34 @@ package ActualScenario;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Label;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
+import javax.swing.event.MouseInputListener;
 
 import BaseMechanics.AllTogether;
+import BaseMechanics.InputMethod;
 
 public class UserInterface extends BaseMechanics.UserInterface {
 	
 	static double xsize;
 	static double ysize;
 	JFrame j;
+	static InputMethod.Mouse mouse;
 	
-	public UserInterface(JFrame f){
+	public UserInterface(JFrame f, InputMethod.Mouse m){
 		super();
 		xsize = f.getWidth();
 		ysize = f.getHeight();
 		this.elements.add(new border());
+		this.elements.add(new mouseGrid());
 		j = f;
+		mouse = m;
 	}
 	
 	public void update(AllTogether a) {
@@ -105,4 +112,23 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		}
 		
 	}
+	
+	public static class mouseGrid extends BaseMechanics.UserInterface.Element {
+		
+		boolean test;
+		
+		@Override
+		public void paint(Graphics2D g) {
+			g.setColor(Color.RED);
+			g.drawString("x:"+mouse.CurrentInputs[0]+" y:"+mouse.CurrentInputs[1]+" "+test, 69, 69);
+		}
+
+		@Override
+		public void update(AllTogether a) {
+			test = mouse.pressed;
+		}
+		
+	}
+
+	
 }
