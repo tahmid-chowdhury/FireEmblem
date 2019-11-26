@@ -6,6 +6,8 @@ import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
+import ActualScenario.Tiles;
+
 public class Viewport{
 	protected Map map;
 	//Percentages of the map area
@@ -60,8 +62,31 @@ public class Viewport{
 						
 						//test code incoming
 						if(map.grid[x][y].isHighlighted){
-							g.setColor(Color.CYAN);
-							g.drawString("x:"+x+" y:"+y+" is Highlighted", 127, 127);
+							//duplication
+							
+							g.drawImage(map.grid[x][y].sprite,
+									/*destination co-ords, apply scaling fuckery to these*/
+									
+									/* for each variable, subtract it's respective offset multiplied by the width/height of the frame
+									 * then add the width/height of the sprite to it
+									 */
+									
+									//destination x co-ord 1
+									(int)(x*Tiles.highlight.getWidth()*scaleFactor) + (int) (xOffset*(Tiles.highlight.getWidth()*scaleFactor*map.grid.length)), 
+									
+									//destination y co-ord 1
+									(int)(y*Tiles.highlight.getHeight()*scaleFactor) + (int) (yOffset*(Tiles.highlight.getHeight()*scaleFactor*map.grid[x].length)), 
+									
+									//destination x co-ord 2
+									(int)(x*Tiles.highlight.getWidth()*scaleFactor + Tiles.highlight.getWidth()*scaleFactor) + (int) (xOffset*(Tiles.highlight.getWidth()*scaleFactor*map.grid.length)), 
+									
+									//destination y co-ord 2
+									(int)(y*Tiles.highlight.getHeight()*scaleFactor + Tiles.highlight.getHeight()*scaleFactor) + (int) (yOffset*(Tiles.highlight.getHeight()*scaleFactor*map.grid[x].length)),
+									
+									
+									/*source co-ords, don't touch these*/
+									0, 0, Tiles.highlight.getWidth(),  map.grid[x][y].sprite.getHeight(), null);
+							
 						}
 			}
 		}

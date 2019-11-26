@@ -1,11 +1,19 @@
 package ActualScenario;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
 public class Tiles {
+	
+	public final static BufferedImage highlight = ImageIO.read(new File(/*benis*/"sprites/Gui/selector.png"));
+	
+	public Tiles() throws Exception{
+		
+	}
+	
 	public static class BasicField extends BaseMechanics.Tile {
 		public BasicField() {
 			 terrainType = 0;
