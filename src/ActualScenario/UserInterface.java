@@ -2,12 +2,15 @@ package ActualScenario;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Label;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
+import javax.swing.event.MouseInputListener;
 
 import BaseMechanics.AllTogether;
 
@@ -105,4 +108,5 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		}
 		
 	}
+	
 }
