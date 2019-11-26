@@ -140,14 +140,14 @@ public class InputMethod {
 		UserInterface.Element parent;
 		
 		boolean lastFrame;
-		boolean newInput;
+		boolean freshInput;
 		
 		public boolean pressed;
 		
 		public Mouse(){
 			CurrentInputs = new int[2];
 			lastFrame = false;
-			newInput = false;
+			freshInput = false;
 		}
 		
 		@Override
