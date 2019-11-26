@@ -10,15 +10,21 @@ public class Tiles {
 	
 	public static BufferedImage highlight; 
 	
-	public static class BasicField extends BaseMechanics.Tile {
-		public BasicField() {
-			
-			try {
+	static {
+		highlight = null;
+		try {
 				highlight = ImageIO.read(new File(/*benis*/"sprites/Gui/selector.png"));
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
+	}
+		
+	
+	public static class BasicField extends BaseMechanics.Tile {
+		public BasicField() {
+			
+			
 			
 			 terrainType = 0;
 			 zAxis = 0;
