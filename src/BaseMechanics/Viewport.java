@@ -8,11 +8,11 @@ import javax.swing.JPanel;
 public class Viewport{
 	protected Map map;
 	//Percentages of the map area
-	protected double xOffset;
-	protected double yOffset;
+	public double xOffset;
+	public double yOffset;
 	//if this variable ever becomes 0 or negative it'll fuck everything up
 	//do not let it fall below 0
-	protected double scaleFactor;
+	public double scaleFactor;
 	
 	protected double speed;
 	

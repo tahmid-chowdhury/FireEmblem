@@ -126,6 +126,25 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		@Override
 		public void update(AllTogether a) {
 			test = mouse.pressed;
+			
+			for(int x = 0; x < a.map.grid.length; x++) {
+				for(int y = 0; y < a.map.grid[x].length; y++) {
+							//See viewport if these statements don't make sense
+							if(
+							mouse.CurrentInputs[0] >= (int)(x*a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor) + (int) (a.viewport.xOffset*(a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor*a.map.grid.length))
+							&&		
+							mouse.CurrentInputs[0] <= (int)(x*a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor + a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor) + (int) (a.viewport.xOffset*(a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor*a.map.grid.length))
+							&&
+							mouse.CurrentInputs[1] >= (int)(y*a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor) + (int) (a.viewport.yOffset*(a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor*a.map.grid[x].length))
+							&&
+							mouse.CurrentInputs[1] <= (int)(y*a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor + a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor) + (int) (a.viewport.yOffset*(a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor*a.map.grid[x].length))
+								){
+								a.map.grid[x][y].isHighlighted = !a.map.grid[x][y].isHighlighted;
+							}
+
+				}
+			}
+			
 		}
 		
 	}

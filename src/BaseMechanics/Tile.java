@@ -10,6 +10,7 @@ public abstract class Tile {
 	protected boolean passable;
 	protected boolean tall;
 	
+	public boolean isHighlighted;
 	//Drawing Stuff
-	protected BufferedImage sprite;
+	public BufferedImage sprite;
 }
