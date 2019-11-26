@@ -1,5 +1,6 @@
 package BaseMechanics;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
@@ -55,6 +56,12 @@ public class Viewport{
 						
 						if(map.grid[x][y].occupyingUnit!=null) {
 							map.grid[x][y].occupyingUnit.paint(g, x, y, scaleFactor, xOffset, yOffset, map.grid.length, map.grid[x].length);
+						}
+						
+						//test code incoming
+						if(map.grid[x][y].isHighlighted){
+							g.setColor(Color.CYAN);
+							g.drawString("x:"+x+" y:"+y+" is Highlighted", 127, 127);
 						}
 			}
 		}
