@@ -64,13 +64,7 @@ public class Viewport{
 						if(map.grid[x][y].isHighlighted){
 							//duplication
 							
-							g.drawImage(map.grid[x][y].sprite,
-									/*destination co-ords, apply scaling fuckery to these*/
-									
-									/* for each variable, subtract it's respective offset multiplied by the width/height of the frame
-									 * then add the width/height of the sprite to it
-									 */
-									
+							g.drawImage(Tiles.highlight,
 									//destination x co-ord 1
 									(int)(x*Tiles.highlight.getWidth()*scaleFactor) + (int) (xOffset*(Tiles.highlight.getWidth()*scaleFactor*map.grid.length)), 
 									

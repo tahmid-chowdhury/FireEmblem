@@ -8,14 +8,18 @@ import javax.imageio.ImageIO;
 
 public class Tiles {
 	
-	public final static BufferedImage highlight = ImageIO.read(new File(/*benis*/"sprites/Gui/selector.png"));
-	
-	public Tiles() throws Exception{
-		
-	}
+	public static BufferedImage highlight; 
 	
 	public static class BasicField extends BaseMechanics.Tile {
 		public BasicField() {
+			
+			try {
+				highlight = ImageIO.read(new File(/*benis*/"sprites/Gui/selector.png"));
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
 			 terrainType = 0;
 			 zAxis = 0;
 			 passable = true;
