@@ -1,6 +1,10 @@
 package BaseMechanics;
 
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 public abstract class Tile {
 	//Game logic stuff
@@ -13,4 +17,9 @@ public abstract class Tile {
 	public boolean isHighlighted;
 	//Drawing Stuff
 	public BufferedImage sprite;
+	
+	public BufferedImage highlight; 
+	
+
+		
 }

@@ -64,22 +64,22 @@ public class Viewport{
 						if(map.grid[x][y].isHighlighted){
 							//duplication
 							
-							g.drawImage(Tiles.highlight,
+							g.drawImage(map.grid[x][y].highlight,
 									//destination x co-ord 1
-									(int)(x*Tiles.highlight.getWidth()*scaleFactor) + (int) (xOffset*(Tiles.highlight.getWidth()*scaleFactor*map.grid.length)), 
+									(int)(x*map.grid[x][y].highlight.getWidth()*scaleFactor) + (int) (xOffset*(map.grid[x][y].highlight.getWidth()*scaleFactor*map.grid.length)), 
 									
 									//destination y co-ord 1
-									(int)(y*Tiles.highlight.getHeight()*scaleFactor) + (int) (yOffset*(Tiles.highlight.getHeight()*scaleFactor*map.grid[x].length)), 
+									(int)(y*map.grid[x][y].highlight.getHeight()*scaleFactor) + (int) (yOffset*(map.grid[x][y].highlight.getHeight()*scaleFactor*map.grid[x].length)), 
 									
 									//destination x co-ord 2
-									(int)(x*Tiles.highlight.getWidth()*scaleFactor + Tiles.highlight.getWidth()*scaleFactor) + (int) (xOffset*(Tiles.highlight.getWidth()*scaleFactor*map.grid.length)), 
+									(int)(x*map.grid[x][y].highlight.getWidth()*scaleFactor + map.grid[x][y].highlight.getWidth()*scaleFactor) + (int) (xOffset*(map.grid[x][y].highlight.getWidth()*scaleFactor*map.grid.length)), 
 									
 									//destination y co-ord 2
-									(int)(y*Tiles.highlight.getHeight()*scaleFactor + Tiles.highlight.getHeight()*scaleFactor) + (int) (yOffset*(Tiles.highlight.getHeight()*scaleFactor*map.grid[x].length)),
+									(int)(y*map.grid[x][y].highlight.getHeight()*scaleFactor + map.grid[x][y].highlight.getHeight()*scaleFactor) + (int) (yOffset*(map.grid[x][y].highlight.getHeight()*scaleFactor*map.grid[x].length)),
 									
 									
 									/*source co-ords, don't touch these*/
-									0, 0, Tiles.highlight.getWidth(),  map.grid[x][y].sprite.getHeight(), null);
+									0, 0, map.grid[x][y].highlight.getWidth(),  map.grid[x][y].sprite.getHeight(), null);
 							
 						}
 			}

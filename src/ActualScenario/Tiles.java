@@ -6,25 +6,21 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public class Tiles {
+public class Tiles extends BaseMechanics.Tile {
 	
-	public static BufferedImage highlight; 
-	
-	static {
-		highlight = null;
+	public Tiles() {
 		try {
-				highlight = ImageIO.read(new File(/*benis*/"sprites/Gui/selector.png"));
+				this.highlight = ImageIO.read(new File("sprites/Gui/selector.png"));
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 	}
-		
 	
 	public static class BasicField extends BaseMechanics.Tile {
 		public BasicField() {
 			
-			
+			super();
 			
 			 terrainType = 0;
 			 zAxis = 0;
@@ -43,6 +39,9 @@ public class Tiles {
 	
 	public static class RightPathField extends BaseMechanics.Tile {
 		public RightPathField() {
+			
+			super();
+			
 			 terrainType = 0;
 			 zAxis = 0;
 			 passable = true;
@@ -60,6 +59,9 @@ public class Tiles {
 	
 	public static class LeftPathField extends BaseMechanics.Tile {
 		public LeftPathField() {
+
+			super();
+
 			 terrainType = 0;
 			 zAxis = 0;
 			 passable = true;
@@ -77,6 +79,9 @@ public class Tiles {
 	
 	public static class BottomPathField extends BaseMechanics.Tile {
 		public BottomPathField() {
+			
+			super();
+
 			 terrainType = 0;
 			 zAxis = 0;
 			 passable = true;
@@ -94,6 +99,9 @@ public class Tiles {
 	
 	public static class TopPathField extends BaseMechanics.Tile {
 		public TopPathField() {
+			
+			super();
+			
 			 terrainType = 0;
 			 zAxis = 0;
 			 passable = true;
@@ -111,6 +119,9 @@ public class Tiles {
 	
 	public static class BasicStone extends BaseMechanics.Tile {
 		public BasicStone() {
+			
+			super();
+			
 			 terrainType = 0;
 			 zAxis = 0;
 			 passable = true;
@@ -128,6 +139,9 @@ public class Tiles {
 	
 	public static class Path extends BaseMechanics.Tile {
 		public Path() {
+			
+			super();
+
 			 terrainType = 0;
 			 zAxis = 0;
 			 passable = true;
