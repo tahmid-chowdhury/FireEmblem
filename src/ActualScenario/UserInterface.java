@@ -20,13 +20,14 @@ public class UserInterface extends BaseMechanics.UserInterface {
 	static double xsize;
 	static double ysize;
 	JFrame j;
-	InputMethod.Mouse mouse;
+	static InputMethod.Mouse mouse;
 	
 	public UserInterface(JFrame f, InputMethod.Mouse m){
 		super();
 		xsize = f.getWidth();
 		ysize = f.getHeight();
 		this.elements.add(new border());
+		this.elements.add(new mouseGrid());
 		j = f;
 		mouse = m;
 	}
@@ -111,5 +112,23 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		}
 		
 	}
+	
+	public static class mouseGrid extends BaseMechanics.UserInterface.Element {
+		
+		boolean test;
+		
+		@Override
+		public void paint(Graphics2D g) {
+			g.setColor(Color.RED);
+			g.drawString("x:"+mouse.CurrentInputs[0]+" y:"+mouse.CurrentInputs[1]+" "+test, 69, 69);
+		}
+
+		@Override
+		public void update(AllTogether a) {
+			test = mouse.pressed;
+		}
+		
+	}
+
 	
 }

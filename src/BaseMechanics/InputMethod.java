@@ -136,17 +136,23 @@ public class InputMethod {
 	
 	public static class Mouse implements MouseInputListener {
 
-		int[] CurrentInputs;
+		public int[] CurrentInputs;
 		UserInterface.Element parent;
+		
+		boolean lastFrame;
+		boolean newInput;
+		
+		public boolean pressed;
 		
 		public Mouse(){
 			CurrentInputs = new int[2];
+			lastFrame = false;
+			newInput = false;
 		}
 		
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			CurrentInputs[0] = e.getXOnScreen();
-			CurrentInputs[1] = e.getYOnScreen();
+			
 		}
 
 		@Override
@@ -163,14 +169,15 @@ public class InputMethod {
 
 		@Override
 		public void mousePressed(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
+			CurrentInputs[0] = e.getXOnScreen();
+			CurrentInputs[1] = e.getYOnScreen();
+			pressed = true;
 		}
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+			pressed = false;
 		}
 
 		@Override

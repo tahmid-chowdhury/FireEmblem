@@ -23,6 +23,7 @@ public class Battle {
 		BaseMechanics.AllTogether viewTest = new BaseMechanics.AllTogether(m, ui, i);
 		
 		test.add(viewTest);
+		test.addMouseListener(mu);
 		test.setSize(640, 480);
 		test.addKeyListener(i);
 		test.setFocusable(true);
