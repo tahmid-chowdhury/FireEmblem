@@ -136,10 +136,17 @@ public class InputMethod {
 	
 	public static class Mouse implements MouseInputListener {
 
+		int[] CurrentInputs;
+		UserInterface.Element parent;
+		
+		public Mouse(){
+			CurrentInputs = new int[2];
+		}
+		
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
+			CurrentInputs[0] = e.getXOnScreen();
+			CurrentInputs[1] = e.getYOnScreen();
 		}
 
 		@Override

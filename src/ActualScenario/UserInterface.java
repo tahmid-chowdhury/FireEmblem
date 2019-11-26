@@ -13,19 +13,22 @@ import javax.swing.JFrame;
 import javax.swing.event.MouseInputListener;
 
 import BaseMechanics.AllTogether;
+import BaseMechanics.InputMethod;
 
 public class UserInterface extends BaseMechanics.UserInterface {
 	
 	static double xsize;
 	static double ysize;
 	JFrame j;
+	InputMethod.Mouse mouse;
 	
-	public UserInterface(JFrame f){
+	public UserInterface(JFrame f, InputMethod.Mouse m){
 		super();
 		xsize = f.getWidth();
 		ysize = f.getHeight();
 		this.elements.add(new border());
 		j = f;
+		mouse = m;
 	}
 	
 	public void update(AllTogether a) {
