@@ -32,6 +32,7 @@ public class Maps {
 		}
 		grid[4][4].occupyingUnit = new Units.baseRanger();
 		grid[5][4].occupyingUnit = new Units.baseMage();
+		grid[6][4].occupyingUnit = new Units.baseAssin();
 		
 	}
 }

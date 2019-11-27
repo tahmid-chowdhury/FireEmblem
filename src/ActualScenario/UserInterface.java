@@ -10,6 +10,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import BaseMechanics.AllTogether;
 import BaseMechanics.InputMethod;
+import BaseMechanics.UserInterface.Element;
 
 public class UserInterface extends BaseMechanics.UserInterface {
 	
@@ -112,6 +113,13 @@ public class UserInterface extends BaseMechanics.UserInterface {
 	public static class mouseGrid extends BaseMechanics.UserInterface.Element {
 		
 		boolean test;
+				
+		protected ArrayList<ArrayList<Integer>> prevInput;
+
+		
+		public mouseGrid(){
+			prevInput = new ArrayList<ArrayList<Integer>>(2);
+		}
 		
 		@Override
 		public void paint(Graphics2D g) {
@@ -136,6 +144,8 @@ public class UserInterface extends BaseMechanics.UserInterface {
 							mouse.CurrentInputs[1] <= (y*a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor + a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor) +  (a.viewport.yOffset*(a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor*a.map.grid[x].length))
 								){
 								a.map.grid[x][y].isHighlighted = !a.map.grid[x][y].isHighlighted;
+								
+								
 							}
 
 				}
