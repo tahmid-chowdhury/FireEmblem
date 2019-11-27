@@ -14,6 +14,7 @@ public abstract class Unit {
 		
 	}
 	
+	
 	//Stuff for drawing the Sprite
 	protected BufferedImage[] sprites;
 	
