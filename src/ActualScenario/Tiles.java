@@ -8,15 +8,7 @@ import javax.imageio.ImageIO;
 
 public class Tiles extends BaseMechanics.Tile {
 	
-	public Tiles() {
-		try {
-				this.highlight = ImageIO.read(new File("sprites/Gui/selector.png"));
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-	}
-	
+
 	public static class BasicField extends BaseMechanics.Tile {
 		public BasicField() {
 			
@@ -29,6 +21,7 @@ public class Tiles extends BaseMechanics.Tile {
 			//Drawing Stuff
 			 try {
 				sprite = ImageIO.read(new File(/*benis*/"sprites/land/betterGrass.png"));
+				highlight = ImageIO.read(new File("sprites/Gui/selector.png"));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				
@@ -49,6 +42,7 @@ public class Tiles extends BaseMechanics.Tile {
 			//Drawing Stuff
 			 try {
 				sprite = ImageIO.read(new File(/*benis*/"sprites/land/betterGrassRight.png"));
+				highlight = ImageIO.read(new File("sprites/Gui/selector.png"));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				
@@ -69,6 +63,7 @@ public class Tiles extends BaseMechanics.Tile {
 			//Drawing Stuff
 			 try {
 				sprite = ImageIO.read(new File(/*benis*/"sprites/land/betterGrassLeft.png"));
+				highlight = ImageIO.read(new File("sprites/Gui/selector.png"));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				
@@ -89,6 +84,7 @@ public class Tiles extends BaseMechanics.Tile {
 			//Drawing Stuff
 			 try {
 				sprite = ImageIO.read(new File(/*benis*/"sprites/land/betterGrassBottom.png"));
+				highlight = ImageIO.read(new File("sprites/Gui/selector.png"));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				
@@ -109,6 +105,7 @@ public class Tiles extends BaseMechanics.Tile {
 			//Drawing Stuff
 			 try {
 				sprite = ImageIO.read(new File(/*benis*/"sprites/land/betterGrassTop.png"));
+				highlight = ImageIO.read(new File("sprites/Gui/selector.png"));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				
@@ -129,6 +126,7 @@ public class Tiles extends BaseMechanics.Tile {
 			//Drawing Stuff
 			 try {
 				sprite = ImageIO.read(new File(/*benis*/"sprites/basicStone.png"));
+				highlight = ImageIO.read(new File("sprites/Gui/selector.png"));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				
@@ -149,6 +147,7 @@ public class Tiles extends BaseMechanics.Tile {
 			//Drawing Stuff
 			 try {
 				sprite = ImageIO.read(new File(/*benis*/"sprites/land/path.png"));
+				highlight = ImageIO.read(new File("sprites/Gui/selector.png"));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				
