@@ -121,8 +121,8 @@ public class UserInterface extends BaseMechanics.UserInterface {
 
 		@Override
 		public void update(AllTogether a) {
-			test = mouse.pressed;
-		if(mouse.pressed){	
+					
+		if(mouse.pulse){	
 			for(int x = 0; x < a.map.grid.length; x++) {
 				for(int y = 0; y < a.map.grid[x].length; y++) {
 							//See viewport if these statements don't make sense
@@ -141,7 +141,8 @@ public class UserInterface extends BaseMechanics.UserInterface {
 				}
 			}
 		}
-			
+		mouse.genericUpdate();
+
 		}
 		
 	}

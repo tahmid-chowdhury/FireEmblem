@@ -143,11 +143,22 @@ public class InputMethod {
 		boolean freshInput;
 		
 		public boolean pressed;
+		public boolean pulse;
 		
 		public Mouse(){
 			CurrentInputs = new int[2];
 			lastFrame = false;
 			freshInput = false;
+		}
+		
+		public void genericUpdate(){
+			freshInput = pressed;
+				if(freshInput!=lastFrame&&freshInput){
+					pulse = true;
+				}else{
+					pulse = false;
+				}
+			lastFrame = freshInput;
 		}
 		
 		@Override
