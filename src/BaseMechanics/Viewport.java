@@ -61,7 +61,7 @@ public class Viewport{
 						}
 						
 						//test code incoming
-						if(map.grid[x][y].isHighlighted){
+						if(map.grid[x][y].isHighlighted&&map.grid[x][y].highlight!=null){
 							//duplication
 							
 							g.drawImage(map.grid[x][y].highlight,
