@@ -1,5 +1,7 @@
 package ActualScenario;
 
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -22,9 +24,11 @@ public class Battle {
 		
 		BaseMechanics.AllTogether viewTest = new BaseMechanics.AllTogether(m, ui, i);
 		
+		GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+		
 		test.add(viewTest);
 		test.addMouseListener(mu);
-		test.setSize(1280, 1024);
+		test.setSize(gd.getDisplayMode().getWidth(), gd.getDisplayMode().getHeight());
 		test.addKeyListener(i);
 		test.setFocusable(true);
 		test.setUndecorated(true);
