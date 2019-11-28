@@ -197,13 +197,22 @@ public class InputMethod {
 		public void mousePressed(MouseEvent e) {
 			CurrentMouseInputs[0] = e.getXOnScreen();
 			CurrentMouseInputs[1] = e.getYOnScreen();
-			pressed = true;
+			
+			switch(e.getButton()){
+			case MouseEvent.BUTTON1:
+				pressed = true;
+				break;
+			}
 		}
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
 			// TODO Auto-generated method stub
-			pressed = false;
+			switch(e.getButton()){
+			case MouseEvent.BUTTON1:
+				pressed = false;
+				break;
+			}
 		}
 
 		@Override
