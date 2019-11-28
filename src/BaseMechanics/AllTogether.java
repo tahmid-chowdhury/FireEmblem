@@ -17,7 +17,7 @@ public class AllTogether extends JPanel {
 	
 	public Viewport viewport;
 	public Map map;
-	UserInterface ui;
+	protected UserInterface ui;
 	public InputMethod input;
 	public GameLogic gl;
 	
@@ -28,8 +28,8 @@ public class AllTogether extends JPanel {
 		}
 	
 	public void update() {
-		viewport.move(input.returnInputs());
 		ui.update(this);
+		viewport.move(input.returnInputs());
 		gl.update(this);
 	}
 }
