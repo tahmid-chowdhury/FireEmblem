@@ -24,10 +24,10 @@ public class Battle {
 		
 		test.add(viewTest);
 		test.addMouseListener(mu);
-		test.setSize(640, 480);
+		test.setSize(1280, 1024);
 		test.addKeyListener(i);
 		test.setFocusable(true);
-	//	test.setUndecorated(true);
+		test.setUndecorated(true);
 		test.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		test.setVisible(true);
 
