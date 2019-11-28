@@ -150,6 +150,7 @@ public class InputMethod {
 		
 		public Mouse(){
 			CurrentMouseInputs = new int[2];
+			scroll = new boolean[2];
 			lastFrame = false;
 			freshInput = false;
 		}
