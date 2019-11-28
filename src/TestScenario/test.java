@@ -20,7 +20,9 @@ public class test {
 		
 		BaseMechanics.UserInterface ui = new testUserInterface();
 		
-		BaseMechanics.AllTogether viewTest = new BaseMechanics.AllTogether(m, ui, i);
+		BaseMechanics.GameLogic gl = new testLogic();
+		
+		BaseMechanics.AllTogether viewTest = new BaseMechanics.AllTogether(m, ui, i, gl);
 		
 		test.add(viewTest);
 		test.setSize(640, 480);
