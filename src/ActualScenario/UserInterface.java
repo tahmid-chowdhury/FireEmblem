@@ -145,9 +145,14 @@ public class UserInterface extends BaseMechanics.UserInterface {
 								){
 								a.map.grid[x][y].isHighlighted = !a.map.grid[x][y].isHighlighted;
 								
-								
+								for(int x2 = 0; x2 < a.map.grid.length; x2++) {
+									for(int y2 = 0; y2 < a.map.grid[x].length; y2++) {
+										if(a.map.grid[x2][y2].isHighlighted&&(x2!=x||y2!=y)){
+											a.map.grid[x2][y2].isHighlighted = false;
+										}
+									}
+								}
 							}
-
 				}
 			}
 		}
