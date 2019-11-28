@@ -73,7 +73,7 @@ public class Units {
 	
 	public static class baseAssin extends BaseMechanics.Unit{
 		public baseAssin(){
-			this.sprites = new BufferedImage[2];
+			this.sprites = new BufferedImage[3];
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/fassassinbody.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/fhead3.png"));
@@ -85,7 +85,7 @@ public class Units {
 		}
 
 		public void paint(Graphics2D g, int x, int y, double scaleFactor, double xOffset, double yOffset, int xSize, int ySize){
-		/*	g.drawImage(sprites[2], 
+			g.drawImage(sprites[2], 
 					//destination x co-ord 1
 					(int)(x*sprites[2].getWidth()*scaleFactor) + (int) (xOffset*(sprites[2].getWidth()*scaleFactor*xSize)), 
 					
@@ -100,7 +100,7 @@ public class Units {
 					
 					
 					0, 0, sprites[2].getWidth(), sprites[2].getHeight(), null);
-		*/	
+			
 			super.paint(g, x, y, scaleFactor, xOffset, yOffset, xSize, ySize);
 			
 			g.drawImage(sprites[1], 
