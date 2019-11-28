@@ -10,6 +10,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import BaseMechanics.AllTogether;
 import BaseMechanics.InputMethod;
+import BaseMechanics.Map;
 import BaseMechanics.UserInterface.Element;
 
 public class UserInterface extends BaseMechanics.UserInterface {
@@ -124,7 +125,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		@Override
 		public void paint(Graphics2D g) {
 			g.setColor(Color.RED);
-			g.drawString("x:"+mouse.CurrentMouseInputs[0]+" y:"+mouse.CurrentMouseInputs[1]+" "+test, 69, 69);
+			g.drawString("x:"+mouse.CurrentMouseInputs[0]+" y:"+mouse.CurrentMouseInputs[1]+" "+test+"\n"+mouse.rightPressed, 69, 69);
 		}
 
 		@Override
@@ -155,6 +156,31 @@ public class UserInterface extends BaseMechanics.UserInterface {
 							}
 				}
 			}
+		}
+		
+		if(mouse.rightPulse){
+			for(int x = 0; x < a.map.grid.length; x++) {
+				for(int y = 0; y < a.map.grid[x].length; y++) {
+							//See viewport if these statements don't make sense
+							if(
+							mouse.CurrentMouseInputs[0] >= (x*a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor) +  (a.viewport.xOffset*(a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor*a.map.grid.length))
+							&&		
+							mouse.CurrentMouseInputs[0] <= (x*a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor + a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor) + (a.viewport.xOffset*(a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor*a.map.grid.length))
+							&&
+							mouse.CurrentMouseInputs[1] >= (y*a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor) +  (a.viewport.yOffset*(a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor*a.map.grid[x].length))
+							&&
+							mouse.CurrentMouseInputs[1] <= (y*a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor + a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor) +  (a.viewport.yOffset*(a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor*a.map.grid[x].length))
+								){
+								for(int x2 = 0; x2 < a.map.grid.length; x2++) {
+									for(int y2 = 0; y2 < a.map.grid[x].length; y2++) {
+										if(a.map.grid[x2][y2].isHighlighted&&a.map.grid[x2][y2].occupyingUnit!=null&&a.map.grid[x][y].occupyingUnit==null){
+											a.map.move(x2, y2, x, y);
+										}
+									}
+								}
+							}
+					}
+				}
 		}
 		mouse.genericUpdate();
 

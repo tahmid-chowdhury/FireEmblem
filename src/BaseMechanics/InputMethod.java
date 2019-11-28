@@ -148,6 +148,8 @@ public class InputMethod {
 		public boolean pressed;
 		public boolean pulse;
 		
+		public boolean rightPressed;
+		public boolean rightPulse;
 		public Mouse(){
 			CurrentMouseInputs = new int[2];
 			scroll = new boolean[2];
@@ -174,11 +176,19 @@ public class InputMethod {
 					pulse = false;
 				}
 			lastFrame = freshInput;
+			
+			rightPulse = false;
 		}
 		
 		@Override
 		public void mouseClicked(MouseEvent e) {
+			CurrentMouseInputs[0] = e.getXOnScreen();
+			CurrentMouseInputs[1] = e.getYOnScreen();
 			
+			switch(e.getButton()){
+			case MouseEvent.BUTTON3:
+				rightPulse = true;
+			}
 		}
 
 		@Override
@@ -202,6 +212,8 @@ public class InputMethod {
 			case MouseEvent.BUTTON1:
 				pressed = true;
 				break;
+			case MouseEvent.BUTTON3:
+				rightPressed = true;
 			}
 		}
 
@@ -212,6 +224,8 @@ public class InputMethod {
 			case MouseEvent.BUTTON1:
 				pressed = false;
 				break;
+			case MouseEvent.BUTTON3:
+				rightPressed = false;
 			}
 		}
 
