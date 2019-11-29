@@ -125,7 +125,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		@Override
 		public void paint(Graphics2D g) {
 			g.setColor(Color.RED);
-			g.drawString("x:"+mouse.CurrentMouseInputs[0]+" y:"+mouse.CurrentMouseInputs[1]+" "+test+"\n"+mouse.rightPressed, 69, 69);
+			g.drawString("x:"+mouse.CurrentMouseInputs[0]+" y:"+mouse.CurrentMouseInputs[1]+" "+mouse.pulse+"\n"+mouse.rightPulse, 69, 69);
 		}
 
 		@Override
