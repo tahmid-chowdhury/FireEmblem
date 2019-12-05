@@ -199,7 +199,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		public void paint(Graphics2D g) {
 			g.setColor(Color.CYAN);
 			if(toRead!=null){
-				g.drawString(""+toRead.speed, 420, 420);
+				g.drawString(""+toRead.speed, 69, 138);
 			}
 		}
 
