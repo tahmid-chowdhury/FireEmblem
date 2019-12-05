@@ -197,9 +197,11 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		
 		@Override
 		public void paint(Graphics2D g) {
-			g.setColor(Color.CYAN);
 			if(toRead!=null){
-				g.drawString(""+toRead.speed, 69, 138);
+				g.setColor(Color.CYAN);
+				g.drawString("Unit Speed:"+toRead.speed, 69, 138);
+				g.setColor(Color.GREEN);
+				g.drawString("Unit Type:"+toRead.type, 69, 148);
 			}
 		}
 
