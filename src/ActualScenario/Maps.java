@@ -19,6 +19,11 @@ public class Maps {
 						grid[x][y] = new Tiles.LeftPathField();
 					}
 				}
+				
+				if( x > 8 && x < 12){
+						grid[x][y] = new Tiles.Path();
+					}
+				
 				if(y == 2){
 					if(x!=2&&x!=1){
 					grid[x][y] = new Tiles.BottomPathField();
