@@ -28,9 +28,9 @@ public class Maps {
 						grid[x][y] = new Tiles.TopPathField();
 						}
 				}
-				if( x == 0 || x == grid.length-1 || y == 0 || y == grid[x].length-1){
-					grid[x][y] = new Tiles.Snow();
-				}
+			//	if( x == 0 || x == grid.length-1 || y == 0 || y == grid[x].length-1){
+			//		grid[x][y] = new Tiles.Snow();
+			//	}
 			
 			}
 		}
