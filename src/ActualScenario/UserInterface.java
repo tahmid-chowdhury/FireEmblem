@@ -26,6 +26,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		ysize = f.getHeight();
 		this.elements.add(new border());
 		this.elements.add(new mouseGrid());
+		this.elements.add(new unitInfo());
 		j = f;
 		mouse = m;
 	}
@@ -186,6 +187,31 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		}
 		mouse.genericUpdate();
 
+		}
+		
+	}
+	
+	public static class unitInfo extends BaseMechanics.UserInterface.Element{
+		
+		BaseMechanics.Unit toRead;
+		
+		@Override
+		public void paint(Graphics2D g) {
+			g.setColor(Color.CYAN);
+			if(toRead!=null){
+				g.drawString(""+toRead.speed, 420, 420);
+			}
+		}
+
+		@Override
+		public void update(AllTogether a) {
+			for(int x = 0; x < a.map.grid.length; x++){
+				for(int y = 0; y < a.map.grid[x].length; y++){
+					if(a.map.grid[x][y].occupyingUnit != null&&a.map.grid[x][y].isHighlighted){
+						toRead = a.map.grid[x][y].occupyingUnit;
+					}
+				}
+			}
 		}
 		
 	}

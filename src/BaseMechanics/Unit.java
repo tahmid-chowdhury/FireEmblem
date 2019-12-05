@@ -5,10 +5,10 @@ import java.awt.image.BufferedImage;
 
 public abstract class Unit {
 	//Actual Battle Logic
-	protected int type;
-	protected int health;
-	protected int team;
-	protected int speed;
+	public int type;
+	public int health;
+	public int team;
+	public int speed;
 	//0 = neutral, 1 = player 1, 2 = player 2
 
 	public void attack(Unit a){
