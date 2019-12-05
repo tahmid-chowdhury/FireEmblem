@@ -9,7 +9,10 @@ public abstract class Map {
 		if(
 				grid[x1][y1].occupyingUnit!=null&&
 				grid[x2][y2].occupyingUnit==null&&
-				grid[x2][y2].passable
+				grid[x2][y2].passable&&
+				
+				Math.sqrt(((x1-x2)*(x1-x2))+((y1-y2)*(y1-y2))) < grid[x1][y1].occupyingUnit.speed
+				
 				){
 			
 				grid[x2][y2].occupyingUnit = grid[x1][y1].occupyingUnit;

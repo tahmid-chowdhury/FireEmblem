@@ -8,6 +8,7 @@ public abstract class Unit {
 	protected int type;
 	protected int health;
 	protected int team;
+	protected int speed;
 	//0 = neutral, 1 = player 1, 2 = player 2
 
 	public void attack(Unit a){
