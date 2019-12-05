@@ -1,5 +1,6 @@
 package ActualScenario;
 
+import java.awt.Color;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.util.Timer;
@@ -34,6 +35,7 @@ public class Battle {
 		test.setFocusable(true);
 		test.setUndecorated(true);
 		test.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		test.setBackground(Color.BLACK);
 		test.setVisible(true);
 
 		
