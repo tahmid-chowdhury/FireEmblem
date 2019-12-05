@@ -202,6 +202,8 @@ public class UserInterface extends BaseMechanics.UserInterface {
 				g.drawString("Unit Speed:"+toRead.speed, 69, 138);
 				g.setColor(Color.GREEN);
 				g.drawString("Unit Type:"+toRead.type, 69, 148);
+				g.setColor(Color.YELLOW);
+				g.drawString("Unit Health:"+toRead.health, 69, 158);
 			}
 		}
 
