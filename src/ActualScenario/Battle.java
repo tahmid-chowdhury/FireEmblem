@@ -13,7 +13,7 @@ public class Battle {
 	public static void main(String[] args){
 		System.out.print("test\n");
 		
-		JFrame test = new JFrame("SUPER EPIC BATTLE GAME WANK WANK WANK DICKS DICKS DICKS");
+		JFrame test = new JFrame("光へ");
 		
 		BaseMechanics.Map m = new Maps.OuterField();
 		

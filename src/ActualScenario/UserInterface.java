@@ -209,6 +209,8 @@ public class UserInterface extends BaseMechanics.UserInterface {
 				for(int y = 0; y < a.map.grid[x].length; y++){
 					if(a.map.grid[x][y].occupyingUnit != null&&a.map.grid[x][y].isHighlighted){
 						toRead = a.map.grid[x][y].occupyingUnit;
+					}else if(a.map.grid[x][y].isHighlighted){
+						toRead = null;
 					}
 				}
 			}
