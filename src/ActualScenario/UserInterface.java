@@ -137,6 +137,16 @@ public class UserInterface extends BaseMechanics.UserInterface {
 				
 		protected ArrayList<ArrayList<Integer>> prevInput;
 
+		static BufferedImage[] movementBorder;
+
+		static{
+			movementBorder = new BufferedImage[8];
+			try{
+				
+			}catch(Exception e){
+				
+			}
+		}
 		
 		public mouseGrid(){
 			prevInput = new ArrayList<ArrayList<Integer>>(2);
@@ -222,6 +232,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 	public static class unitInfo extends BaseMechanics.UserInterface.Element{
 		
 		BaseMechanics.Unit toRead;
+		
 		
 		@Override
 		public void paint(Graphics2D g, AllTogether a) {
