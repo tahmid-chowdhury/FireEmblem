@@ -241,6 +241,8 @@ public class UserInterface extends BaseMechanics.UserInterface {
 								for(int y2 = 0; y2 < a.map.grid[x].length; y2++){
 									if(a.map.moveCheck(x, y, x2, y2)){
 										drawArbritaryTile(a, x2, y2, a.map.grid[x][y].highlight, g);
+									}else{
+									//	drawArbritaryTile(a, x2, y2, a.map.grid[x][y].highlight, g);
 									}
 								}
 							}
