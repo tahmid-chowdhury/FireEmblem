@@ -24,9 +24,9 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		super();
 		xsize = f.getWidth();
 		ysize = f.getHeight();
-		this.elements.add(new border());
 		this.elements.add(new mouseGrid());
 		this.elements.add(new unitInfo());
+		this.elements.add(new border());
 		j = f;
 		mouse = m;
 	}
@@ -232,6 +232,21 @@ public class UserInterface extends BaseMechanics.UserInterface {
 				g.drawString("Unit Type:"+toRead.type, 69, 148);
 				g.setColor(Color.YELLOW);
 				g.drawString("Unit Health:"+toRead.health, 69, 158);
+				
+				
+				for(int x = 0; x < a.map.grid.length; x++){
+					for(int y = 0; y < a.map.grid[x].length; y++){
+						if(a.map.grid[x][y].occupyingUnit == toRead){
+							for(int x2 = 0; x2 < a.map.grid.length; x2++){
+								for(int y2 = 0; y2 < a.map.grid[x].length; y2++){
+									if(a.map.moveCheck(x, y, x2, y2)){
+										drawArbritaryTile(a, x2, y2, a.map.grid[x][y].highlight, g);
+									}
+								}
+							}
+						}
+					}
+				}
 			}
 		}
 
