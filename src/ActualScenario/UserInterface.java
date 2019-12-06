@@ -137,16 +137,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 				
 		protected ArrayList<ArrayList<Integer>> prevInput;
 
-		static BufferedImage[] movementBorder;
 
-		static{
-			movementBorder = new BufferedImage[8];
-			try{
-				
-			}catch(Exception e){
-				
-			}
-		}
 		
 		public mouseGrid(){
 			prevInput = new ArrayList<ArrayList<Integer>>(2);
@@ -233,6 +224,30 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		
 		BaseMechanics.Unit toRead;
 		
+		static BufferedImage[] movementBorder;
+
+		static{
+			movementBorder = new BufferedImage[8];
+			try{
+				try{
+					movementBorder[0] = ImageIO.read(new File("sprites/Gui/Movement Indication/redtopleft.png"));
+					movementBorder[1] = ImageIO.read(new File("sprites/Gui/Movement Indication/redtop.png"));
+					movementBorder[2] = ImageIO.read(new File("sprites/Gui/Movement Indication/redtopright.png"));
+					movementBorder[3] = ImageIO.read(new File("sprites/Gui/Movement Indication/redleft.png"));
+					movementBorder[4] = ImageIO.read(new File("sprites/Gui/Movement Indication/redright.png"));
+					movementBorder[5] = ImageIO.read(new File("sprites/Gui/Movement Indication/redbottomleft.png"));
+					movementBorder[6] = ImageIO.read(new File("sprites/Gui/Movement Indication/redbottom.png"));
+					movementBorder[7] = ImageIO.read(new File("sprites/Gui/Movement Indication/redbottomright.png"));
+
+
+				}catch(Exception e){
+					
+				}
+			}catch(Exception e){
+				
+			}
+		}
+		
 		
 		@Override
 		public void paint(Graphics2D g, AllTogether a) {
@@ -251,7 +266,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 							for(int x2 = 0; x2 < a.map.grid.length; x2++){
 								for(int y2 = 0; y2 < a.map.grid[x].length; y2++){
 									if(a.map.moveCheck(x, y, x2, y2)){
-										drawArbritaryTile(a, x2, y2, a.map.grid[x][y].highlight, g);
+										drawArbritaryTile(a, x2, y2, movementBorder[0], g);
 									}else{
 									//	drawArbritaryTile(a, x2, y2, a.map.grid[x][y].highlight, g);
 									}
