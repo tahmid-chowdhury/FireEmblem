@@ -37,6 +37,25 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		super.update(a);
 	}
 	
+	protected void drawArbritaryTile(AllTogether a, int x, int y, BufferedImage sprite, Graphics2D g){
+		g.drawImage(sprite, 
+				//destination x co-ord 1
+				(int)(x*a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor) + (int) (a.viewport.xOffset*(a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor*a.map.grid.length)), 
+				
+				//destination y co-ord 1
+				(int)(y*a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor) + (int) (a.viewport.yOffset*(a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor*a.map.grid[x].length)), 
+				
+				//destination x co-ord 2
+				(int)(x*a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor + a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor) + (int) (a.viewport.xOffset*(a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor*a.map.grid.length)), 
+				
+				//destination y co-ord 2
+				(int)(y*a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor + a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor) + (int) (a.viewport.yOffset*(a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor*a.map.grid[x].length)),
+				
+				
+				
+				0, 0, sprite.getWidth(), sprite.getHeight(), null);
+	}
+	
 	public static class border extends BaseMechanics.UserInterface.Element {
 		
 		ArrayList<BufferedImage> sprites;
