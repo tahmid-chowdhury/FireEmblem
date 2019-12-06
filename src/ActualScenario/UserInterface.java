@@ -73,7 +73,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		}
 	
 		@Override
-		public void paint(Graphics2D g) {
+		public void paint(Graphics2D g, AllTogether a) {
 			
 		//	g.fillRect((int)(xsize*0.05), (int)(ysize*0.65), (int)(xsize*0.9), (int)(ysize*0.25));
 			
@@ -143,7 +143,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		}
 		
 		@Override
-		public void paint(Graphics2D g) {
+		public void paint(Graphics2D g, AllTogether a) {
 			g.setColor(Color.RED);
 			g.drawString("x:"+mouse.CurrentMouseInputs[0]+" y:"+mouse.CurrentMouseInputs[1]+" "+mouse.pulse+"\n"+mouse.rightPulse, 69, 69);
 		}
@@ -215,7 +215,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		BaseMechanics.Unit toRead;
 		
 		@Override
-		public void paint(Graphics2D g) {
+		public void paint(Graphics2D g, AllTogether a) {
 			if(toRead!=null){
 				g.setColor(Color.CYAN);
 				g.drawString("Unit Speed:"+toRead.speed, 69, 138);

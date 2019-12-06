@@ -24,7 +24,7 @@ public class AllTogether extends JPanel {
 	public void paint(Graphics g){
 		Graphics2D wnk = (Graphics2D) g;
 		viewport.paint(wnk);
-		ui.paint(wnk);
+		ui.paint(wnk, this);
 		}
 	
 	public void update() {
