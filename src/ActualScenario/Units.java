@@ -127,7 +127,7 @@ public class Units {
 	public static class mrDavis extends BaseMechanics.Unit{
 		public mrDavis(){
 			this.sprites = new BufferedImage[2];
-			this.speed = 4;
+			this.speed = 3;
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/mmagebody.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/mhead5.png"));
