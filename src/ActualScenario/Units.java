@@ -129,8 +129,8 @@ public class Units {
 			this.sprites = new BufferedImage[2];
 			this.speed = 4;
 			try{
-				sprites[0] = ImageIO.read(new File("sprites/characters/body/mrangerbody.png"));
-				sprites[1] = ImageIO.read(new File("sprites/characters/heads/mhead1.png"));
+				sprites[0] = ImageIO.read(new File("sprites/characters/body/mmagebody.png"));
+				sprites[1] = ImageIO.read(new File("sprites/characters/heads/mhead5.png"));
 			}catch(Exception e){
 				
 			}
