@@ -18,7 +18,7 @@ public class Maps {
 					}else if(x == 1){
 						grid[x][y] = new Tiles.LeftPathField();
 					}
-				}
+				}	
 				if(y == 2){
 					if(x!=2&&x!=1){
 					grid[x][y] = new Tiles.BottomPathField();
@@ -27,7 +27,11 @@ public class Maps {
 						if(x!=2&&x!=1){
 						grid[x][y] = new Tiles.TopPathField();
 						}
-					}
+				}
+			//	if( x == 0 || x == grid.length-1 || y == 0 || y == grid[x].length-1){
+			//		grid[x][y] = new Tiles.Snow();
+			//	}
+			
 			}
 		}
 		grid[4][4].occupyingUnit = new Units.baseRanger();

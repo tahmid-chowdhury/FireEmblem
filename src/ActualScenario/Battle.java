@@ -1,5 +1,8 @@
 package ActualScenario;
 
+import java.awt.Color;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -11,7 +14,7 @@ public class Battle {
 	public static void main(String[] args){
 		System.out.print("test\n");
 		
-		JFrame test = new JFrame("SUPER EPIC BATTLE GAME WANK WANK WANK DICKS DICKS DICKS");
+		JFrame test = new JFrame("光へ");
 		
 		BaseMechanics.Map m = new Maps.OuterField();
 		
@@ -19,16 +22,20 @@ public class Battle {
 		BaseMechanics.InputMethod.Mouse mu = new BaseMechanics.InputMethod.Mouse();
 		
 		BaseMechanics.UserInterface ui = new ActualScenario.UserInterface(test, mu);
+		BaseMechanics.GameLogic gl = new Logic();
 		
-		BaseMechanics.AllTogether viewTest = new BaseMechanics.AllTogether(m, ui, i);
+		BaseMechanics.AllTogether viewTest = new BaseMechanics.AllTogether(m, ui, i, gl);
+		
+		GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 		
 		test.add(viewTest);
 		test.addMouseListener(mu);
-		test.setSize(640, 480);
+		test.setSize(gd.getDisplayMode().getWidth(), gd.getDisplayMode().getHeight());
 		test.addKeyListener(i);
 		test.setFocusable(true);
-	//	test.setUndecorated(true);
+		test.setUndecorated(true);
 		test.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		test.setBackground(Color.BLACK);
 		test.setVisible(true);
 
 		

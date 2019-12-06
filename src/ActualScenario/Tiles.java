@@ -155,4 +155,25 @@ public class Tiles extends BaseMechanics.Tile {
 			};
 		}
 	}
+	
+	public static class Snow extends BaseMechanics.Tile {
+		public Snow() {
+			
+			super();
+
+			 terrainType = 0;
+			 zAxis = 0;
+			 passable = true;
+			 tall = false;			
+			//Drawing Stuff
+			 try {
+				sprite = ImageIO.read(new File(/*benis*/"sprites/land/snow.png"));
+				highlight = ImageIO.read(new File("sprites/Gui/selector.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				
+				e.printStackTrace();
+			};
+		}
+	}
 }

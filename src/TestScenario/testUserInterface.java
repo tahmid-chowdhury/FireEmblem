@@ -17,7 +17,7 @@ public class testUserInterface extends UserInterface {
 		boolean leftDepressed;
 
 		@Override
-		public void paint(Graphics2D g) {
+		public void paint(Graphics2D g, AllTogether a) {
 			if(rightDepressed){
 				g.setColor(Color.RED);
 			}else{

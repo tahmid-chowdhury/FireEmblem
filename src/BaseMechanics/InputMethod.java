@@ -3,6 +3,8 @@ package BaseMechanics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseWheelEvent;
+import java.awt.event.MouseWheelListener;
 
 import javax.swing.event.MouseInputListener;
 
@@ -134,9 +136,10 @@ public class InputMethod {
 		
 	}
 	
-	public static class Mouse implements MouseInputListener {
+	public static class Mouse extends InputMethod implements MouseInputListener, MouseWheelListener {
 
-		public int[] CurrentInputs;
+		public int[] CurrentMouseInputs;
+		protected boolean[] scroll;
 		UserInterface.Element parent;
 		
 		boolean lastFrame;
@@ -145,10 +148,24 @@ public class InputMethod {
 		public boolean pressed;
 		public boolean pulse;
 		
+		public boolean rightPressed;
+		public boolean rightPulse;
 		public Mouse(){
-			CurrentInputs = new int[2];
+			CurrentMouseInputs = new int[2];
+			scroll = new boolean[2];
 			lastFrame = false;
 			freshInput = false;
+		}
+		
+		public boolean[] returnInputs(){
+			return scroll;
+		}
+		
+		public boolean[] appendScroll(boolean[] a){
+			boolean[] b = a;
+			b[0] = scroll[0];
+			b[1] = scroll[1];
+			return b;
 		}
 		
 		public void genericUpdate(){
@@ -159,11 +176,19 @@ public class InputMethod {
 					pulse = false;
 				}
 			lastFrame = freshInput;
+			
+			rightPulse = false;
 		}
 		
 		@Override
 		public void mouseClicked(MouseEvent e) {
+			CurrentMouseInputs[0] = e.getXOnScreen();
+			CurrentMouseInputs[1] = e.getYOnScreen();
 			
+			switch(e.getButton()){
+			case MouseEvent.BUTTON3:
+				rightPulse = true;
+			}
 		}
 
 		@Override
@@ -180,15 +205,28 @@ public class InputMethod {
 
 		@Override
 		public void mousePressed(MouseEvent e) {
-			CurrentInputs[0] = e.getXOnScreen();
-			CurrentInputs[1] = e.getYOnScreen();
-			pressed = true;
+			CurrentMouseInputs[0] = e.getXOnScreen();
+			CurrentMouseInputs[1] = e.getYOnScreen();
+			
+			switch(e.getButton()){
+			case MouseEvent.BUTTON1:
+				pressed = true;
+				break;
+			case MouseEvent.BUTTON3:
+				rightPressed = true;
+			}
 		}
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
 			// TODO Auto-generated method stub
-			pressed = false;
+			switch(e.getButton()){
+			case MouseEvent.BUTTON1:
+				pressed = false;
+				break;
+			case MouseEvent.BUTTON3:
+				rightPressed = false;
+			}
 		}
 
 		@Override
@@ -201,6 +239,20 @@ public class InputMethod {
 		public void mouseMoved(MouseEvent e) {
 			// TODO Auto-generated method stub
 			
+		}
+
+		@Override
+		public void mouseWheelMoved(MouseWheelEvent e) {
+			if(e.getPreciseWheelRotation() > 0){
+				scroll[0] = true;
+				scroll[1] = false;
+			}else if(e.getPreciseWheelRotation() < 0){
+				scroll[0] = false;
+				scroll[1] = true;
+			}else{
+				scroll[0] = false;
+				scroll[1] = false;
+			}
 		}
 		
 	}

@@ -61,7 +61,7 @@ public class Viewport{
 						}
 						
 						//test code incoming
-						if(map.grid[x][y].isHighlighted&&map.grid[x][y].highlight!=null){
+			/*			if(map.grid[x][y].isHighlighted&&map.grid[x][y].highlight!=null){
 							//duplication
 							
 							g.drawImage(map.grid[x][y].highlight,
@@ -78,10 +78,10 @@ public class Viewport{
 									(int)(y*map.grid[x][y].highlight.getHeight()*scaleFactor + map.grid[x][y].highlight.getHeight()*scaleFactor) + (int) (yOffset*(map.grid[x][y].highlight.getHeight()*scaleFactor*map.grid[x].length)),
 									
 									
-									/*source co-ords, don't touch these*/
+									//source co-ords, don't touch these
 									0, 0, map.grid[x][y].highlight.getWidth(),  map.grid[x][y].sprite.getHeight(), null);
 							
-						}
+						}	*/
 			}
 		}
 	}
