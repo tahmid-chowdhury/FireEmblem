@@ -37,7 +37,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		super.update(a);
 	}
 	
-	protected void drawArbritaryTile(AllTogether a, int x, int y, BufferedImage sprite, Graphics2D g){
+	protected static void drawArbritaryTile(AllTogether a, int x, int y, BufferedImage sprite, Graphics2D g){
 		g.drawImage(sprite, 
 				//destination x co-ord 1
 				(int)(x*a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor) + (int) (a.viewport.xOffset*(a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor*a.map.grid.length)), 
@@ -146,6 +146,15 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		public void paint(Graphics2D g, AllTogether a) {
 			g.setColor(Color.RED);
 			g.drawString("x:"+mouse.CurrentMouseInputs[0]+" y:"+mouse.CurrentMouseInputs[1]+" "+mouse.pulse+"\n"+mouse.rightPulse, 69, 69);
+		
+			for(int x = 0; x < a.map.grid.length; x++){
+				for(int y = 0; y < a.map.grid[x].length; y++){
+					if(a.map.grid[x][y].isHighlighted){
+					drawArbritaryTile(a, x, y, a.map.grid[x][y].highlight, g);
+					}
+				}
+			}
+		
 		}
 
 		@Override
