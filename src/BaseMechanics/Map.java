@@ -7,16 +7,33 @@ public abstract class Map {
 	
 	public void move(int x1, int y1, int x2, int y2){
 		if(
-				grid[x1][y1].occupyingUnit!=null&&
+			/*	grid[x1][y1].occupyingUnit!=null&&
 				grid[x2][y2].occupyingUnit==null&&
 				grid[x2][y2].passable&&
 				
-				Math.sqrt(((x1-x2)*(x1-x2))+((y1-y2)*(y1-y2))) < grid[x1][y1].occupyingUnit.speed
+				Math.sqrt(((x1-x2)*(x1-x2))+((y1-y2)*(y1-y2))) < grid[x1][y1].occupyingUnit.speed	*/
+				
+				moveCheck(x1, y1, x2, y2)
 				
 				){
 			
 				grid[x2][y2].occupyingUnit = grid[x1][y1].occupyingUnit;
 				grid[x1][y1].occupyingUnit = null;
+		}
+		
+	}
+	
+	public boolean moveCheck(int x1, int y1, int x2, int y2){
+		if(
+				grid[x1][y1].occupyingUnit!=null&&
+				grid[x2][y2].occupyingUnit==null&&
+				grid[x2][y2].passable&&
+				
+				Math.sqrt(((x1-x2)*(x1-x2))+((y1-y2)*(y1-y2))) < grid[x1][y1].occupyingUnit.speed
+				){
+			return true;
+		}else{
+			return false;
 		}
 	}
 }
