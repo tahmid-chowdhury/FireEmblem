@@ -176,4 +176,46 @@ public class Tiles extends BaseMechanics.Tile {
 			};
 		}
 	}
+	
+	public static class StoneTile extends BaseMechanics.Tile {
+		public StoneTile() {
+			
+			super();
+
+			 terrainType = 0;
+			 zAxis = 0;
+			 passable = true;
+			 tall = false;			
+			//Drawing Stuff
+			 try {
+				sprite = ImageIO.read(new File(/*benis*/"sprites/land/someStone.png"));
+				highlight = ImageIO.read(new File("sprites/Gui/selector.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				
+				e.printStackTrace();
+			};
+		}
+	}
+	
+	public static class StoneTileBottom extends BaseMechanics.Tile {
+		public StoneTileBottom() {
+			
+			super();
+
+			 terrainType = 0;
+			 zAxis = 0;
+			 passable = true;
+			 tall = false;			
+			//Drawing Stuff
+			 try {
+				sprite = ImageIO.read(new File(/*benis*/"sprites/land/someMoreStone.png"));
+				highlight = ImageIO.read(new File("sprites/Gui/selector.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				
+				e.printStackTrace();
+			};
+		}
+	}
 }
