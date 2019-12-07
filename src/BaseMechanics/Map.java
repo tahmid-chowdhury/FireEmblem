@@ -31,6 +31,7 @@ public abstract class Map {
 				grid[x1][y1].occupyingUnit!=null&&
 				grid[x2][y2].occupyingUnit==null&&
 				grid[x2][y2].passable&&
+				(Math.abs(grid[x2][y2].zAxis-grid[x1][y1].zAxis)==1||Math.abs(grid[x2][y2].zAxis-grid[x1][y1].zAxis)==0)&&
 				
 				Math.sqrt(((x1-x2)*(x1-x2))+((y1-y2)*(y1-y2))) <= grid[x1][y1].occupyingUnit.speed
 				){
