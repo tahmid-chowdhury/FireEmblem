@@ -10,7 +10,7 @@ public class Units {
 	public static class baseRanger extends BaseMechanics.Unit{
 		public baseRanger(){
 			this.sprites = new BufferedImage[2];
-			this.speed = 4;
+			this.speed = 3;
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/mrangerbody.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/mhead1.png"));
@@ -43,7 +43,7 @@ public class Units {
 	public static class baseMage extends BaseMechanics.Unit{
 		public baseMage(){
 			this.sprites = new BufferedImage[2];
-			this.speed = 2;
+			this.speed = 1;
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/fmagebody.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/fhead1.png"));
@@ -76,7 +76,7 @@ public class Units {
 	public static class baseAssin extends BaseMechanics.Unit{
 		public baseAssin(){
 			this.sprites = new BufferedImage[3];
-			this.speed = 3;
+			this.speed = 2;
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/fassassinbody.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/fhead3.png"));
@@ -127,7 +127,7 @@ public class Units {
 	public static class mrDavis extends BaseMechanics.Unit{
 		public mrDavis(){
 			this.sprites = new BufferedImage[2];
-			this.speed = 3;
+			this.speed = 2;
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/mmagebody.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/mhead5.png"));
