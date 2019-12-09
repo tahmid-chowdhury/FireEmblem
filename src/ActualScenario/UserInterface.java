@@ -266,7 +266,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 							for(int x2 = 0; x2 < a.map.grid.length; x2++){
 								for(int y2 = 0; y2 < a.map.grid[x].length; y2++){
 									if(a.map.moveCheck(x, y, x2, y2)){
-										if(!a.map.moveCheck(x, y, x2-1, y2)&&!a.map.moveCheck(x, y, x2, y2-1)&&x2-1!=x&&y2-1!=y){
+										/*if(!a.map.moveCheck(x, y, x2-1, y2)&&!a.map.moveCheck(x, y, x2, y2-1)&&x2-1!=x&&y2-1!=y){
 											drawArbritaryTile(a, x2, y2, movementBorder[0], g);
 										}else if(!a.map.moveCheck(x, y, x2+1, y2)&&!a.map.moveCheck(x, y, x2, y2-1)&&x2+1!=x&&y2-1!=y){
 											drawArbritaryTile(a, x2, y2, movementBorder[2], g);
@@ -274,13 +274,13 @@ public class UserInterface extends BaseMechanics.UserInterface {
 											drawArbritaryTile(a, x2, y2, movementBorder[5], g);
 										}else if(!a.map.moveCheck(x, y, x2+1, y2)&&!a.map.moveCheck(x, y, x2, y2+1)&&x2+1!=x&&y2+1!=y){
 											drawArbritaryTile(a, x2, y2, movementBorder[7], g);
-										}else if(!a.map.moveCheck(x, y, x2-1, y2)&&x2-1!=x){
+										}else*/ if(!a.map.moveCheck(x, y, x2-1, y2)&&x2-1!=x){
 											drawArbritaryTile(a, x2, y2, movementBorder[3], g);
-										}else if(!a.map.moveCheck(x, y, x2+1, y2)&&x2+1!=x){
+										}/*else*/ if(!a.map.moveCheck(x, y, x2+1, y2)&&x2+1!=x){
 											drawArbritaryTile(a, x2, y2, movementBorder[4], g);
-										}else if(!a.map.moveCheck(x, y, x2, y2-1)&&y2-1!=y){
+										}/*else*/ if(!a.map.moveCheck(x, y, x2, y2-1)&&y2-1!=y){
 											drawArbritaryTile(a, x2, y2, movementBorder[1], g);
-										}else if(!a.map.moveCheck(x, y, x2, y2+1)&&y2+1!=y){
+										}/*else*/ if(!a.map.moveCheck(x, y, x2, y2+1)&&y2+1!=y){
 											drawArbritaryTile(a, x2, y2, movementBorder[6], g);
 										}
 										
