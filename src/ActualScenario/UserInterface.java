@@ -26,7 +26,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		ysize = f.getHeight();
 		this.elements.add(new mouseGrid());
 		this.elements.add(new unitInfo());
-		this.elements.add(new border());
+	//	this.elements.add(new border());
 		j = f;
 		mouse = m;
 	}
