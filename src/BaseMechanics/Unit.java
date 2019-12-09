@@ -8,7 +8,7 @@ public abstract class Unit {
 	public int type;
 	public int health;
 	public int team;
-	public int speed;
+	public double speed;
 	//0 = neutral, 1 = player 1, 2 = player 2
 
 	public void attack(Unit a){

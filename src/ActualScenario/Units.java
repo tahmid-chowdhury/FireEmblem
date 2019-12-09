@@ -43,7 +43,7 @@ public class Units {
 	public static class baseMage extends BaseMechanics.Unit{
 		public baseMage(){
 			this.sprites = new BufferedImage[2];
-			this.speed = 1;
+			this.speed = 1.5;
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/fmagebody.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/fhead1.png"));
