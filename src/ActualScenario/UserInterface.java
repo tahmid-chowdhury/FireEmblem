@@ -35,6 +35,9 @@ public class UserInterface extends BaseMechanics.UserInterface {
 	}
 	
 	public void update(AllTogether a) {
+		if(a.input.returnInputs()[10]){
+			System.exit(0);
+		}
 		xsize = j.getWidth();
 		ysize = j.getHeight();
 		super.update(a);

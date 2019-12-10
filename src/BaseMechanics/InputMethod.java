@@ -36,7 +36,7 @@ public class InputMethod {
 	public static class Keyboard1 extends InputMethod implements KeyListener {
 		
 		public Keyboard1(){
-			this.CurrentInputs = new boolean[10];
+			this.CurrentInputs = new boolean[11];
 		}
 
 		@Override
@@ -80,6 +80,10 @@ public class InputMethod {
 			
 			if(arg0.getKeyCode() == KeyEvent.VK_RIGHT){
 				this.CurrentInputs[9] = true;
+			}
+			
+			if(arg0.getKeyCode() == KeyEvent.VK_ESCAPE){
+				this.CurrentInputs[10] = true;
 			}
 		}
 
