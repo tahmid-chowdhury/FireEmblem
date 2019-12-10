@@ -228,7 +228,6 @@ public class UserInterface extends BaseMechanics.UserInterface {
 
 		static{
 			movementBorder = new BufferedImage[8];
-			try{
 				try{
 					movementBorder[0] = ImageIO.read(new File("sprites/Gui/Movement Indication/redtopleft.png"));
 					movementBorder[1] = ImageIO.read(new File("sprites/Gui/Movement Indication/redtop.png"));
@@ -243,9 +242,6 @@ public class UserInterface extends BaseMechanics.UserInterface {
 				}catch(Exception e){
 					
 				}
-			}catch(Exception e){
-				
-			}
 		}
 		
 		
@@ -309,6 +305,20 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			}
 		}
 		
+	}
+	
+	//Alright fuck it we're implementing ALL the game logic within the User Interface
+	public static class TurnLogicContainer{
+		int currentUser;
+		int turnCount;
+		public void advanceTurn(){
+			if(currentUser == 0){
+				currentUser = 1;
+			}else if(currentUser == 1){
+				currentUser = 0;
+				++turnCount;
+			}
+		}
 	}
 	
 }
