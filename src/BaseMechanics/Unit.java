@@ -9,7 +9,7 @@ public abstract class Unit {
 	public int health;
 	public int team;
 	public double speed;
-	//0 = neutral, 1 = player 1, 2 = player 2
+	//0 = player 1, 1 = player 2, all others neutral
 
 	public void attack(Unit a){
 		

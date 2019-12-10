@@ -201,10 +201,17 @@ public class UserInterface extends BaseMechanics.UserInterface {
 							mouse.CurrentMouseInputs[1] >= (y*a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor) +  (a.viewport.yOffset*(a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor*a.map.grid[x].length))
 							&&
 							mouse.CurrentMouseInputs[1] <= (y*a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor + a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor) +  (a.viewport.yOffset*(a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor*a.map.grid[x].length))
+							
 								){
 								for(int x2 = 0; x2 < a.map.grid.length; x2++) {
 									for(int y2 = 0; y2 < a.map.grid[x].length; y2++) {
-										if(a.map.grid[x2][y2].isHighlighted&&a.map.grid[x2][y2].occupyingUnit!=null&&a.map.grid[x][y].occupyingUnit==null){
+										if(a.map.grid[x2][y2].isHighlighted
+											&&a.map.grid[x2][y2].occupyingUnit!=null
+											&&a.map.grid[x][y].occupyingUnit==null
+											//Wait, But I'm not done yet!
+											&&
+											TurnLogicContainer.currentUser == a.map.grid[x2][y2].occupyingUnit.team
+												){
 											a.map.move(x2, y2, x, y);
 											a.map.grid[x2][y2].isHighlighted = false;
 											a.map.grid[x][y].isHighlighted = true;
@@ -255,6 +262,8 @@ public class UserInterface extends BaseMechanics.UserInterface {
 				g.drawString("Unit Type:"+toRead.type, 69, 148);
 				g.setColor(Color.YELLOW);
 				g.drawString("Unit Health:"+toRead.health, 69, 158);
+				g.setColor(Color.PINK);
+				g.drawString("Team: "+toRead.team, 69, 168);
 				
 				
 				for(int x = 0; x < a.map.grid.length; x++){
@@ -332,7 +341,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			turnCount = 0;
 		}
 		
-		public void advanceTurn(){
+		public static void advanceTurn(){
 			if(currentUser == 0){
 				currentUser = 1;
 			}else if(currentUser == 1){
@@ -342,17 +351,23 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		}
 		
 		public static class TurnLogicDisplay extends BaseMechanics.UserInterface.Element{
-
+			
+			boolean changeControl;
+			
 			@Override
 			public void paint(Graphics2D g, AllTogether a) {
 				g.setColor(Color.MAGENTA);
-				g.drawString(""+currentUser, 500, 500);
+				g.drawString("Controlling Player: "+currentUser+" Turn Number: "+turnCount, 500, 500);
 			}
 
 			@Override
 			public void update(AllTogether a) {
-				// TODO Auto-generated method stub
-				
+				if(a.input.returnInputs()[5]&&!changeControl){
+					changeControl = true;
+					advanceTurn();
+				}else if(!a.input.returnInputs()[5]){
+					changeControl = false;
+				}
 			}
 			
 		}
