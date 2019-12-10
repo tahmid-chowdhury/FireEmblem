@@ -357,7 +357,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			@Override
 			public void paint(Graphics2D g, AllTogether a) {
 				g.setColor(Color.MAGENTA);
-				g.drawString("Controlling Player: "+currentUser+" Turn Number: "+turnCount, 500, 500);
+				g.drawString("Controlling Player: "+currentUser+" Turn Number: "+turnCount, 69, 128);
 			}
 
 			@Override
