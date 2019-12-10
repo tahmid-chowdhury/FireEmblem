@@ -26,6 +26,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		ysize = f.getHeight();
 		this.elements.add(new mouseGrid());
 		this.elements.add(new unitInfo());
+		this.elements.add(new TurnLogicContainer.TurnLogicDisplay());
 	//	this.elements.add(new border());
 		j = f;
 		mouse = m;
@@ -270,13 +271,13 @@ public class UserInterface extends BaseMechanics.UserInterface {
 											drawArbritaryTile(a, x2, y2, movementBorder[5], g);
 										}else if(!a.map.moveCheck(x, y, x2+1, y2)&&!a.map.moveCheck(x, y, x2, y2+1)&&x2+1!=x&&y2+1!=y){
 											drawArbritaryTile(a, x2, y2, movementBorder[7], g);
-										}else*/ if(!a.map.moveCheck(x, y, x2-1, y2)&&x2-1!=x){
+										}else*/ if(!a.map.moveCheck(x, y, x2-1, y2)/*&&x2-1!=x*/){
 											drawArbritaryTile(a, x2, y2, movementBorder[3], g);
-										}/*else*/ if(!a.map.moveCheck(x, y, x2+1, y2)&&x2+1!=x){
+										}/*else*/ if(!a.map.moveCheck(x, y, x2+1, y2)/*&&x2+1!=x*/){
 											drawArbritaryTile(a, x2, y2, movementBorder[4], g);
-										}/*else*/ if(!a.map.moveCheck(x, y, x2, y2-1)&&y2-1!=y){
+										}/*else*/ if(!a.map.moveCheck(x, y, x2, y2-1)/*&&y2-1!=y*/){
 											drawArbritaryTile(a, x2, y2, movementBorder[1], g);
-										}/*else*/ if(!a.map.moveCheck(x, y, x2, y2+1)&&y2+1!=y){
+										}/*else*/ if(!a.map.moveCheck(x, y, x2, y2+1)/*&&y2+1!=y*/){
 											drawArbritaryTile(a, x2, y2, movementBorder[6], g);
 										}
 										
@@ -306,11 +307,31 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		}
 		
 	}
-	
+	/*
+	 * 
+	 * 
+	 * 
+	 * 
+	 * SPAGHETTI INCOMING
+	 * 
+	 * 
+	 * 
+	 * 
+	 */
 	//Alright fuck it we're implementing ALL the game logic within the User Interface
 	public static class TurnLogicContainer{
-		int currentUser;
-		int turnCount;
+		static int currentUser;
+		static int turnCount;
+		
+		static{
+			reset();
+		}
+		
+		public static void reset(){
+			currentUser = 0;
+			turnCount = 0;
+		}
+		
 		public void advanceTurn(){
 			if(currentUser == 0){
 				currentUser = 1;
@@ -319,6 +340,23 @@ public class UserInterface extends BaseMechanics.UserInterface {
 				++turnCount;
 			}
 		}
+		
+		public static class TurnLogicDisplay extends BaseMechanics.UserInterface.Element{
+
+			@Override
+			public void paint(Graphics2D g, AllTogether a) {
+				g.setColor(Color.MAGENTA);
+				g.drawString(""+currentUser, 500, 500);
+			}
+
+			@Override
+			public void update(AllTogether a) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		}
+		
 	}
 	
 }
