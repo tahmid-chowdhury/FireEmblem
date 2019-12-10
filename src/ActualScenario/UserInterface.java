@@ -20,6 +20,8 @@ public class UserInterface extends BaseMechanics.UserInterface {
 	JFrame j;
 	static InputMethod.Mouse mouse;
 	
+	static boolean God;
+	
 	public UserInterface(JFrame f, InputMethod.Mouse m){
 		super();
 		xsize = f.getWidth();
@@ -210,7 +212,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 											&&a.map.grid[x][y].occupyingUnit==null
 											//Wait, But I'm not done yet!
 											&&
-											TurnLogicContainer.currentUser == a.map.grid[x2][y2].occupyingUnit.team
+											(TurnLogicContainer.currentUser == a.map.grid[x2][y2].occupyingUnit.team||God)
 												){
 											a.map.move(x2, y2, x, y);
 											a.map.grid[x2][y2].isHighlighted = false;
