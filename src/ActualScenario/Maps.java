@@ -29,7 +29,8 @@ public class Maps {
 						}
 				}
 				if( x == 0 || x == grid.length-1 || y == 0 || y == grid[x].length-1){
-					grid[x][y] = new Tiles.StoneTile();
+				//	grid[x][y] = new Tiles.StoneTile();
+					grid[x][y].occupyingUnit = new Units.DwayneJohnson();
 				}
 			
 			}
@@ -40,6 +41,9 @@ public class Maps {
 		grid[5][4].occupyingUnit.team = 1;
 		grid[6][4].occupyingUnit = new Units.baseAssin();
 		grid[3][3].occupyingUnit = new Units.mrDavis();
+		
+		grid[9][9].occupyingUnit = new Units.DwayneJohnson();
+		grid[9][10].occupyingUnit = new Units.DwayneJohnson();
 
 		
 	}

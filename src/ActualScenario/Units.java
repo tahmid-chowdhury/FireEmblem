@@ -157,4 +157,17 @@ public class Units {
 		}
 	}
 	
+	public static class DwayneJohnson extends BaseMechanics.Unit{
+		public DwayneJohnson(){
+			this.sprites = new BufferedImage[1];
+			this.speed = 0;
+			this.team = 2;
+			try{
+				sprites[0] = ImageIO.read(new File("sprites/rock.png"));
+			}catch(Exception e){
+				
+			}
+		}
+	}
+	
 }
