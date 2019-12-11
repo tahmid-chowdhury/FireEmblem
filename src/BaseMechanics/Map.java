@@ -42,7 +42,7 @@ public abstract class Map {
 		}
 	}	
 	
-	private static class node{
+	/*private static class node{
 		int x; int y;
 		node(int x, int y){this.x = x; this.y = y; }
 		node(node n){this.x = n.x; this.y = n.y;}
@@ -57,7 +57,7 @@ public abstract class Map {
 		
 	}
 	
-	/*public boolean moveCheck(int x1, int y1, int x2, int y2){
+	public boolean moveCheck(int x1, int y1, int x2, int y2){
 		node end = new node(x1, y1);
 		ArrayList<node> frontier = new ArrayList<node>();
 		ArrayList<node> tempFrontier = new ArrayList<node>();
