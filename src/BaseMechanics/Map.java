@@ -79,30 +79,30 @@ public abstract class Map {
 						if(!conquered.contains(n)){
 						//top row
 						try{
-							if(grid[n.x-1][n.y-1].passable){tempFrontier.add(new node(n.x-1, n.y-1));}	
+							if(grid[n.x-1][n.y-1].passable&&grid[n.x-1][n.y-1].occupyingUnit==null){tempFrontier.add(new node(n.x-1, n.y-1));}	
 						}catch(ArrayIndexOutOfBoundsException e){}
 						try{
-							if(grid[n.x][n.y-1].passable){tempFrontier.add(new node(n.x, n.y-1));}	
+							if(grid[n.x][n.y-1].passable&&grid[n.x][n.y-1].occupyingUnit==null){tempFrontier.add(new node(n.x, n.y-1));}	
 						}catch(ArrayIndexOutOfBoundsException e){}
 						try{
-							if(grid[n.x+1][n.y-1].passable){tempFrontier.add(new node(n.x+1, n.y-1));}	
+							if(grid[n.x+1][n.y-1].passable&&grid[n.x+1][n.y-1].occupyingUnit==null){tempFrontier.add(new node(n.x+1, n.y-1));}	
 						}catch(ArrayIndexOutOfBoundsException e){}
 						//the sides
 						try{
-							if(grid[n.x-1][n.y-1].passable){tempFrontier.add(new node(n.x-1, n.y));}	
+							if(grid[n.x-1][n.y-1].passable&&grid[n.x-1][n.y-1].occupyingUnit==null){tempFrontier.add(new node(n.x-1, n.y));}	
 						}catch(ArrayIndexOutOfBoundsException e){}
 						try{
-							if(grid[n.x][n.y-1].passable){tempFrontier.add(new node(n.x+1, n.y));}	
+							if(grid[n.x][n.y-1].passable&&grid[n.x][n.y-1].occupyingUnit==null){tempFrontier.add(new node(n.x+1, n.y));}	
 						}catch(ArrayIndexOutOfBoundsException e){}
 						//bottom shelf
 						try{
-							if(grid[n.x-1][n.y-1].passable){tempFrontier.add(new node(n.x-1, n.y-1));}	
+							if(grid[n.x-1][n.y-1].passable&&grid[n.x-1][n.y-1].occupyingUnit==null){tempFrontier.add(new node(n.x-1, n.y-1));}	
 						}catch(ArrayIndexOutOfBoundsException e){}
 						try{
-							if(grid[n.x][n.y-1].passable){tempFrontier.add(new node(n.x, n.y-1));}	
+							if(grid[n.x][n.y-1].passable&&grid[n.x][n.y-1].occupyingUnit==null){tempFrontier.add(new node(n.x, n.y-1));}	
 						}catch(ArrayIndexOutOfBoundsException e){}
 						try{
-							if(grid[n.x+1][n.y-1].passable){tempFrontier.add(new node(n.x+1, n.y-1));}	
+							if(grid[n.x+1][n.y-1].passable&&grid[n.x+1][n.y-1].occupyingUnit==null){tempFrontier.add(new node(n.x+1, n.y-1));}	
 						}catch(ArrayIndexOutOfBoundsException e){}
 						
 						conquered.add(new node(n));
