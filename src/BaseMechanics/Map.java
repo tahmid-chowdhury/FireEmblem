@@ -24,7 +24,7 @@ public abstract class Map {
 		
 	}
 	
-/*	public boolean moveCheck(int x1, int y1, int x2, int y2){
+	public boolean moveCheck(int x1, int y1, int x2, int y2){
 		if(x1<0||x2<0||y1<0||y2<0||x1>=grid.length||x2>=grid.length||y1>=grid[x1].length||y2>=grid[x2].length){
 			return false;
 		}
@@ -40,7 +40,7 @@ public abstract class Map {
 		}else{
 			return false;
 		}
-	}	*/
+	}	
 	
 	private static class node{
 		int x; int y;
@@ -57,7 +57,7 @@ public abstract class Map {
 		
 	}
 	
-	public boolean moveCheck(int x1, int y1, int x2, int y2){
+	/*public boolean moveCheck(int x1, int y1, int x2, int y2){
 		node end = new node(x1, y1);
 		ArrayList<node> frontier = new ArrayList<node>();
 		ArrayList<node> tempFrontier = new ArrayList<node>();
@@ -119,5 +119,5 @@ public abstract class Map {
 		}
 		return true;
 		
-	}
+	}*/
 }
