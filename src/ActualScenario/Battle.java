@@ -37,15 +37,53 @@ public class Battle {
 		test.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		test.setBackground(Color.BLACK);
 		test.setVisible(true);
-
 		
+		Thread Logic = new Thread(new refreshLogic(viewTest));
+		Thread Screen = new Thread(new refreshScreen(test));
+		
+		Logic.start();
+		Screen.start();
+		
+	}
+
+		static class refreshLogic implements Runnable{
+		
+			BaseMechanics.AllTogether a;
+			
+			refreshLogic(BaseMechanics.AllTogether a){
+				this.a = a;
+			}
+		
+		public void run(){
 		Timer timer = new Timer();
-		timer.scheduleAtFixedRate(new TimerTask(){
-			public void run(){
-				viewTest.update();
-				test.repaint();
+				timer.scheduleAtFixedRate(new TimerTask(){
+					public void run(){
+						a.update();
+					//	test.repaint();
+					}
+				}
+				, 1, 15);
 			}
 		}
-		, 1, 15);
-	}
+		
+		static class refreshScreen implements Runnable{
+		
+			JFrame test;
+			
+			refreshScreen(JFrame test){
+				this.test = test;
+			}
+			
+		public void run(){
+		Timer timer = new Timer();
+				timer.scheduleAtFixedRate(new TimerTask(){
+					public void run(){
+					//	viewTest.update();
+						test.repaint();
+					}
+				}
+				, 1, 15);
+			}
+		}
+	
 }
