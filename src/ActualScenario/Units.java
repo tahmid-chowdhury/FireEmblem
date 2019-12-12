@@ -10,7 +10,7 @@ public class Units {
 	public static class baseRanger extends BaseMechanics.Unit{
 		public baseRanger(){
 			this.sprites = new BufferedImage[2];
-			this.speed = 3;
+			this.speed = 3.5;
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/mbody1.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/mhead1.png"));
