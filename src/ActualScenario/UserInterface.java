@@ -237,7 +237,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 	
 	public static class unitInfo extends BaseMechanics.UserInterface.Element{
 		
-		BaseMechanics.Unit toRead;
+		static BaseMechanics.Unit toRead;
 		
 		static BufferedImage[] movementBorder;
 
@@ -384,6 +384,21 @@ public class UserInterface extends BaseMechanics.UserInterface {
 					changeControl = false;
 				}
 			}
+			
+		}
+	}
+	
+	public static class AttackLogic extends BaseMechanics.UserInterface.Element {
+
+		@Override
+		public void paint(Graphics2D g, AllTogether a) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void update(AllTogether a) {
+			// TODO Auto-generated method stub
 			
 		}
 		
