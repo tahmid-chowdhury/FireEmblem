@@ -272,10 +272,10 @@ public class UserInterface extends BaseMechanics.UserInterface {
 				g.setColor(Color.PINK);
 				g.drawString("Team: "+toRead.team, 69, 168);
 				
-				
+				//Drawing the area that the character can move
 				for(int x = 0; x < a.map.grid.length; x++){
 					for(int y = 0; y < a.map.grid[x].length; y++){
-						if(a.map.grid[x][y].occupyingUnit == toRead){
+						if(a.map.grid[x][y].occupyingUnit == toRead&&!a.map.grid[x][y].occupyingUnit.hasMovedThisTurn){
 							for(int x2 = 0; x2 < a.map.grid.length; x2++){
 								for(int y2 = 0; y2 < a.map.grid[x].length; y2++){
 									if(a.map.moveCheck(x, y, x2, y2)){
@@ -348,11 +348,19 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			turnCount = 0;
 		}
 		
-		public static void advanceTurn(){
+		public static void advanceTurn(AllTogether a){
 			if(currentUser == BaseMechanics.Unit.Team.PLAYER1){
 				currentUser = BaseMechanics.Unit.Team.PLAYER2;
 			}else if(currentUser == BaseMechanics.Unit.Team.PLAYER2){
 				currentUser = BaseMechanics.Unit.Team.PLAYER1;
+				for(int x = 0; x < a.map.grid.length; x++){
+					for(int y = 0; y < a.map.grid[x].length; y++){
+						if(a.map.grid[x][y].occupyingUnit!=null){
+							a.map.grid[x][y].occupyingUnit.hasAttackedThisTurn = false;
+							a.map.grid[x][y].occupyingUnit.hasMovedThisTurn = false;
+						}
+					}
+				}
 				++turnCount;
 			}
 		}
@@ -371,7 +379,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			public void update(AllTogether a) {
 				if(a.input.returnInputs()[5]&&!changeControl){
 					changeControl = true;
-					advanceTurn();
+					advanceTurn(a);
 				}else if(!a.input.returnInputs()[5]){
 					changeControl = false;
 				}

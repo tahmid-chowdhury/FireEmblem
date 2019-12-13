@@ -10,6 +10,7 @@ public abstract class Unit {
 	public Team team;
 	public double speed;
 	public boolean hasMovedThisTurn;
+	public boolean hasAttackedThisTurn;
 	//0 = player 1, 1 = player 2, all others neutral
 	
 	public enum Team {
