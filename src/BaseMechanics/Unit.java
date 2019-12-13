@@ -5,12 +5,13 @@ import java.awt.image.BufferedImage;
 
 public abstract class Unit {
 	//Actual Battle Logic
-	public int type;
+	public Type type;
 	public int health;
 	public Team team;
 	public double speed;
 	public boolean hasMovedThisTurn;
 	public boolean hasAttackedThisTurn;
+	public Attack[] attacks;
 	//0 = player 1, 1 = player 2, all others neutral
 	
 	public enum Team {
@@ -18,10 +19,19 @@ public abstract class Unit {
 		PLAYER2,
 		NEUTRAL
 	}
+	public enum Type {
+		TYPELESS,
+		MELEE,
+		RANGED,
+		MAGIC,
+		SPECIAL
+	}
 	
 
 	public static abstract class Attack {
-		
+		double range;
+		double areaOfEffect;
+		int authorityThreshold;
 	}
 	
 	

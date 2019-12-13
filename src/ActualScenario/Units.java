@@ -6,11 +6,14 @@ import java.io.File;
 
 import javax.imageio.ImageIO;
 
+import BaseMechanics.Unit;
+
 public class Units {
 	public static class baseRanger extends BaseMechanics.Unit{
 		public baseRanger(){
 			this.sprites = new BufferedImage[2];
 			this.speed = 3.5;
+			this.type = Unit.Type.RANGED;
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/mbody1.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/mhead1.png"));
@@ -44,6 +47,7 @@ public class Units {
 		public baseMage(){
 			this.sprites = new BufferedImage[2];
 			this.speed = 1.5;
+			this.type = Unit.Type.MAGIC;
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/fbody1.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/fhead1.png"));
@@ -77,6 +81,7 @@ public class Units {
 		public baseAssin(){
 			this.sprites = new BufferedImage[3];
 			this.speed = 2;
+			this.type = Unit.Type.MELEE;
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/fbody3.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/fhead3.png"));
@@ -128,6 +133,7 @@ public class Units {
 		public mrDavis(){
 			this.sprites = new BufferedImage[2];
 			this.speed = 2;
+			this.type = Unit.Type.SPECIAL;
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/mbody2.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/mhead2.png"));
@@ -161,6 +167,7 @@ public class Units {
 		public foxFighter(){
 			this.sprites = new BufferedImage[2];
 			this.speed = 2;
+			this.type = Unit.Type.MELEE;
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/fbody2.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/fhead2.png"));
@@ -195,6 +202,7 @@ public class Units {
 			this.sprites = new BufferedImage[1];
 			this.speed = 0;
 			this.team = Team.NEUTRAL;
+			this.type = Unit.Type.TYPELESS;
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/rock.png"));
 			}catch(Exception e){
