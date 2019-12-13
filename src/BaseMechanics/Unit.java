@@ -12,7 +12,7 @@ public abstract class Unit {
 	public boolean hasMovedThisTurn;
 	public boolean hasAttackedThisTurn;
 	public Attack[] attacks;
-	//0 = player 1, 1 = player 2, all others neutral
+	public int authorityLevel;
 	
 	public enum Team {
 		PLAYER1,
