@@ -41,6 +41,7 @@ public class Maps {
 		grid[5][4].occupyingUnit.team = 1;
 		grid[6][4].occupyingUnit = new Units.baseAssin();
 		grid[3][3].occupyingUnit = new Units.mrDavis();
+		grid[7][4].occupyingUnit = new Units.foxFighter();
 		
 		grid[9][9].occupyingUnit = new Units.DwayneJohnson();
 		grid[9][10].occupyingUnit = new Units.DwayneJohnson();
