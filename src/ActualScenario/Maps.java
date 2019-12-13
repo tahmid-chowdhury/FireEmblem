@@ -36,12 +36,16 @@ public class Maps {
 			}
 		}
 		grid[4][4].occupyingUnit = new Units.baseRanger();
-		grid[4][4].occupyingUnit.team = 1;
+		grid[4][4].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER1;
 		grid[5][4].occupyingUnit = new Units.baseMage();
-		grid[5][4].occupyingUnit.team = 1;
+		grid[5][4].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER1;
 		grid[6][4].occupyingUnit = new Units.baseAssin();
+		grid[6][4].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
 		grid[3][3].occupyingUnit = new Units.mrDavis();
+		grid[3][3].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
 		grid[7][4].occupyingUnit = new Units.foxFighter();
+		grid[7][4].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER1;
+
 		
 		grid[9][9].occupyingUnit = new Units.DwayneJohnson();
 		grid[9][10].occupyingUnit = new Units.DwayneJohnson();

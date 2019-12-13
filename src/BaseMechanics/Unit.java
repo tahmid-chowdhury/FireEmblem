@@ -7,11 +7,19 @@ public abstract class Unit {
 	//Actual Battle Logic
 	public int type;
 	public int health;
-	public int team;
+	public Team team;
 	public double speed;
+	public boolean hasMovedThisTurn;
 	//0 = player 1, 1 = player 2, all others neutral
+	
+	public enum Team {
+		PLAYER1,
+		PLAYER2,
+		NEUTRAL
+	}
+	
 
-	public void attack(Unit a){
+	public static abstract class Attack {
 		
 	}
 	

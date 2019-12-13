@@ -212,11 +212,13 @@ public class UserInterface extends BaseMechanics.UserInterface {
 									for(int y2 = 0; y2 < a.map.grid[x].length; y2++) {
 										if(a.map.grid[x2][y2].isHighlighted
 											&&a.map.grid[x2][y2].occupyingUnit!=null
+											&&a.map.grid[x2][y2].occupyingUnit.hasMovedThisTurn == false
 											&&a.map.grid[x][y].occupyingUnit==null
 											//Wait, But I'm not done yet!
 											&&
 											(TurnLogicContainer.currentUser == a.map.grid[x2][y2].occupyingUnit.team||God)
 												){
+											a.map.grid[x2][y2].occupyingUnit.hasMovedThisTurn = true;
 											a.map.move(x2, y2, x, y);
 											a.map.grid[x2][y2].isHighlighted = false;
 											a.map.grid[x][y].isHighlighted = true;
@@ -334,7 +336,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 	 */
 	//Alright fuck it we're implementing ALL the game logic within the User Interface
 	public static class TurnLogicContainer{
-		static int currentUser;
+		static BaseMechanics.Unit.Team currentUser;
 		static int turnCount;
 		
 		static{
@@ -342,15 +344,15 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		}
 		
 		public static void reset(){
-			currentUser = 0;
+			currentUser = BaseMechanics.Unit.Team.PLAYER1;
 			turnCount = 0;
 		}
 		
 		public static void advanceTurn(){
-			if(currentUser == 0){
-				currentUser = 1;
-			}else if(currentUser == 1){
-				currentUser = 0;
+			if(currentUser == BaseMechanics.Unit.Team.PLAYER1){
+				currentUser = BaseMechanics.Unit.Team.PLAYER2;
+			}else if(currentUser == BaseMechanics.Unit.Team.PLAYER2){
+				currentUser = BaseMechanics.Unit.Team.PLAYER1;
 				++turnCount;
 			}
 		}
