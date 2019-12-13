@@ -32,6 +32,14 @@ public abstract class Unit {
 		double range;
 		double areaOfEffect;
 		int authorityThreshold;
+		public enum attackMethod{
+			MARTIAL,
+			MAGIC
+		}
+		public enum attackType{
+			RANGED,
+			MELEE
+		}
 	}
 	
 	
