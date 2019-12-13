@@ -15,6 +15,14 @@ import BaseMechanics.UserInterface.Element;
 
 public class UserInterface extends BaseMechanics.UserInterface {
 	
+	static int player1Authority;
+	static int player2Authority;
+	
+	static {
+		player1Authority = 0;
+		player2Authority = 0;
+	}
+	
 	static double xsize;
 	static double ysize;
 	JFrame j;
@@ -346,6 +354,8 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		public static void reset(){
 			currentUser = BaseMechanics.Unit.Team.PLAYER1;
 			turnCount = 0;
+			player1Authority = 0;
+			player2Authority = 0;
 		}
 		
 		public static void advanceTurn(AllTogether a){
