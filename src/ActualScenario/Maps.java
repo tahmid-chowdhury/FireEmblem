@@ -41,6 +41,8 @@ public class Maps {
 		grid[5][3].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER1;
 		grid[6][3].occupyingUnit = new Units.foxFighter();
 		grid[6][3].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER1;
+		grid[7][3].occupyingUnit = new Units.basePriestess();
+		grid[7][3].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER1;
 		
 		grid[4][5].occupyingUnit = new Units.mrDavis();
 		grid[4][5].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
@@ -48,6 +50,8 @@ public class Maps {
 		grid[5][5].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
 		grid[6][5].occupyingUnit = new Units.selfEntitled();
 		grid[6][5].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
+		grid[7][5].occupyingUnit = new Units.baseSwordsman();
+		grid[7][5].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
 
 		
 		grid[9][9].occupyingUnit = new Units.DwayneJohnson();
