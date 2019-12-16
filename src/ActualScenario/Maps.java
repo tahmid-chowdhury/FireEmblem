@@ -50,7 +50,7 @@ public class Maps {
 		grid[5][5].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
 		grid[6][5].occupyingUnit = new Units.selfEntitled();
 		grid[6][5].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
-		grid[7][5].occupyingUnit = new Units.baseSwordsman();
+		grid[7][5].occupyingUnit = new Units.lonelyWanderer();
 		grid[7][5].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
 
 		
