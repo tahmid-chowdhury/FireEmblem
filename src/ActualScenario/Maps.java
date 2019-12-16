@@ -43,6 +43,8 @@ public class Maps {
 		grid[6][3].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER1;
 		grid[7][3].occupyingUnit = new Units.basePriestess();
 		grid[7][3].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER1;
+		grid[8][3].occupyingUnit = new Units.mysticSwordsman();
+		grid[8][3].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER1;
 		
 		grid[4][5].occupyingUnit = new Units.mrDavis();
 		grid[4][5].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
