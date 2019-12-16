@@ -279,6 +279,8 @@ public class UserInterface extends BaseMechanics.UserInterface {
 				g.drawString("Unit Health:"+toRead.health, 69, 158);
 				g.setColor(Color.PINK);
 				g.drawString("Team: "+toRead.team, 69, 168);
+				g.setColor(Color.ORANGE);
+				g.drawString("Unit ID:"+toRead.getClass().toString(), 69, 178);
 				
 				//Drawing the area that the character can move
 				for(int x = 0; x < a.map.grid.length; x++){
