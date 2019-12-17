@@ -253,8 +253,8 @@ public class Units {
 	public static class basePriestess extends BaseMechanics.Unit{
 		public basePriestess(){
 			this.sprites = new BufferedImage[2];
-			this.speed = 3.5;
-			this.type = Unit.Type.RANGED;
+			this.speed = 1.5;
+			this.type = Unit.Type.MAGIC;
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/fbody4.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/fhead4.png"));
@@ -322,8 +322,8 @@ public class Units {
 	public static class lonelyWanderer extends BaseMechanics.Unit{
 		public lonelyWanderer(){
 			this.sprites = new BufferedImage[2];
-			this.speed = 3.5;
-			this.type = Unit.Type.RANGED;
+			this.speed = 2;
+			this.type = Unit.Type.SPECIAL;
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/mbody4.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/mhead4.png"));
@@ -356,8 +356,8 @@ public class Units {
 	public static class mysticSwordsman extends BaseMechanics.Unit{
 		public mysticSwordsman(){
 			this.sprites = new BufferedImage[2];
-			this.speed = 3.5;
-			this.type = Unit.Type.RANGED;
+			this.speed = 2;
+			this.type = Unit.Type.MELEE;
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/mbody6.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/mhead6.png"));
