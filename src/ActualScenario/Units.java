@@ -284,7 +284,7 @@ public class Units {
 		}
 	}
 	
-	/*public static class baseSwordsman extends BaseMechanics.Unit{
+	public static class baseSwordsman extends BaseMechanics.Unit{
 		public baseSwordsman(){
 			this.sprites = new BufferedImage[2];
 			this.speed = 3.5;
@@ -317,7 +317,7 @@ public class Units {
 			super.paint(g, x, y, scaleFactor, xOffset, yOffset, xSize, ySize);
 
 		}
-	} */
+	} 
 	
 	public static class lonelyWanderer extends BaseMechanics.Unit{
 		public lonelyWanderer(){
