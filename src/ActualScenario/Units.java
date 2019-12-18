@@ -323,7 +323,7 @@ public class Units {
 		public lonelyWanderer(){
 			this.sprites = new BufferedImage[2];
 			this.speed = 2;
-			this.type = Unit.Type.SPECIAL;
+			this.type = Unit.Type.MELEE;
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/mbody4.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/mhead4.png"));
