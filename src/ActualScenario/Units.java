@@ -287,8 +287,8 @@ public class Units {
 	public static class baseSwordsman extends BaseMechanics.Unit{
 		public baseSwordsman(){
 			this.sprites = new BufferedImage[2];
-			this.speed = 3.5;
-			this.type = Unit.Type.RANGED;
+			this.speed = 1.5;
+			this.type = Unit.Type.MELEE;
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/mbody3.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/mhead3.png"));
