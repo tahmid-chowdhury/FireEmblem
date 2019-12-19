@@ -3,6 +3,8 @@ package BaseMechanics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
+import BaseMechanics.Unit.Attack.attackMethod;
+
 public abstract class Unit {
 	//Actual Battle Logic
 	public Type type;
@@ -27,11 +29,14 @@ public abstract class Unit {
 		SPECIAL
 	}
 	
-
+	//His Majesty's Royal Banter Battalion
 	public static abstract class Attack {
 		double range;
 		double areaOfEffect;
 		int authorityThreshold;
+		int baseDamage; //yes, negative basedamage will heal
+		attackMethod method;
+		attackType type;
 		public enum attackMethod{
 			MARTIAL,
 			MAGIC
@@ -39,6 +44,19 @@ public abstract class Unit {
 		public enum attackType{
 			RANGED,
 			MELEE
+		}
+	}
+	
+	public int calcDamage(Attack attack, Unit target){
+		switch (target.type){
+		case TYPELESS:
+			return (int) (attack.baseDamage+(attack.baseDamage*((double)authorityLevel/10)));
+		case MAGIC:
+			if(attack.method == attackMethod.MARTIAL){
+				
+			}
+		default:
+			return attack.baseDamage;
 		}
 	}
 	
