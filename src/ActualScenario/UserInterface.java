@@ -37,6 +37,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		this.elements.add(new mouseGrid());
 		this.elements.add(new unitInfo());
 		this.elements.add(new TurnLogicContainer.TurnLogicDisplay());
+		this.elements.add(new TurnLogicContainer.AttackLogic());
 	//	this.elements.add(new border());
 		j = f;
 		mouse = m;
@@ -398,22 +399,45 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			}
 			
 		}
-	}
+	
 	
 	public static class AttackLogic extends BaseMechanics.UserInterface.Element {
+			static BufferedImage attack;
+			static{
+				try{
+					attack = ImageIO.read(new File("sprites/Gui/target.png"));
 
-		@Override
-		public void paint(Graphics2D g, AllTogether a) {
-			// TODO Auto-generated method stub
+				}catch(Exception e){
+					
+				}
+			}
+			@Override
+			public void paint(Graphics2D g, AllTogether a) {
+				// TODO Auto-generated method stub
+				for(int x = 0; x < a.map.grid.length; x++){
+					for(int y = 0; y < a.map.grid[x].length; y++){
+						if(a.map.grid[x][y].occupyingUnit!=null){
+						if(a.map.grid[x][y].occupyingUnit.team == currentUser&&a.map.grid[x][y].isHighlighted){
+							for(int x2 = 0; x2 < a.map.grid.length; x2++){
+								for(int y2 = 0; y2 < a.map.grid[x].length; y2++){
+									if(a.map.checkAttack(x, y, x2, y2)){
+										drawArbritaryTile(a, x2, y2, attack, g);
+									}
+								}
+							}
+						}
+					}
+					}
+				}
+			}
+	
+			@Override
+			public void update(AllTogether a) {
+				// TODO Auto-generated method stub
+
+			}
 			
 		}
-
-		@Override
-		public void update(AllTogether a) {
-			// TODO Auto-generated method stub
-			
-		}
-		
 	}
 	
 }
