@@ -286,7 +286,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 				}
 			}
 			
-			if(mouse.rightPulse){
+			if(mouse.rightPulse&&controlState == ActualScenario.UserInterface.controlState.MOVEMENT){
 				//See viewport if these statements don't make sense
 				if(
 				mouse.CurrentMouseInputs[0] >= (x*a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor) +  (a.viewport.xOffset*(a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor*a.map.grid.length))
@@ -475,7 +475,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			@Override
 			public void paint(Graphics2D g, AllTogether a) {
 				g.setColor(Color.MAGENTA);
-				g.drawString("Controlling Player: "+currentUser+" Turn Number: "+turnCount, 69, 128);
+				g.drawString("Controlling Player: "+currentUser+" Turn Number: "+turnCount+" Control State: "+controlState, 69, 128);
 			}
 
 			@Override
@@ -485,6 +485,14 @@ public class UserInterface extends BaseMechanics.UserInterface {
 					advanceTurn(a);
 				}else if(!a.input.current.contains(KeyEvent.VK_ENTER)){
 					changeControl = false;
+				}
+				
+				if(a.input.current.contains(KeyEvent.VK_1)) {
+					controlState = ActualScenario.UserInterface.controlState.MOVEMENT;
+				}else if(a.input.current.contains(KeyEvent.VK_2)) {
+					controlState = ActualScenario.UserInterface.controlState.COMBAT;
+				}else if(a.input.current.contains(KeyEvent.VK_3)) {
+					controlState = ActualScenario.UserInterface.controlState.MENU;
 				}
 			}
 
