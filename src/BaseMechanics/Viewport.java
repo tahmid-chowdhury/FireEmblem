@@ -114,13 +114,13 @@ public class Viewport{
 			yOffset -= speed/scaleFactor;
 		}
 		
-		if(scaleFactor >= 0.25&&a.contains(KeyEvent.VK_COMMA)) {
+		if(scaleFactor >= 0.25&&a.contains(KeyEvent.VK_Z)) {
 				scaleFactor -= 0.01;
 		}else if(scaleFactor < 0.25) {
 			scaleFactor = 0.25;
 		}
 		
-		if(a.contains(KeyEvent.VK_PERIOD)&&scaleFactor <= 4) {
+		if(a.contains(KeyEvent.VK_X)&&scaleFactor <= 4) {
 			scaleFactor += 0.01;
 			/*if(scaleFactor > 4) {
 				scaleFactor = 4;
