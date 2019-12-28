@@ -389,15 +389,15 @@ public class UserInterface extends BaseMechanics.UserInterface {
 
 		@Override
 		public void update(AllTogether a) {
-			for(int x = 0; x < a.map.grid.length; x++){
+			/*for(int x = 0; x < a.map.grid.length; x++){
 				for(int y = 0; y < a.map.grid[x].length; y++){
-				/*	if(a.map.grid[x][y].occupyingUnit != null&&a.map.grid[x][y].isHighlighted){
+					if(a.map.grid[x][y].occupyingUnit != null&&a.map.grid[x][y].isHighlighted){
 						toRead = a.map.grid[x][y].occupyingUnit;
 					}else if(a.map.grid[x][y].isHighlighted){
 						toRead = null;
-					}*/
+					}
 				}
-			}
+			}*/
 		}
 
 		@Override

@@ -35,13 +35,14 @@ public class UserInterface {
 	
 	public void tileIterate(AllTogether a) {
 		if(!elements.isEmpty()){
-			for(Element e: elements){
 				for(int x = 0; x < a.map.grid.length; x++) {
 					for(int y = 0; y < a.map.grid[x].length; y++) {
-						e.toIterateOnEachTile(a, a.map.grid[x][y], x, y);
+						for(Element e: elements){
+							e.toIterateOnEachTile(a, a.map.grid[x][y], x, y);
+						}
 					}
 				}
-			}
+			
 		}else{
 			System.out.print("No elements in interface array to iterate on!\n");
 		}

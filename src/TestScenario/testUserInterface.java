@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 import BaseMechanics.AllTogether;
+import BaseMechanics.Tile;
 import BaseMechanics.UserInterface;
 
 public class testUserInterface extends UserInterface {
@@ -49,7 +50,7 @@ public class testUserInterface extends UserInterface {
 		}
 
 		@Override
-		public void toIterateOnEachTile(AllTogether a) {
+		public void toIterateOnEachTile(AllTogether a, Tile tile, int x, int y) {
 			// TODO Auto-generated method stub
 			
 		}
