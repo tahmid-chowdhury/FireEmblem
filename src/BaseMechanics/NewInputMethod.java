@@ -2,11 +2,16 @@ package BaseMechanics;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 
 public class NewInputMethod {
 	public static class newKeyboardInput implements KeyListener {
 		
-		public keyboardDataPkg p;
+		public newKeyboardInput() {
+			this.current = new ArrayList<Integer>(0);
+		}
+				
+		public volatile ArrayList<Integer> current;
 		
 		public enum eventType{
 			PRESSED,
@@ -22,22 +27,20 @@ public class NewInputMethod {
 		}
 		@Override
 		public void keyPressed(KeyEvent arg0) {
-			p = new keyboardDataPkg(arg0, eventType.PRESSED);
+			if(!current.contains(new Integer(arg0.getKeyCode()))) {
+			current.add(new Integer(arg0.getKeyCode()));
+			}
 		}
 
 		@Override
 		public void keyReleased(KeyEvent arg0) {
-			p = new keyboardDataPkg(arg0, eventType.RELEASED);			
+			current.remove(new Integer(arg0.getKeyCode()));
 		}
 
 		@Override
 		public void keyTyped(KeyEvent arg0) {
 			// TODO Auto-generated method stub
 			
-		}
-		
-		public keyboardDataPkg mostRecentInput() {
-			return p;
 		}
 		
 	}

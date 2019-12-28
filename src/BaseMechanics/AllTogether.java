@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 
 public class AllTogether extends JPanel {
 	
-	public AllTogether(Map m, UserInterface ui,	InputMethod input, GameLogic gl, JFrame parent) {
+	public AllTogether(Map m, UserInterface ui,	NewInputMethod.newKeyboardInput input, GameLogic gl, JFrame parent) {
 		this.map = m;
 		this.viewport = new Viewport(m);
 		this.ui = ui;
@@ -20,7 +20,7 @@ public class AllTogether extends JPanel {
 	public Viewport viewport;
 	public Map map;
 	protected UserInterface ui;
-	public InputMethod input;
+	public NewInputMethod.newKeyboardInput input;
 	public GameLogic gl;
 	public JFrame parentFrame;
 	
@@ -33,7 +33,7 @@ public class AllTogether extends JPanel {
 	public void update() {
 		ui.tileIterate(this);
 		ui.update(this);
-		viewport.move(input.returnInputs());
+		viewport.move(input.current);
 		gl.update(this);
 	}
 }

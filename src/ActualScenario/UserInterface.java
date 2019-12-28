@@ -8,6 +8,9 @@ import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
+
+import com.sun.glass.events.KeyEvent;
+
 import BaseMechanics.AllTogether;
 import BaseMechanics.InputMethod;
 import BaseMechanics.Map;
@@ -54,7 +57,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 	}
 	
 	public void update(AllTogether a) {
-		if(a.input.returnInputs()[10]){
+		if(a.input.current.contains(KeyEvent.VK_ESCAPE)){
 			System.exit(0);
 		}
 		xsize = j.getWidth();
@@ -477,10 +480,10 @@ public class UserInterface extends BaseMechanics.UserInterface {
 
 			@Override
 			public void update(AllTogether a) {
-				if(a.input.returnInputs()[5]&&!changeControl){
+				if(a.input.current.contains(KeyEvent.VK_SLASH)&&!changeControl){
 					changeControl = true;
 					advanceTurn(a);
-				}else if(!a.input.returnInputs()[5]){
+				}else if(!a.input.current.contains(KeyEvent.VK_SLASH)){
 					changeControl = false;
 				}
 			}

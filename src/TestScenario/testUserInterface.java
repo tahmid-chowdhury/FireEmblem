@@ -2,6 +2,7 @@ package TestScenario;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.event.KeyEvent;
 
 import BaseMechanics.AllTogether;
 import BaseMechanics.Tile;
@@ -36,13 +37,13 @@ public class testUserInterface extends UserInterface {
 
 		@Override
 		public void update(AllTogether a) {
-			if(a.input.returnInputs()[9]){
+			if(a.input.current.contains(KeyEvent.VK_RIGHT)){
 				rightDepressed = true;
 			}else{
 				rightDepressed = false;
 			}
 			
-			if(a.input.returnInputs()[6]){
+			if(a.input.current.contains(KeyEvent.VK_LEFT)){
 				leftDepressed = true;
 			}else{
 				leftDepressed = false;
