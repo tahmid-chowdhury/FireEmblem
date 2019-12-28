@@ -480,10 +480,10 @@ public class UserInterface extends BaseMechanics.UserInterface {
 
 			@Override
 			public void update(AllTogether a) {
-				if(a.input.current.contains(KeyEvent.VK_SLASH)&&!changeControl){
+				if(a.input.current.contains(KeyEvent.VK_ENTER)&&!changeControl){
 					changeControl = true;
 					advanceTurn(a);
-				}else if(!a.input.current.contains(KeyEvent.VK_SLASH)){
+				}else if(!a.input.current.contains(KeyEvent.VK_ENTER)){
 					changeControl = false;
 				}
 			}
