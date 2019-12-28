@@ -31,6 +31,7 @@ public abstract class Unit {
 	
 	//His Majesty's Royal Banter Battalion
 	public static abstract class Attack {
+		public String name;
 		double range;
 		double areaOfEffect;
 		int authorityThreshold;

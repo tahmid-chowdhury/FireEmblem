@@ -22,7 +22,7 @@ public class test {
 		
 		BaseMechanics.GameLogic gl = new testLogic();
 		
-		BaseMechanics.AllTogether viewTest = new BaseMechanics.AllTogether(m, ui, i, gl);
+		BaseMechanics.AllTogether viewTest = new BaseMechanics.AllTogether(m, ui, i, gl, test);
 		
 		test.add(viewTest);
 		test.setSize(640, 480);

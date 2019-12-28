@@ -24,7 +24,7 @@ public class Battle {
 		BaseMechanics.UserInterface ui = new ActualScenario.UserInterface(test, mu);
 		BaseMechanics.GameLogic gl = new Logic();
 		
-		BaseMechanics.AllTogether viewTest = new BaseMechanics.AllTogether(m, ui, i, gl);
+		BaseMechanics.AllTogether viewTest = new BaseMechanics.AllTogether(m, ui, i, gl, test);
 		
 		GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 		

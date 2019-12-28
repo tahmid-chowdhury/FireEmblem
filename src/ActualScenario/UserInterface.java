@@ -12,6 +12,7 @@ import BaseMechanics.AllTogether;
 import BaseMechanics.InputMethod;
 import BaseMechanics.Map;
 import BaseMechanics.Tile;
+import BaseMechanics.Unit;
 import BaseMechanics.UserInterface.Element;
 
 public class UserInterface extends BaseMechanics.UserInterface {
@@ -426,6 +427,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 	public static class TurnLogicContainer{
 		static BaseMechanics.Unit.Team currentUser;
 		static int turnCount;
+		static Unit selected;
 		
 		static{
 			reset();
@@ -497,21 +499,31 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			@Override
 			public void paint(Graphics2D g, AllTogether a) {
 				// TODO Auto-generated method stub
+				g.setColor(Color.GREEN);
+				if(selected!=null) {
+					g.drawString(selected.toString(), 256, 59);
+					if(selected.attacks!=null) {
+						for(int n = 0; n < selected.attacks.length; n++) {
+							g.drawString(selected.attacks[n].name, 256, 69+(n*10));
+						}
+					}
+				}
 				for(int x = 0; x < a.map.grid.length; x++){
 					for(int y = 0; y < a.map.grid[x].length; y++){
 						if(a.map.grid[x][y].occupyingUnit!=null){
-						if(a.map.grid[x][y].occupyingUnit.team == currentUser&&a.map.grid[x][y].isHighlighted){
-							for(int x2 = 0; x2 < a.map.grid.length; x2++){
-								for(int y2 = 0; y2 < a.map.grid[x].length; y2++){
-									if(a.map.checkAttack(x, y, x2, y2)){
-										drawArbritaryTile(a, x2, y2, attack, g);
+							if(a.map.grid[x][y].occupyingUnit.team == currentUser&&a.map.grid[x][y].isHighlighted){
+								for(int x2 = 0; x2 < a.map.grid.length; x2++){
+									for(int y2 = 0; y2 < a.map.grid[x].length; y2++){
+										if(a.map.checkAttack(x, y, x2, y2)){
+											drawArbritaryTile(a, x2, y2, attack, g);
+										}
 									}
 								}
 							}
 						}
 					}
-					}
 				}
+				
 			}
 	
 			@Override
@@ -522,8 +534,11 @@ public class UserInterface extends BaseMechanics.UserInterface {
 
 			@Override
 			public void toIterateOnEachTile(AllTogether a, Tile tile, int x, int y) {
-				// TODO Auto-generated method stub
-				
+				if(tile.occupyingUnit!=null&&tile.isHighlighted) {
+					selected = tile.occupyingUnit;
+				}else if(tile.isHighlighted){
+					selected = null;
+				}
 			}
 			
 		}
