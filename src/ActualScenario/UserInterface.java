@@ -47,6 +47,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		super();
 		xsize = f.getWidth();
 		ysize = f.getHeight();
+		this.elements.add(new pauseMenu());
 		this.elements.add(new mouseGrid());
 		this.elements.add(new unitInfo());
 		this.elements.add(new TurnLogicContainer.TurnLogicDisplay());
@@ -57,8 +58,8 @@ public class UserInterface extends BaseMechanics.UserInterface {
 	}
 	
 	public void update(AllTogether a) {
-		if(a.input.current.contains(KeyEvent.VK_ESCAPE)){
-			System.exit(0);
+		if(a.input.current.contains(KeyEvent.VK_ESCAPE)&&controlState!=ActualScenario.UserInterface.controlState.MENU){
+			controlState = ActualScenario.UserInterface.controlState.MENU;
 		}
 		xsize = j.getWidth();
 		ysize = j.getHeight();
@@ -363,7 +364,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 				g.drawString("Unit ID:"+toRead.getClass().toString(), 69, 178);
 				
 				//Drawing the area that the character can move
-				for(int x = 0; x < a.map.grid.length; x++){
+				for(int x = 0; x < a.map.grid.length; x++){ 
 					for(int y = 0; y < a.map.grid[x].length; y++){
 						if(a.map.grid[x][y].occupyingUnit == toRead&&!a.map.grid[x][y].occupyingUnit.hasMovedThisTurn){
 							for(int x2 = 0; x2 < a.map.grid.length; x2++){
@@ -420,6 +421,43 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			}else if(a.map.grid[x][y].isHighlighted){
 				toRead = null;
 			}
+		}
+		
+	}
+	
+	public static class pauseMenu extends BaseMechanics.UserInterface.Element {
+		static BufferedImage pausebg;
+		static {
+			try{
+				pausebg = ImageIO.read(new File("sprites/Gui/pauseBG.png"));
+
+			}catch(Exception e){
+				
+			}
+		}
+		
+		@Override
+		public void paint(Graphics2D g, AllTogether a) {
+			if(controlState == ActualScenario.UserInterface.controlState.MENU) {
+				g.drawImage(pausebg, 0, 0, a.parentFrame.getWidth(), a.parentFrame.getHeight(), 0, 0, pausebg.getWidth(), pausebg.getHeight(), null);
+			}
+		}
+
+		@Override
+		public void update(AllTogether a) {
+			if(controlState == ActualScenario.UserInterface.controlState.MENU) {
+				if(mouse.pulse) {
+					
+				}else if(mouse.rightPulse) {
+					controlState = ActualScenario.UserInterface.controlState.MOVEMENT;
+				}
+			}
+		}
+
+		@Override
+		public void toIterateOnEachTile(AllTogether a, Tile tile, int x, int y) {
+			// TODO Auto-generated method stub
+			
 		}
 		
 	}
