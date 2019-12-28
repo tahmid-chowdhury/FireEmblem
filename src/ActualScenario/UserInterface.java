@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import BaseMechanics.AllTogether;
 import BaseMechanics.InputMethod;
 import BaseMechanics.Map;
+import BaseMechanics.Tile;
 import BaseMechanics.UserInterface.Element;
 
 public class UserInterface extends BaseMechanics.UserInterface {
@@ -143,6 +144,12 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			// TODO Auto-generated method stub
 			
 		}
+
+		@Override
+		public void toIterateOnEachTile(AllTogether a, Tile tile, int x, int y) {
+			// TODO Auto-generated method stub
+			
+		}
 		
 	}
 	
@@ -176,7 +183,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		@Override
 		public void update(AllTogether a) {
 					
-		if(mouse.pulse){	
+		/*if(mouse.pulse){	
 			for(int x = 0; x < a.map.grid.length; x++) {
 				for(int y = 0; y < a.map.grid[x].length; y++) {
 							//See viewport if these statements don't make sense
@@ -237,9 +244,69 @@ public class UserInterface extends BaseMechanics.UserInterface {
 							}
 					}
 				}
-		}
+		}	*/
 		mouse.genericUpdate();
 
+		}
+
+		@Override
+		public void toIterateOnEachTile(AllTogether a, Tile tile, int x, int y) {
+			if(mouse.pulse){
+				//See viewport if these statements don't make sense
+				if(
+				mouse.CurrentMouseInputs[0] >= (x*a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor) +  (a.viewport.xOffset*(a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor*a.map.grid.length))
+				&&		
+				mouse.CurrentMouseInputs[0] <= (x*a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor + a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor) + (a.viewport.xOffset*(a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor*a.map.grid.length))
+				&&
+				mouse.CurrentMouseInputs[1] >= (y*a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor) +  (a.viewport.yOffset*(a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor*a.map.grid[x].length))
+				&&
+				mouse.CurrentMouseInputs[1] <= (y*a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor + a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor) +  (a.viewport.yOffset*(a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor*a.map.grid[x].length))
+					){
+					a.map.grid[x][y].isHighlighted = !a.map.grid[x][y].isHighlighted;
+					
+					for(int x2 = 0; x2 < a.map.grid.length; x2++) {
+						for(int y2 = 0; y2 < a.map.grid[x].length; y2++) {
+							if(a.map.grid[x2][y2].isHighlighted&&(x2!=x||y2!=y)){
+								a.map.grid[x2][y2].isHighlighted = false;
+							}
+						}
+					}
+				}
+			}
+			
+			if(mouse.rightPulse){
+				//See viewport if these statements don't make sense
+				if(
+				mouse.CurrentMouseInputs[0] >= (x*a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor) +  (a.viewport.xOffset*(a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor*a.map.grid.length))
+				&&		
+				mouse.CurrentMouseInputs[0] <= (x*a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor + a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor) + (a.viewport.xOffset*(a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor*a.map.grid.length))
+				&&
+				mouse.CurrentMouseInputs[1] >= (y*a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor) +  (a.viewport.yOffset*(a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor*a.map.grid[x].length))
+				&&
+				mouse.CurrentMouseInputs[1] <= (y*a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor + a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor) +  (a.viewport.yOffset*(a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor*a.map.grid[x].length))
+				
+					){
+					for(int x2 = 0; x2 < a.map.grid.length; x2++) {
+						for(int y2 = 0; y2 < a.map.grid[x].length; y2++) {
+							if(a.map.grid[x2][y2].isHighlighted
+								&&a.map.grid[x2][y2].occupyingUnit!=null
+								&&a.map.grid[x2][y2].occupyingUnit.hasMovedThisTurn == false
+								&&a.map.grid[x][y].occupyingUnit==null
+								//Wait, But I'm not done yet!
+								&&
+								(TurnLogicContainer.currentUser == a.map.grid[x2][y2].occupyingUnit.team||God)
+									){
+								a.map.grid[x2][y2].occupyingUnit.hasMovedThisTurn = true;
+								a.map.move(x2, y2, x, y);
+								a.map.grid[x2][y2].isHighlighted = false;
+								a.map.grid[x][y].isHighlighted = true;
+							}
+						}
+					}
+				}
+				
+			}
+		
 		}
 		
 	}
@@ -324,12 +391,22 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		public void update(AllTogether a) {
 			for(int x = 0; x < a.map.grid.length; x++){
 				for(int y = 0; y < a.map.grid[x].length; y++){
-					if(a.map.grid[x][y].occupyingUnit != null&&a.map.grid[x][y].isHighlighted){
+				/*	if(a.map.grid[x][y].occupyingUnit != null&&a.map.grid[x][y].isHighlighted){
 						toRead = a.map.grid[x][y].occupyingUnit;
 					}else if(a.map.grid[x][y].isHighlighted){
 						toRead = null;
-					}
+					}*/
 				}
+			}
+		}
+
+		@Override
+		public void toIterateOnEachTile(AllTogether a, Tile tile, int x, int y) {
+			// TODO Auto-generated method stub
+			if(a.map.grid[x][y].occupyingUnit != null&&a.map.grid[x][y].isHighlighted){
+				toRead = a.map.grid[x][y].occupyingUnit;
+			}else if(a.map.grid[x][y].isHighlighted){
+				toRead = null;
 			}
 		}
 		
@@ -397,6 +474,12 @@ public class UserInterface extends BaseMechanics.UserInterface {
 					changeControl = false;
 				}
 			}
+
+			@Override
+			public void toIterateOnEachTile(AllTogether a, Tile tile, int x, int y) {
+				// TODO Auto-generated method stub
+				
+			}
 			
 		}
 	
@@ -435,6 +518,12 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			public void update(AllTogether a) {
 				// TODO Auto-generated method stub
 
+			}
+
+			@Override
+			public void toIterateOnEachTile(AllTogether a, Tile tile, int x, int y) {
+				// TODO Auto-generated method stub
+				
 			}
 			
 		}

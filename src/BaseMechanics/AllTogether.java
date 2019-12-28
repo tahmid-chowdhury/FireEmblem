@@ -28,6 +28,7 @@ public class AllTogether extends JPanel {
 		}
 	
 	public void update() {
+		ui.tileIterate(this);
 		ui.update(this);
 		viewport.move(input.returnInputs());
 		gl.update(this);

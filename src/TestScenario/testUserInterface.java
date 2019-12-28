@@ -47,5 +47,11 @@ public class testUserInterface extends UserInterface {
 				leftDepressed = false;
 			}
 		}
+
+		@Override
+		public void toIterateOnEachTile(AllTogether a) {
+			// TODO Auto-generated method stub
+			
+		}
 	}
 }
