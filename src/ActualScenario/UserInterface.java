@@ -17,12 +17,20 @@ import BaseMechanics.UserInterface.Element;
 
 public class UserInterface extends BaseMechanics.UserInterface {
 	
+	public enum controlState{
+		MOVEMENT,
+		COMBAT,
+		MENU
+	}
+	
+	static controlState controlState;
 	static int player1Authority;
 	static int player2Authority;
 	
 	static {
 		player1Authority = 0;
 		player2Authority = 0;
+		controlState = ActualScenario.UserInterface.controlState.MOVEMENT;
 	}
 	
 	static double xsize;
