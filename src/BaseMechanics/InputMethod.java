@@ -34,7 +34,10 @@ public class InputMethod {
 	}
 	
 	public static class Keyboard1 extends InputMethod implements KeyListener {
-		
+		/*
+		 * SUPERCEDED BY NEWKEYBOARDINPUT, DO NOT USE
+		 */
+
 		public Keyboard1(){
 			this.CurrentInputs = new boolean[11];
 		}
