@@ -92,25 +92,25 @@ public class Viewport{
 	}
 	//end of the paint method, keep track of those brackets!
 	public void move(ArrayList<Integer> a) {
-		if(((a.contains(KeyEvent.VK_LEFT)^a.contains(KeyEvent.VK_RIGHT))||(a.contains(KeyEvent.VK_UP)^a.contains(KeyEvent.VK_DOWN)))&&speed < 0.025) {
+		if((((a.contains(KeyEvent.VK_LEFT)||a.contains(KeyEvent.VK_A))^(a.contains(KeyEvent.VK_RIGHT))||a.contains(KeyEvent.VK_D))||((a.contains(KeyEvent.VK_UP)||a.contains(KeyEvent.VK_W))^(a.contains(KeyEvent.VK_DOWN)||a.contains(KeyEvent.VK_S))))&&speed < 0.025) {
 			//if(speed < 0.025) {
 				speed += 0.0002;
 			//}
-		}else if((speed >= 0.025)&&((a.contains(KeyEvent.VK_LEFT)^a.contains(KeyEvent.VK_RIGHT))||(a.contains(KeyEvent.VK_UP)^a.contains(KeyEvent.VK_DOWN)))){}else {
+		}else if((speed >= 0.025)&&(((a.contains(KeyEvent.VK_LEFT)||a.contains(KeyEvent.VK_A))^(a.contains(KeyEvent.VK_RIGHT)||a.contains(KeyEvent.VK_D)))||((a.contains(KeyEvent.VK_UP)||a.contains(KeyEvent.VK_W))^(a.contains(KeyEvent.VK_DOWN)||a.contains(KeyEvent.VK_S))||a.contains(KeyEvent.VK_S)))){}else {
 			speed = 0.0001;
 		}
 		
-		if(a.contains(KeyEvent.VK_LEFT)) {
+		if(a.contains(KeyEvent.VK_LEFT)||a.contains(KeyEvent.VK_A)) {
 			xOffset += speed/scaleFactor;
 		}
-		if(a.contains(KeyEvent.VK_RIGHT)) {
+		if(a.contains(KeyEvent.VK_RIGHT)||a.contains(KeyEvent.VK_D)) {
 			xOffset -= speed/scaleFactor;
 		}
 		
-		if(a.contains(KeyEvent.VK_UP)) {
+		if(a.contains(KeyEvent.VK_UP)||a.contains(KeyEvent.VK_W)) {
 			yOffset += speed/scaleFactor;
 		}
-		if(a.contains(KeyEvent.VK_DOWN)) {
+		if(a.contains(KeyEvent.VK_DOWN)||a.contains(KeyEvent.VK_S)) {
 			yOffset -= speed/scaleFactor;
 		}
 		
