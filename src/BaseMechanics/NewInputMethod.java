@@ -12,6 +12,7 @@ public class NewInputMethod {
 		}
 				
 		public volatile ArrayList<Integer> current;
+		public keyboardDataPkg p;
 		
 		public enum eventType{
 			PRESSED,
@@ -30,11 +31,13 @@ public class NewInputMethod {
 			if(!current.contains(new Integer(arg0.getKeyCode()))) {
 			current.add(new Integer(arg0.getKeyCode()));
 			}
+			p = new keyboardDataPkg(arg0, eventType.PRESSED);
 		}
 
 		@Override
 		public void keyReleased(KeyEvent arg0) {
 			current.remove(new Integer(arg0.getKeyCode()));
+			p = new keyboardDataPkg(arg0, eventType.RELEASED);
 		}
 
 		@Override
