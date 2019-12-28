@@ -9,6 +9,7 @@ public class NewInputMethod {
 		
 		public newKeyboardInput() {
 			this.current = new ArrayList<Integer>(0);
+			this.p = new keyboardDataPkg(Integer.MIN_VALUE, eventType.PRESSED);
 		}
 				
 		public volatile ArrayList<Integer> current;
@@ -18,12 +19,27 @@ public class NewInputMethod {
 			PRESSED,
 			RELEASED
 		}
-		public class keyboardDataPkg {
-			KeyEvent e;
-			eventType t;
-			keyboardDataPkg(KeyEvent event, eventType type){
+		public static class keyboardDataPkg {
+			public int e;
+			public eventType t;
+			public keyboardDataPkg(int event, eventType type){
 				e = event;
 				t = type;
+			}
+			
+			public keyboardDataPkg() {
+				e = Integer.MIN_VALUE;
+				t = eventType.PRESSED;
+			}
+			
+			public keyboardDataPkg(keyboardDataPkg n){
+				this.e = new Integer(n.e);
+				this.t = n.t;
+			}
+			
+			public void clear() {
+				e = Integer.MIN_VALUE;
+				t = eventType.PRESSED;
 			}
 		}
 		@Override
@@ -31,13 +47,13 @@ public class NewInputMethod {
 			if(!current.contains(new Integer(arg0.getKeyCode()))) {
 			current.add(new Integer(arg0.getKeyCode()));
 			}
-			p = new keyboardDataPkg(arg0, eventType.PRESSED);
+			p = new keyboardDataPkg(arg0.getKeyCode(), eventType.PRESSED);
 		}
 
 		@Override
 		public void keyReleased(KeyEvent arg0) {
 			current.remove(new Integer(arg0.getKeyCode()));
-			p = new keyboardDataPkg(arg0, eventType.RELEASED);
+			p = new keyboardDataPkg(arg0.getKeyCode(), eventType.RELEASED);
 		}
 
 		@Override

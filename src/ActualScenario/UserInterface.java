@@ -14,6 +14,8 @@ import com.sun.glass.events.KeyEvent;
 import BaseMechanics.AllTogether;
 import BaseMechanics.InputMethod;
 import BaseMechanics.Map;
+import BaseMechanics.NewInputMethod;
+import BaseMechanics.NewInputMethod.newKeyboardInput.keyboardDataPkg;
 import BaseMechanics.Tile;
 import BaseMechanics.Unit;
 import BaseMechanics.UserInterface.Element;
@@ -58,8 +60,12 @@ public class UserInterface extends BaseMechanics.UserInterface {
 	}
 	
 	public void update(AllTogether a) {
-		if(a.input.current.contains(KeyEvent.VK_ESCAPE)&&controlState!=ActualScenario.UserInterface.controlState.MENU){
+		if(a.input.p.e==KeyEvent.VK_ESCAPE&&a.input.p.t==NewInputMethod.newKeyboardInput.eventType.RELEASED&&controlState!=ActualScenario.UserInterface.controlState.MENU){
 			controlState = ActualScenario.UserInterface.controlState.MENU;
+			a.input.p.clear();
+		}else if(a.input.p.e==KeyEvent.VK_ESCAPE&&a.input.p.t==NewInputMethod.newKeyboardInput.eventType.RELEASED&&controlState==ActualScenario.UserInterface.controlState.MENU){
+			controlState = ActualScenario.UserInterface.controlState.MOVEMENT;
+			a.input.p.clear();
 		}
 		xsize = j.getWidth();
 		ysize = j.getHeight();
@@ -264,7 +270,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 
 		@Override
 		public void toIterateOnEachTile(AllTogether a, Tile tile, int x, int y) {
-			if(mouse.pulse){
+			if(mouse.pulse&&(controlState == ActualScenario.UserInterface.controlState.MOVEMENT||controlState == ActualScenario.UserInterface.controlState.COMBAT)){
 				//See viewport if these statements don't make sense
 				if(
 				mouse.CurrentMouseInputs[0] >= (x*a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor) +  (a.viewport.xOffset*(a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor*a.map.grid.length))
@@ -427,6 +433,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 	
 	public static class pauseMenu extends BaseMechanics.UserInterface.Element {
 		static BufferedImage pausebg;
+		static keyboardDataPkg release;
 		static {
 			try{
 				pausebg = ImageIO.read(new File("sprites/Gui/pauseBG.png"));
@@ -445,11 +452,13 @@ public class UserInterface extends BaseMechanics.UserInterface {
 
 		@Override
 		public void update(AllTogether a) {
+			release = new keyboardDataPkg(a.input.p);
 			if(controlState == ActualScenario.UserInterface.controlState.MENU) {
 				if(mouse.pulse) {
 					
-				}else if(mouse.rightPulse) {
-					controlState = ActualScenario.UserInterface.controlState.MOVEMENT;
+				}else if(mouse.rightPulse||(release.e==KeyEvent.VK_ESCAPE&&release.t==NewInputMethod.newKeyboardInput.eventType.PRESSED&&a.input.current.contains(KeyEvent.VK_ESCAPE))) {
+				//	controlState = ActualScenario.UserInterface.controlState.MOVEMENT;
+				//	a.input.p = new keyboardDataPkg();
 				}
 			}
 		}
