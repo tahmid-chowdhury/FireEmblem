@@ -65,7 +65,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			a.input.p.clear();
 		}else if(a.input.p.e==KeyEvent.VK_ESCAPE&&a.input.p.t==NewInputMethod.newKeyboardInput.eventType.RELEASED&&controlState==ActualScenario.UserInterface.controlState.MENU){
 			controlState = ActualScenario.UserInterface.controlState.MOVEMENT;
-			a.input.p.clear();
+			a.input.p.clear();	
 		}
 		xsize = j.getWidth();
 		ysize = j.getHeight();
