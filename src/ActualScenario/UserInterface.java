@@ -467,8 +467,8 @@ public class UserInterface extends BaseMechanics.UserInterface {
 						System.exit(0);
 					}
 				}else if(mouse.rightPulse||(release.e==KeyEvent.VK_ESCAPE&&release.t==NewInputMethod.newKeyboardInput.eventType.PRESSED&&a.input.current.contains(KeyEvent.VK_ESCAPE))) {
-					controlState = ActualScenario.UserInterface.controlState.MOVEMENT;
-					a.input.p.clear();
+				//	controlState = ActualScenario.UserInterface.controlState.MOVEMENT;
+				//	a.input.p.clear();
 				}
 			}
 		}
