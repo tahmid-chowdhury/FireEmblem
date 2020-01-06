@@ -31,11 +31,13 @@ public class UserInterface extends BaseMechanics.UserInterface {
 	static controlState controlState;
 	static int player1Authority;
 	static int player2Authority;
+	static BaseMechanics.drawText.font basicFont;
 	
 	static {
 		player1Authority = 0;
 		player2Authority = 0;
 		controlState = ActualScenario.UserInterface.controlState.MOVEMENT;
+		basicFont = new Fonts.basicFont();
 	}
 	
 	static double xsize;
@@ -622,6 +624,8 @@ public class UserInterface extends BaseMechanics.UserInterface {
 				if(controlState==ActualScenario.UserInterface.controlState.COMBAT){
 					g.setColor(Color.RED);
 					g.drawRect((int)(a.parentFrame.getWidth()*0.02), (int)(a.parentFrame.getHeight()*0.87), a.parentFrame.getWidth(), a.parentFrame.getHeight());
+					
+					BaseMechanics.drawText.drawUnbounded(g, "holy shit look at the top of his head", 69, 69, basicFont);
 				}
 				
 			}
