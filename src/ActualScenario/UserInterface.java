@@ -625,7 +625,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 					g.setColor(Color.RED);
 					g.drawRect((int)(a.parentFrame.getWidth()*0.02), (int)(a.parentFrame.getHeight()*0.87), a.parentFrame.getWidth(), a.parentFrame.getHeight());
 					
-					BaseMechanics.drawText.drawUnbounded(g, "holy shit look at the top of his head", 69, 69, basicFont);
+					BaseMechanics.drawText.drawInBoundedBox(g, "holy shit look at the top of his head", 69, 69, 512, 512, basicFont);
 				}
 				
 			}
