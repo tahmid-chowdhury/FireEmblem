@@ -600,12 +600,15 @@ public class UserInterface extends BaseMechanics.UserInterface {
 					}
 				}
 				
+				g.setColor(Color.gray);
+				g.fillRect((int)(a.parentFrame.getWidth()*0.8), (int)(a.parentFrame.getHeight()*0.8), 999, 999);
+				
+				
 			}
 	
 			@Override
 			public void update(AllTogether a) {
-				// TODO Auto-generated method stub
-
+				
 			}
 
 			@Override
