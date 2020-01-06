@@ -433,11 +433,12 @@ public class UserInterface extends BaseMechanics.UserInterface {
 	
 	public static class pauseMenu extends BaseMechanics.UserInterface.Element {
 		static BufferedImage pausebg;
+		static BufferedImage pauseButton;
 		static keyboardDataPkg release;
 		static {
 			try{
 				pausebg = ImageIO.read(new File("sprites/Gui/pauseBG.png"));
-
+				pauseButton = ImageIO.read(new File("sprites/Gui/exit.png"));
 			}catch(Exception e){
 				
 			}
@@ -447,6 +448,9 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		public void paint(Graphics2D g, AllTogether a) {
 			if(controlState == ActualScenario.UserInterface.controlState.MENU) {
 				g.drawImage(pausebg, 0, 0, a.parentFrame.getWidth(), a.parentFrame.getHeight(), 0, 0, pausebg.getWidth(), pausebg.getHeight(), null);
+				g.drawImage(pauseButton, 0, a.parentFrame.getHeight()-pauseButton.getHeight(), pauseButton.getWidth(), a.parentFrame.getHeight(), 
+						
+						0, 0, pauseButton.getWidth(), pauseButton.getHeight(), null);
 			}
 		}
 
@@ -455,10 +459,16 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			release = new keyboardDataPkg(a.input.p);
 			if(controlState == ActualScenario.UserInterface.controlState.MENU) {
 				if(mouse.pulse) {
-					
+					if(mouse.CurrentMouseInputs[0] >= 0&&
+						mouse.CurrentMouseInputs[0] <= pauseButton.getWidth()&&
+						mouse.CurrentMouseInputs[1] >= a.parentFrame.getHeight()-pauseButton.getHeight()&&
+						mouse.CurrentMouseInputs[1] <= a.parentFrame.getHeight()
+							){
+						System.exit(0);
+					}
 				}else if(mouse.rightPulse||(release.e==KeyEvent.VK_ESCAPE&&release.t==NewInputMethod.newKeyboardInput.eventType.PRESSED&&a.input.current.contains(KeyEvent.VK_ESCAPE))) {
-				//	controlState = ActualScenario.UserInterface.controlState.MOVEMENT;
-				//	a.input.p = new keyboardDataPkg();
+					controlState = ActualScenario.UserInterface.controlState.MOVEMENT;
+					a.input.p.clear();
 				}
 			}
 		}
