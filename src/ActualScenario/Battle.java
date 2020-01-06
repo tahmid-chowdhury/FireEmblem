@@ -17,7 +17,7 @@ public class Battle {
 		
 		JFrame test = new JFrame("光へ");
 		
-		BaseMechanics.Map m = new Maps.OuterField();
+		BaseMechanics.Map m = new BetterMaps.Plains();
 		
 		newKeyboardInput i = new newKeyboardInput();
 		BaseMechanics.InputMethod.Mouse mu = new BaseMechanics.InputMethod.Mouse();
