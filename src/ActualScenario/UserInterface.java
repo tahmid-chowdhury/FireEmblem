@@ -620,7 +620,8 @@ public class UserInterface extends BaseMechanics.UserInterface {
 				}
 				
 				if(controlState==ActualScenario.UserInterface.controlState.COMBAT){
-					
+					g.setColor(Color.RED);
+					g.drawRect((int)(a.parentFrame.getWidth()*0.02), (int)(a.parentFrame.getHeight()*0.87), a.parentFrame.getWidth(), a.parentFrame.getHeight());
 				}
 				
 			}
