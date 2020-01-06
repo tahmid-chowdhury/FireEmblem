@@ -49,11 +49,11 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		super();
 		xsize = f.getWidth();
 		ysize = f.getHeight();
-		this.elements.add(new pauseMenu());
 		this.elements.add(new mouseGrid());
 		this.elements.add(new unitInfo());
 		this.elements.add(new TurnLogicContainer.TurnLogicDisplay());
 		this.elements.add(new TurnLogicContainer.AttackLogic());
+	//	this.elements.add(new pauseMenu());
 	//	this.elements.add(new border());
 		j = f;
 		mouse = m;
@@ -533,6 +533,15 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			public void paint(Graphics2D g, AllTogether a) {
 				g.setColor(Color.MAGENTA);
 				g.drawString("Controlling Player: "+currentUser+" Turn Number: "+turnCount+" Control State: "+controlState, 69, 128);
+			
+				g.setColor(Color.gray);
+				g.fillRect(0, (int)(a.parentFrame.getHeight()*0.75), 9999, 9999);
+				g.fillRect((int)(a.parentFrame.getWidth()*0.75), 0, 9999, 9999);
+				g.fillRect(0, 0, (int)(a.parentFrame.getWidth()*0.02), a.parentFrame.getHeight());
+				g.fillRect(0, 0, a.parentFrame.getHeight(), (int)(a.parentFrame.getWidth()*0.02));
+				
+				g.drawImage(pauseMenu.pauseButton, a.parentFrame.getWidth()-pauseMenu.pauseButton.getWidth(), a.parentFrame.getHeight()-pauseMenu.pauseButton.getHeight(), a.parentFrame.getWidth(), a.parentFrame.getHeight(), 0, 0, pauseMenu.pauseButton.getWidth(), pauseMenu.pauseButton.getHeight(), null);
+
 			}
 
 			@Override
@@ -548,8 +557,18 @@ public class UserInterface extends BaseMechanics.UserInterface {
 					controlState = ActualScenario.UserInterface.controlState.MOVEMENT;
 				}else if(a.input.current.contains(KeyEvent.VK_2)) {
 					controlState = ActualScenario.UserInterface.controlState.COMBAT;
-				}else if(a.input.current.contains(KeyEvent.VK_3)) {
+				}/*else if(a.input.current.contains(KeyEvent.VK_3)) {
 					controlState = ActualScenario.UserInterface.controlState.MENU;
+				}*/
+				
+				if(mouse.pulse){
+					if(mouse.CurrentMouseInputs[0] <= a.parentFrame.getWidth()&&
+						mouse.CurrentMouseInputs[0] >= a.parentFrame.getWidth()-pauseMenu.pauseButton.getWidth()&&
+						mouse.CurrentMouseInputs[1] <= a.parentFrame.getHeight()&&
+						mouse.CurrentMouseInputs[1] >= a.parentFrame.getHeight()-pauseMenu.pauseButton.getHeight()
+							){
+						System.exit(0);
+					}
 				}
 			}
 
@@ -600,9 +619,9 @@ public class UserInterface extends BaseMechanics.UserInterface {
 					}
 				}
 				
-				g.setColor(Color.gray);
-				g.fillRect((int)(a.parentFrame.getWidth()*0.8), (int)(a.parentFrame.getHeight()*0.8), 999, 999);
-				
+				if(controlState==ActualScenario.UserInterface.controlState.COMBAT){
+					
+				}
 				
 			}
 	
