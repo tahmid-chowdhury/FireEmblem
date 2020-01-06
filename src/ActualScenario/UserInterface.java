@@ -433,6 +433,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 	
 	public static class pauseMenu extends BaseMechanics.UserInterface.Element {
 		static BufferedImage pausebg;
+		static BufferedImage pauseButton;
 		static keyboardDataPkg release;
 		static {
 			try{
@@ -447,6 +448,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		public void paint(Graphics2D g, AllTogether a) {
 			if(controlState == ActualScenario.UserInterface.controlState.MENU) {
 				g.drawImage(pausebg, 0, 0, a.parentFrame.getWidth(), a.parentFrame.getHeight(), 0, 0, pausebg.getWidth(), pausebg.getHeight(), null);
+				g.drawImage(pauseButton, 0, a.parentFrame.getHeight()-pauseButton.getHeight(), pauseButton.getWidth(), a.parentFrame.getHeight(), 0, 0, pauseButton.getWidth(), pauseButton.getHeight(), null);
 			}
 		}
 
