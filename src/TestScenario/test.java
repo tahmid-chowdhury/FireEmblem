@@ -8,6 +8,8 @@ import java.util.TimerTask;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
+import BaseMechanics.NewInputMethod.newKeyboardInput;
+
 public class test {
 	public static void main(String[] args){
 		System.out.print("test\n");
@@ -16,13 +18,13 @@ public class test {
 		
 		BaseMechanics.Map m = new testMap();
 		
-		BaseMechanics.InputMethod.Keyboard1 i = new BaseMechanics.InputMethod.Keyboard1();
+		newKeyboardInput i = new newKeyboardInput();
 		
 		BaseMechanics.UserInterface ui = new testUserInterface();
 		
 		BaseMechanics.GameLogic gl = new testLogic();
 		
-		BaseMechanics.AllTogether viewTest = new BaseMechanics.AllTogether(m, ui, i, gl);
+		BaseMechanics.AllTogether viewTest = new BaseMechanics.AllTogether(m, ui, i, gl, test);
 		
 		test.add(viewTest);
 		test.setSize(640, 480);

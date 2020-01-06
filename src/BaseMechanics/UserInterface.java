@@ -33,8 +33,24 @@ public class UserInterface {
 		}
 	}
 	
+	public void tileIterate(AllTogether a) {
+		if(!elements.isEmpty()){
+				for(int x = 0; x < a.map.grid.length; x++) {
+					for(int y = 0; y < a.map.grid[x].length; y++) {
+						for(Element e: elements){
+							e.toIterateOnEachTile(a, a.map.grid[x][y], x, y);
+						}
+					}
+				}
+			
+		}else{
+			System.out.print("No elements in interface array to iterate on!\n");
+		}
+	}
+	
 	public static abstract class Element extends JComponent {
 		public abstract void paint(Graphics2D g, AllTogether a);
 		public abstract void update(AllTogether a);
+		public abstract void toIterateOnEachTile(AllTogether a, Tile tile, int x, int y);
 	}
 }

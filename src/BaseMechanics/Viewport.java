@@ -3,10 +3,15 @@ package BaseMechanics;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
+import com.sun.glass.events.KeyEvent;
+
 import ActualScenario.Tiles;
+import BaseMechanics.NewInputMethod.newKeyboardInput.eventType;
+import BaseMechanics.NewInputMethod.newKeyboardInput.keyboardDataPkg;
 
 public class Viewport{
 	protected Map map;
@@ -86,38 +91,42 @@ public class Viewport{
 		}
 	}
 	//end of the paint method, keep track of those brackets!
-	public void move(boolean[] a) {
-		if(((a[6]^a[9])||(a[7]^a[8]))&&speed < 0.025) {
+	public void move(ArrayList<Integer> a) {
+		if((((a.contains(KeyEvent.VK_LEFT)||a.contains(KeyEvent.VK_A))^(a.contains(KeyEvent.VK_RIGHT))||a.contains(KeyEvent.VK_D))||((a.contains(KeyEvent.VK_UP)||a.contains(KeyEvent.VK_W))^(a.contains(KeyEvent.VK_DOWN)||a.contains(KeyEvent.VK_S))))&&speed < 0.025) {
 			//if(speed < 0.025) {
 				speed += 0.0002;
 			//}
-		}else if((speed >= 0.025)&&((a[6]^a[9])||(a[7]^a[8]))){}else {
+		}else if((speed >= 0.025)&&(((a.contains(KeyEvent.VK_LEFT)||a.contains(KeyEvent.VK_A))^(a.contains(KeyEvent.VK_RIGHT)||a.contains(KeyEvent.VK_D)))||((a.contains(KeyEvent.VK_UP)||a.contains(KeyEvent.VK_W))^(a.contains(KeyEvent.VK_DOWN)||a.contains(KeyEvent.VK_S))||a.contains(KeyEvent.VK_S)))){}else {
 			speed = 0.0001;
 		}
 		
-		if(a[6]) {
+		if(a.contains(KeyEvent.VK_LEFT)||a.contains(KeyEvent.VK_A)) {
 			xOffset += speed/scaleFactor;
 		}
-		if(a[9]) {
+		if(a.contains(KeyEvent.VK_RIGHT)||a.contains(KeyEvent.VK_D)) {
 			xOffset -= speed/scaleFactor;
 		}
 		
-		if(a[7]) {
+		if(a.contains(KeyEvent.VK_UP)||a.contains(KeyEvent.VK_W)) {
 			yOffset += speed/scaleFactor;
 		}
-		if(a[8]) {
+		if(a.contains(KeyEvent.VK_DOWN)||a.contains(KeyEvent.VK_S)) {
 			yOffset -= speed/scaleFactor;
 		}
 		
-		if(scaleFactor > 0.25&&a[0]) {
+		if(scaleFactor >= 0.25&&a.contains(KeyEvent.VK_Z)) {
 				scaleFactor -= 0.01;
+		}else if(scaleFactor < 0.25) {
+			scaleFactor = 0.25;
 		}
 		
-		if(a[1]&&scaleFactor < 4) {
+		if(a.contains(KeyEvent.VK_X)&&scaleFactor <= 4) {
 			scaleFactor += 0.01;
 			/*if(scaleFactor > 4) {
 				scaleFactor = 4;
 			}*/
+		}else if(scaleFactor > 4) {
+			scaleFactor = 4;
 		}
 
 	}

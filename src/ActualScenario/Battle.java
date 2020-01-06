@@ -8,6 +8,7 @@ import java.util.TimerTask;
 
 import javax.swing.JFrame;
 
+import BaseMechanics.NewInputMethod.newKeyboardInput;
 import TestScenario.testMap;
 
 public class Battle {
@@ -18,13 +19,13 @@ public class Battle {
 		
 		BaseMechanics.Map m = new Maps.OuterField();
 		
-		BaseMechanics.InputMethod.Keyboard1 i = new BaseMechanics.InputMethod.Keyboard1();
+		newKeyboardInput i = new newKeyboardInput();
 		BaseMechanics.InputMethod.Mouse mu = new BaseMechanics.InputMethod.Mouse();
 		
 		BaseMechanics.UserInterface ui = new ActualScenario.UserInterface(test, mu);
 		BaseMechanics.GameLogic gl = new Logic();
 		
-		BaseMechanics.AllTogether viewTest = new BaseMechanics.AllTogether(m, ui, i, gl);
+		BaseMechanics.AllTogether viewTest = new BaseMechanics.AllTogether(m, ui, i, gl, test);
 		
 		GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 		

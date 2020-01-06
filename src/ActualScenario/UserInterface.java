@@ -8,19 +8,34 @@ import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
+
+import com.sun.glass.events.KeyEvent;
+
 import BaseMechanics.AllTogether;
 import BaseMechanics.InputMethod;
 import BaseMechanics.Map;
+import BaseMechanics.NewInputMethod;
+import BaseMechanics.NewInputMethod.newKeyboardInput.keyboardDataPkg;
+import BaseMechanics.Tile;
+import BaseMechanics.Unit;
 import BaseMechanics.UserInterface.Element;
 
 public class UserInterface extends BaseMechanics.UserInterface {
 	
+	public enum controlState{
+		MOVEMENT,
+		COMBAT,
+		MENU
+	}
+	
+	static controlState controlState;
 	static int player1Authority;
 	static int player2Authority;
 	
 	static {
 		player1Authority = 0;
 		player2Authority = 0;
+		controlState = ActualScenario.UserInterface.controlState.MOVEMENT;
 	}
 	
 	static double xsize;
@@ -34,6 +49,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		super();
 		xsize = f.getWidth();
 		ysize = f.getHeight();
+		this.elements.add(new pauseMenu());
 		this.elements.add(new mouseGrid());
 		this.elements.add(new unitInfo());
 		this.elements.add(new TurnLogicContainer.TurnLogicDisplay());
@@ -44,8 +60,12 @@ public class UserInterface extends BaseMechanics.UserInterface {
 	}
 	
 	public void update(AllTogether a) {
-		if(a.input.returnInputs()[10]){
-			System.exit(0);
+		if(a.input.p.e==KeyEvent.VK_ESCAPE&&a.input.p.t==NewInputMethod.newKeyboardInput.eventType.RELEASED&&controlState!=ActualScenario.UserInterface.controlState.MENU){
+			controlState = ActualScenario.UserInterface.controlState.MENU;
+			a.input.p.clear();
+		}else if(a.input.p.e==KeyEvent.VK_ESCAPE&&a.input.p.t==NewInputMethod.newKeyboardInput.eventType.RELEASED&&controlState==ActualScenario.UserInterface.controlState.MENU){
+			controlState = ActualScenario.UserInterface.controlState.MOVEMENT;
+			a.input.p.clear();	
 		}
 		xsize = j.getWidth();
 		ysize = j.getHeight();
@@ -143,6 +163,12 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			// TODO Auto-generated method stub
 			
 		}
+
+		@Override
+		public void toIterateOnEachTile(AllTogether a, Tile tile, int x, int y) {
+			// TODO Auto-generated method stub
+			
+		}
 		
 	}
 	
@@ -176,7 +202,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		@Override
 		public void update(AllTogether a) {
 					
-		if(mouse.pulse){	
+		/*if(mouse.pulse){	
 			for(int x = 0; x < a.map.grid.length; x++) {
 				for(int y = 0; y < a.map.grid[x].length; y++) {
 							//See viewport if these statements don't make sense
@@ -237,9 +263,69 @@ public class UserInterface extends BaseMechanics.UserInterface {
 							}
 					}
 				}
-		}
+		}	*/
 		mouse.genericUpdate();
 
+		}
+
+		@Override
+		public void toIterateOnEachTile(AllTogether a, Tile tile, int x, int y) {
+			if(mouse.pulse&&(controlState == ActualScenario.UserInterface.controlState.MOVEMENT||controlState == ActualScenario.UserInterface.controlState.COMBAT)){
+				//See viewport if these statements don't make sense
+				if(
+				mouse.CurrentMouseInputs[0] >= (x*a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor) +  (a.viewport.xOffset*(a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor*a.map.grid.length))
+				&&		
+				mouse.CurrentMouseInputs[0] <= (x*a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor + a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor) + (a.viewport.xOffset*(a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor*a.map.grid.length))
+				&&
+				mouse.CurrentMouseInputs[1] >= (y*a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor) +  (a.viewport.yOffset*(a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor*a.map.grid[x].length))
+				&&
+				mouse.CurrentMouseInputs[1] <= (y*a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor + a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor) +  (a.viewport.yOffset*(a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor*a.map.grid[x].length))
+					){
+					a.map.grid[x][y].isHighlighted = !a.map.grid[x][y].isHighlighted;
+					
+					for(int x2 = 0; x2 < a.map.grid.length; x2++) {
+						for(int y2 = 0; y2 < a.map.grid[x].length; y2++) {
+							if(a.map.grid[x2][y2].isHighlighted&&(x2!=x||y2!=y)){
+								a.map.grid[x2][y2].isHighlighted = false;
+							}
+						}
+					}
+				}
+			}
+			
+			if(mouse.rightPulse&&controlState == ActualScenario.UserInterface.controlState.MOVEMENT){
+				//See viewport if these statements don't make sense
+				if(
+				mouse.CurrentMouseInputs[0] >= (x*a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor) +  (a.viewport.xOffset*(a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor*a.map.grid.length))
+				&&		
+				mouse.CurrentMouseInputs[0] <= (x*a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor + a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor) + (a.viewport.xOffset*(a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor*a.map.grid.length))
+				&&
+				mouse.CurrentMouseInputs[1] >= (y*a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor) +  (a.viewport.yOffset*(a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor*a.map.grid[x].length))
+				&&
+				mouse.CurrentMouseInputs[1] <= (y*a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor + a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor) +  (a.viewport.yOffset*(a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor*a.map.grid[x].length))
+				
+					){
+					for(int x2 = 0; x2 < a.map.grid.length; x2++) {
+						for(int y2 = 0; y2 < a.map.grid[x].length; y2++) {
+							if(a.map.grid[x2][y2].isHighlighted
+								&&a.map.grid[x2][y2].occupyingUnit!=null
+								&&a.map.grid[x2][y2].occupyingUnit.hasMovedThisTurn == false
+								&&a.map.grid[x][y].occupyingUnit==null
+								//Wait, But I'm not done yet!
+								&&
+								(TurnLogicContainer.currentUser == a.map.grid[x2][y2].occupyingUnit.team||God)
+									){
+								a.map.grid[x2][y2].occupyingUnit.hasMovedThisTurn = true;
+								a.map.move(x2, y2, x, y);
+								a.map.grid[x2][y2].isHighlighted = false;
+								a.map.grid[x][y].isHighlighted = true;
+							}
+						}
+					}
+				}
+				
+			}
+		
 		}
 		
 	}
@@ -284,7 +370,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 				g.drawString("Unit ID:"+toRead.getClass().toString(), 69, 178);
 				
 				//Drawing the area that the character can move
-				for(int x = 0; x < a.map.grid.length; x++){
+				for(int x = 0; x < a.map.grid.length; x++){ 
 					for(int y = 0; y < a.map.grid[x].length; y++){
 						if(a.map.grid[x][y].occupyingUnit == toRead&&!a.map.grid[x][y].occupyingUnit.hasMovedThisTurn){
 							for(int x2 = 0; x2 < a.map.grid.length; x2++){
@@ -322,7 +408,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 
 		@Override
 		public void update(AllTogether a) {
-			for(int x = 0; x < a.map.grid.length; x++){
+			/*for(int x = 0; x < a.map.grid.length; x++){
 				for(int y = 0; y < a.map.grid[x].length; y++){
 					if(a.map.grid[x][y].occupyingUnit != null&&a.map.grid[x][y].isHighlighted){
 						toRead = a.map.grid[x][y].occupyingUnit;
@@ -330,7 +416,57 @@ public class UserInterface extends BaseMechanics.UserInterface {
 						toRead = null;
 					}
 				}
+			}*/
+		}
+
+		@Override
+		public void toIterateOnEachTile(AllTogether a, Tile tile, int x, int y) {
+			// TODO Auto-generated method stub
+			if(a.map.grid[x][y].occupyingUnit != null&&a.map.grid[x][y].isHighlighted){
+				toRead = a.map.grid[x][y].occupyingUnit;
+			}else if(a.map.grid[x][y].isHighlighted){
+				toRead = null;
 			}
+		}
+		
+	}
+	
+	public static class pauseMenu extends BaseMechanics.UserInterface.Element {
+		static BufferedImage pausebg;
+		static keyboardDataPkg release;
+		static {
+			try{
+				pausebg = ImageIO.read(new File("sprites/Gui/pauseBG.png"));
+
+			}catch(Exception e){
+				
+			}
+		}
+		
+		@Override
+		public void paint(Graphics2D g, AllTogether a) {
+			if(controlState == ActualScenario.UserInterface.controlState.MENU) {
+				g.drawImage(pausebg, 0, 0, a.parentFrame.getWidth(), a.parentFrame.getHeight(), 0, 0, pausebg.getWidth(), pausebg.getHeight(), null);
+			}
+		}
+
+		@Override
+		public void update(AllTogether a) {
+			release = new keyboardDataPkg(a.input.p);
+			if(controlState == ActualScenario.UserInterface.controlState.MENU) {
+				if(mouse.pulse) {
+					
+				}else if(mouse.rightPulse||(release.e==KeyEvent.VK_ESCAPE&&release.t==NewInputMethod.newKeyboardInput.eventType.PRESSED&&a.input.current.contains(KeyEvent.VK_ESCAPE))) {
+				//	controlState = ActualScenario.UserInterface.controlState.MOVEMENT;
+				//	a.input.p = new keyboardDataPkg();
+				}
+			}
+		}
+
+		@Override
+		public void toIterateOnEachTile(AllTogether a, Tile tile, int x, int y) {
+			// TODO Auto-generated method stub
+			
 		}
 		
 	}
@@ -349,6 +485,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 	public static class TurnLogicContainer{
 		static BaseMechanics.Unit.Team currentUser;
 		static int turnCount;
+		static Unit selected;
 		
 		static{
 			reset();
@@ -385,17 +522,31 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			@Override
 			public void paint(Graphics2D g, AllTogether a) {
 				g.setColor(Color.MAGENTA);
-				g.drawString("Controlling Player: "+currentUser+" Turn Number: "+turnCount, 69, 128);
+				g.drawString("Controlling Player: "+currentUser+" Turn Number: "+turnCount+" Control State: "+controlState, 69, 128);
 			}
 
 			@Override
 			public void update(AllTogether a) {
-				if(a.input.returnInputs()[5]&&!changeControl){
+				if(a.input.current.contains(KeyEvent.VK_ENTER)&&!changeControl){
 					changeControl = true;
 					advanceTurn(a);
-				}else if(!a.input.returnInputs()[5]){
+				}else if(!a.input.current.contains(KeyEvent.VK_ENTER)){
 					changeControl = false;
 				}
+				
+				if(a.input.current.contains(KeyEvent.VK_1)) {
+					controlState = ActualScenario.UserInterface.controlState.MOVEMENT;
+				}else if(a.input.current.contains(KeyEvent.VK_2)) {
+					controlState = ActualScenario.UserInterface.controlState.COMBAT;
+				}else if(a.input.current.contains(KeyEvent.VK_3)) {
+					controlState = ActualScenario.UserInterface.controlState.MENU;
+				}
+			}
+
+			@Override
+			public void toIterateOnEachTile(AllTogether a, Tile tile, int x, int y) {
+				// TODO Auto-generated method stub
+				
 			}
 			
 		}
@@ -414,27 +565,46 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			@Override
 			public void paint(Graphics2D g, AllTogether a) {
 				// TODO Auto-generated method stub
+				g.setColor(Color.GREEN);
+				if(selected!=null) {
+					g.drawString(selected.toString(), 256, 59);
+					if(selected.attacks!=null) {
+						for(int n = 0; n < selected.attacks.length; n++) {
+							g.drawString(selected.attacks[n].name, 256, 69+(n*10));
+						}
+					}
+				}
 				for(int x = 0; x < a.map.grid.length; x++){
 					for(int y = 0; y < a.map.grid[x].length; y++){
 						if(a.map.grid[x][y].occupyingUnit!=null){
-						if(a.map.grid[x][y].occupyingUnit.team == currentUser&&a.map.grid[x][y].isHighlighted){
-							for(int x2 = 0; x2 < a.map.grid.length; x2++){
-								for(int y2 = 0; y2 < a.map.grid[x].length; y2++){
-									if(a.map.checkAttack(x, y, x2, y2)){
-										drawArbritaryTile(a, x2, y2, attack, g);
+							if(a.map.grid[x][y].occupyingUnit.team == currentUser&&a.map.grid[x][y].isHighlighted){
+								for(int x2 = 0; x2 < a.map.grid.length; x2++){
+									for(int y2 = 0; y2 < a.map.grid[x].length; y2++){
+										if(a.map.checkAttack(x, y, x2, y2)){
+											drawArbritaryTile(a, x2, y2, attack, g);
+										}
 									}
 								}
 							}
 						}
 					}
-					}
 				}
+				
 			}
 	
 			@Override
 			public void update(AllTogether a) {
 				// TODO Auto-generated method stub
 
+			}
+
+			@Override
+			public void toIterateOnEachTile(AllTogether a, Tile tile, int x, int y) {
+				if(tile.occupyingUnit!=null&&tile.isHighlighted) {
+					selected = tile.occupyingUnit;
+				}else if(tile.isHighlighted){
+					selected = null;
+				}
 			}
 			
 		}

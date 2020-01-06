@@ -31,6 +31,7 @@ public abstract class Unit {
 	
 	//His Majesty's Royal Banter Battalion
 	public static abstract class Attack {
+		public String name;
 		double range;
 		double areaOfEffect;
 		int authorityThreshold;
@@ -45,9 +46,10 @@ public abstract class Unit {
 			RANGED,
 			MELEE
 		}
+		public abstract int calcDamage(Unit target);
 	}
 	
-	public int calcDamage(Attack attack, Unit target){
+/*	public int calcDamage(Attack attack, Unit target){
 		switch (target.type){
 		case TYPELESS:
 			return (int) (attack.baseDamage+(attack.baseDamage*((double)authorityLevel/10)));
@@ -58,7 +60,7 @@ public abstract class Unit {
 		default:
 			return attack.baseDamage;
 		}
-	}
+	}	*/
 	
 	
 	//Stuff for drawing the Sprite
