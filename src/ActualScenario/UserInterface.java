@@ -537,11 +537,11 @@ public class UserInterface extends BaseMechanics.UserInterface {
 				g.setColor(Color.MAGENTA);
 				g.drawString("Controlling Player: "+currentUser+" Turn Number: "+turnCount+" Control State: "+controlState, 69, 128);
 			
-			/*	g.setColor(Color.gray);
+				g.setColor(Color.gray);
 				g.fillRect(0, (int)(a.parentFrame.getHeight()*0.75), 9999, 9999);
 				g.fillRect((int)(a.parentFrame.getWidth()*0.75), 0, 9999, 9999);
 				g.fillRect(0, 0, (int)(a.parentFrame.getWidth()*0.02), a.parentFrame.getHeight());
-				g.fillRect(0, 0, a.parentFrame.getHeight(), (int)(a.parentFrame.getWidth()*0.02));*/
+				g.fillRect(0, 0, a.parentFrame.getHeight(), (int)(a.parentFrame.getWidth()*0.02));
 				
 				g.drawImage(pauseMenu.pauseButton, a.parentFrame.getWidth()-pauseMenu.pauseButton.getWidth(), a.parentFrame.getHeight()-pauseMenu.pauseButton.getHeight(), a.parentFrame.getWidth(), a.parentFrame.getHeight(), 0, 0, pauseMenu.pauseButton.getWidth(), pauseMenu.pauseButton.getHeight(), null);
 
@@ -589,7 +589,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			char scrollTestchar;
 			static BufferedImage attack;
 			static{
-				scrollTest = new BaseMechanics.drawText.infiniteScroller(768, 768, 1080, 1080);
+				scrollTest = new BaseMechanics.drawText.infiniteScroller(768, 768, 1500, 1500);
 				try{
 					attack = ImageIO.read(new File("sprites/Gui/target.png"));
 
