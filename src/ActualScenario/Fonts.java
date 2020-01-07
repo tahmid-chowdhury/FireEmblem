@@ -89,7 +89,7 @@ public class Fonts {
 				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/period.png")), '.'));
 				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/colon.png")), ':'));
 				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/exclaim.png")), '!'));
-				
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/comma.png")), ','));
 				
 			} catch (IOException e) {
 				// TODO Auto-generated catch block

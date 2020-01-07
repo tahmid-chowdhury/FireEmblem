@@ -381,6 +381,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		public static void advanceTurn(AllTogether a){
 			if(currentUser == BaseMechanics.Unit.Team.PLAYER1){
 				currentUser = BaseMechanics.Unit.Team.PLAYER2;
+				AttackLogic.log("Please pass the controls to player two.");
 			}else if(currentUser == BaseMechanics.Unit.Team.PLAYER2){
 				currentUser = BaseMechanics.Unit.Team.PLAYER1;
 				for(int x = 0; x < a.map.grid.length; x++){
@@ -392,6 +393,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 					}
 				}
 				++turnCount;
+				AttackLogic.log("Turn advanced. It is now turn "+((turnCount/2)+1)+" Please pass control back to player one.");
 			}
 		}
 		
@@ -509,7 +511,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 	
 			@Override
 			public void update(AllTogether a) {
-				if((char)a.input.p.e!=scrollTestchar) {
+				if((char)a.input.p.e!=scrollTestchar&&debug) {
 					scrollTest.addItem("button pressed with id "+a.input.p.e, basicFont);
 					scrollTestchar = (char) a.input.p.e;
 				}
