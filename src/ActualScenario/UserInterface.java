@@ -237,7 +237,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 				drawText.drawUnbounded(g, "Speed:"+toRead.speed, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05), basicFont);
 				drawText.drawUnbounded(g, "Type:"+toRead.type, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+22, basicFont);
 				drawText.drawUnbounded(g, "Health:"+toRead.health, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+44, basicFont);
-				drawText.drawUnbounded(g, "Team:"+toRead.health, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+66, basicFont);
+				drawText.drawUnbounded(g, "Team:"+toRead.team, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+66, basicFont);
 
 				//Drawing the area that the character can move
 				for(int x = 0; x < a.map.grid.length; x++){ 
@@ -504,7 +504,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 					g.setColor(Color.RED);
 					g.drawRect((int)(a.parentFrame.getWidth()*0.02), (int)(a.parentFrame.getHeight()*0.87), a.parentFrame.getWidth(), a.parentFrame.getHeight());
 					
-					BaseMechanics.drawText.drawInBoundedBox(g, "longertest longertest longertest longertest longertest longertest longertest longertest longertest longertest longertest", 69, 69, 512, 512, basicFont);
+				//	BaseMechanics.drawText.drawInBoundedBox(g, "longertest longertest longertest longertest longertest longertest longertest longertest longertest longertest longertest", 69, 69, 512, 512, basicFont);
 				}
 				
 			}
