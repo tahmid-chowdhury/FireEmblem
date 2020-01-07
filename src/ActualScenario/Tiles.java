@@ -177,8 +177,8 @@ public class Tiles extends BaseMechanics.Tile {
 		}
 	}
 	
-	public static class StoneTile extends BaseMechanics.Tile {
-		public StoneTile() {
+	public static class Stone extends BaseMechanics.Tile {
+		public Stone() {
 			
 			super();
 
@@ -188,7 +188,7 @@ public class Tiles extends BaseMechanics.Tile {
 			 tall = false;			
 			//Drawing Stuff
 			 try {
-				sprite = ImageIO.read(new File(/*benis*/"sprites/land/someStone.png"));
+				sprite = ImageIO.read(new File(/*benis*/"sprites/land/rock.png"));
 				highlight = ImageIO.read(new File("sprites/Gui/selector.png"));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
