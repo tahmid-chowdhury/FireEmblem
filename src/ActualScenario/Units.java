@@ -14,6 +14,7 @@ public class Units {
 			this.sprites = new BufferedImage[2];
 			this.speed = 3.5;
 			this.type = Unit.Type.RANGED;
+			this.name = "base ranger";
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/mbody1.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/mhead1.png"));
@@ -50,6 +51,7 @@ public class Units {
 			this.sprites = new BufferedImage[2];
 			this.speed = 1.5;
 			this.type = Unit.Type.MAGIC;
+			this.name = "base mage";
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/fbody1.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/fhead1.png"));
@@ -84,6 +86,7 @@ public class Units {
 			this.sprites = new BufferedImage[3];
 			this.speed = 2;
 			this.type = Unit.Type.MELEE;
+			this.name = "base assassin";
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/fbody3.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/fhead3.png"));
@@ -136,6 +139,7 @@ public class Units {
 			this.sprites = new BufferedImage[2];
 			this.speed = 2;
 			this.type = Unit.Type.SPECIAL;
+			this.name = "muscle wizard";
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/mbody2.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/mhead2.png"));
@@ -170,6 +174,7 @@ public class Units {
 			this.sprites = new BufferedImage[2];
 			this.speed = 2;
 			this.type = Unit.Type.MELEE;
+			this.name = "fox fighter";
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/fbody2.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/fhead2.png"));
@@ -326,6 +331,7 @@ public class Units {
 			this.sprites = new BufferedImage[2];
 			this.speed = 99;
 			this.type = Unit.Type.MELEE;
+			this.name = "god";
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/mbody3hq.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/mhead3hq.png"));

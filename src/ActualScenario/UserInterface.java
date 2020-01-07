@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import com.sun.glass.events.KeyEvent;
 
 import BaseMechanics.AllTogether;
+import BaseMechanics.drawText;
 import BaseMechanics.InputMethod;
 import BaseMechanics.Map;
 import BaseMechanics.NewInputMethod;
@@ -32,6 +33,8 @@ public class UserInterface extends BaseMechanics.UserInterface {
 	static int player1Authority;
 	static int player2Authority;
 	static BaseMechanics.drawText.font basicFont;
+	
+	static boolean debug;
 	
 	static {
 		player1Authority = 0;
@@ -93,87 +96,6 @@ public class UserInterface extends BaseMechanics.UserInterface {
 				0, 0, sprite.getWidth(), sprite.getHeight(), null);
 	}
 	
-	public static class border extends BaseMechanics.UserInterface.Element {
-		
-		ArrayList<BufferedImage> sprites;
-		
-		public border(){
-			sprites = new ArrayList<BufferedImage>(0);
-			try{
-				sprites.add(ImageIO.read(new File("sprites/Gui/borderLeft.png")));
-				sprites.add(ImageIO.read(new File("sprites/Gui/borderMid.png")));
-				sprites.add(ImageIO.read(new File("sprites/Gui/borderRight.png")));
-
-			}catch(Exception e){
-				
-			}
-		}
-	
-		@Override
-		public void paint(Graphics2D g, AllTogether a) {
-			
-		//	g.fillRect((int)(xsize*0.05), (int)(ysize*0.65), (int)(xsize*0.9), (int)(ysize*0.25));
-			
-			//IT'S A HARD KNOCK LIFE FOR US
-			g.drawImage(sprites.get(0), 
-					//only scale the destination with height
-					
-					(int)(xsize*0.05), 
-					
-					(int)(ysize*0.65), 
-					
-					(int)((xsize*0.05)+(sprites.get(0).getWidth()*(xsize/ysize))) , 
-					
-					(int)((ysize*0.75)+(sprites.get(0).getHeight()*(xsize/ysize))),
-					
-					0, 0, sprites.get(0).getWidth(), sprites.get(0).getHeight(), null);
-			
-
-			g.drawImage(sprites.get(1), 
-					//only scale the destination with height
-					
-					(int)((xsize*0.05)+(sprites.get(0).getWidth()*(xsize/ysize))), 
-					
-					(int)(ysize*0.65), 
-					
-					(int)((xsize*0.9)/*-(sprites.get(2).getWidth()*(xsize/ysize))*/), 
-					
-					(int)((ysize*0.75)+(sprites.get(1).getHeight()*(xsize/ysize))),
-					
-					0, 0, sprites.get(1).getWidth(), sprites.get(1).getHeight(), null);
-			
-			
-			g.drawImage(sprites.get(2), 
-					//only scale the destination with height
-					
-					(int)(xsize*0.9), 
-					
-					(int)(ysize*0.65), 
-					
-					(int)((xsize*0.9)+(sprites.get(2).getWidth()*(xsize/ysize))) , 
-					
-					(int)((ysize*0.75)+(sprites.get(2).getHeight()*(xsize/ysize))),
-					
-					0, 0, sprites.get(2).getWidth(), sprites.get(2).getHeight(), null);
-			
-			
-			
-		}
-
-		@Override
-		public void update(AllTogether a) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void toIterateOnEachTile(AllTogether a, Tile tile, int x, int y) {
-			// TODO Auto-generated method stub
-			
-		}
-		
-	}
-	
 	public static class mouseGrid extends BaseMechanics.UserInterface.Element {
 		
 		boolean test;
@@ -203,71 +125,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 
 		@Override
 		public void update(AllTogether a) {
-					
-		/*if(mouse.pulse){	
-			for(int x = 0; x < a.map.grid.length; x++) {
-				for(int y = 0; y < a.map.grid[x].length; y++) {
-							//See viewport if these statements don't make sense
-							if(
-							mouse.CurrentMouseInputs[0] >= (x*a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor) +  (a.viewport.xOffset*(a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor*a.map.grid.length))
-							&&		
-							mouse.CurrentMouseInputs[0] <= (x*a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor + a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor) + (a.viewport.xOffset*(a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor*a.map.grid.length))
-							&&
-							mouse.CurrentMouseInputs[1] >= (y*a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor) +  (a.viewport.yOffset*(a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor*a.map.grid[x].length))
-							&&
-							mouse.CurrentMouseInputs[1] <= (y*a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor + a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor) +  (a.viewport.yOffset*(a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor*a.map.grid[x].length))
-								){
-								a.map.grid[x][y].isHighlighted = !a.map.grid[x][y].isHighlighted;
-								
-								for(int x2 = 0; x2 < a.map.grid.length; x2++) {
-									for(int y2 = 0; y2 < a.map.grid[x].length; y2++) {
-										if(a.map.grid[x2][y2].isHighlighted&&(x2!=x||y2!=y)){
-											a.map.grid[x2][y2].isHighlighted = false;
-										}
-									}
-								}
-							}
-				}
-			}
-		}
-		
-		if(mouse.rightPulse){
-			for(int x = 0; x < a.map.grid.length; x++) {
-				for(int y = 0; y < a.map.grid[x].length; y++) {
-							//See viewport if these statements don't make sense
-							if(
-							mouse.CurrentMouseInputs[0] >= (x*a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor) +  (a.viewport.xOffset*(a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor*a.map.grid.length))
-							&&		
-							mouse.CurrentMouseInputs[0] <= (x*a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor + a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor) + (a.viewport.xOffset*(a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor*a.map.grid.length))
-							&&
-							mouse.CurrentMouseInputs[1] >= (y*a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor) +  (a.viewport.yOffset*(a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor*a.map.grid[x].length))
-							&&
-							mouse.CurrentMouseInputs[1] <= (y*a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor + a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor) +  (a.viewport.yOffset*(a.map.grid[x][y].sprite.getHeight()*a.viewport.scaleFactor*a.map.grid[x].length))
-							
-								){
-								for(int x2 = 0; x2 < a.map.grid.length; x2++) {
-									for(int y2 = 0; y2 < a.map.grid[x].length; y2++) {
-										if(a.map.grid[x2][y2].isHighlighted
-											&&a.map.grid[x2][y2].occupyingUnit!=null
-											&&a.map.grid[x2][y2].occupyingUnit.hasMovedThisTurn == false
-											&&a.map.grid[x][y].occupyingUnit==null
-											//Wait, But I'm not done yet!
-											&&
-											(TurnLogicContainer.currentUser == a.map.grid[x2][y2].occupyingUnit.team||God)
-												){
-											a.map.grid[x2][y2].occupyingUnit.hasMovedThisTurn = true;
-											a.map.move(x2, y2, x, y);
-											a.map.grid[x2][y2].isHighlighted = false;
-											a.map.grid[x][y].isHighlighted = true;
-										}
-									}
-								}
-							}
-					}
-				}
-		}	*/
-		mouse.genericUpdate();
-
+			mouse.genericUpdate();
 		}
 
 		@Override
@@ -318,6 +176,10 @@ public class UserInterface extends BaseMechanics.UserInterface {
 								(TurnLogicContainer.currentUser == a.map.grid[x2][y2].occupyingUnit.team||God)
 									){
 								a.map.grid[x2][y2].occupyingUnit.hasMovedThisTurn = true;
+								
+								//Logging movement to "console"
+								TurnLogicContainer.AttackLogic.log("unit "+a.map.grid[x2][y2].occupyingUnit.name+" has moved from "+x2+","+y2+" to "+x+","+y);
+								
 								a.map.move(x2, y2, x, y);
 								a.map.grid[x2][y2].isHighlighted = false;
 								a.map.grid[x][y].isHighlighted = true;
@@ -371,6 +233,12 @@ public class UserInterface extends BaseMechanics.UserInterface {
 				g.setColor(Color.ORANGE);
 				g.drawString("Unit ID:"+toRead.getClass().toString(), 69, 178);
 				
+				drawText.drawUnbounded(g, "Unit Info:",(int)(a.parentFrame.getWidth()*0.75),(int)(a.parentFrame.getHeight()*0.05)-22, basicFont);
+				drawText.drawUnbounded(g, "Speed:"+toRead.speed, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05), basicFont);
+				drawText.drawUnbounded(g, "Type:"+toRead.type, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+22, basicFont);
+				drawText.drawUnbounded(g, "Health:"+toRead.health, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+44, basicFont);
+				drawText.drawUnbounded(g, "Team:"+toRead.health, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+66, basicFont);
+
 				//Drawing the area that the character can move
 				for(int x = 0; x < a.map.grid.length; x++){ 
 					for(int y = 0; y < a.map.grid[x].length; y++){
@@ -536,15 +404,16 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			public void paint(Graphics2D g, AllTogether a) {
 				g.setColor(Color.MAGENTA);
 				g.drawString("Controlling Player: "+currentUser+" Turn Number: "+turnCount+" Control State: "+controlState, 69, 128);
-			
+			/*
 				g.setColor(Color.gray);
 				g.fillRect(0, (int)(a.parentFrame.getHeight()*0.75), 9999, 9999);
 				g.fillRect((int)(a.parentFrame.getWidth()*0.75), 0, 9999, 9999);
 				g.fillRect(0, 0, (int)(a.parentFrame.getWidth()*0.02), a.parentFrame.getHeight());
 				g.fillRect(0, 0, a.parentFrame.getHeight(), (int)(a.parentFrame.getWidth()*0.02));
-				
+			*/	
 				g.drawImage(pauseMenu.pauseButton, a.parentFrame.getWidth()-pauseMenu.pauseButton.getWidth(), a.parentFrame.getHeight()-pauseMenu.pauseButton.getHeight(), a.parentFrame.getWidth(), a.parentFrame.getHeight(), 0, 0, pauseMenu.pauseButton.getWidth(), pauseMenu.pauseButton.getHeight(), null);
-
+				
+				AttackLogic.scrollTest.paint(g);
 			}
 
 			@Override
@@ -589,7 +458,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			char scrollTestchar;
 			static BufferedImage attack;
 			static{
-				scrollTest = new BaseMechanics.drawText.infiniteScroller(768, 768, 1500, 1500);
+				scrollTest = new BaseMechanics.drawText.infiniteScroller(22, 768, 720, 1024);
 				try{
 					attack = ImageIO.read(new File("sprites/Gui/target.png"));
 
@@ -597,6 +466,10 @@ public class UserInterface extends BaseMechanics.UserInterface {
 					
 				}
 			}
+			public static void log(String s){
+				scrollTest.addItem(s, basicFont);
+			}
+			
 			@Override
 			public void paint(Graphics2D g, AllTogether a) {
 				// TODO Auto-generated method stub
@@ -630,7 +503,6 @@ public class UserInterface extends BaseMechanics.UserInterface {
 					g.drawRect((int)(a.parentFrame.getWidth()*0.02), (int)(a.parentFrame.getHeight()*0.87), a.parentFrame.getWidth(), a.parentFrame.getHeight());
 					
 					BaseMechanics.drawText.drawInBoundedBox(g, "longertest longertest longertest longertest longertest longertest longertest longertest longertest longertest longertest", 69, 69, 512, 512, basicFont);
-					scrollTest.paint(g);
 				}
 				
 			}
