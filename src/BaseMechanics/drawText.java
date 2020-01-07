@@ -11,7 +11,7 @@ public class drawText {
 		char[] wnk = s.toCharArray();
 		for(char w: wnk) {
 			if(w == ' ') {
-				xpos += f.yes[0].img.getWidth();
+				xpos += f.yes.get(0).img.getWidth();
 			}
 			for(textChar c: f.yes) {
 				if(c.associate==w) {
@@ -26,24 +26,47 @@ public class drawText {
 	public static int drawInBoundedBox(Graphics2D g, String s, int x1, int y1, int x2, int y2, font f) {
 		int xpos = x1;
 		int ypos = y1;
+		int cIndex = 0;
+		int wordWidth = 0;
+		char prevCharacter = ' ';
 		char[] wnk = s.toCharArray();
 		for(char w: wnk) {
-			if(w == ' ') {
-				xpos += f.yes[0].img.getWidth();
-			}
-			for(textChar c: f.yes) {
-				if(c.associate==w&&xpos <= x2-c.img.getWidth()&&ypos <= y2-c.img.getHeight()) {
-					g.drawImage(c.img, xpos, ypos, xpos+c.img.getWidth(), ypos+c.img.getHeight(), 0, 0, c.img.getWidth(), c.img.getHeight(), null);
-					xpos+=c.img.getWidth();
-				}else if(c.associate==w&&ypos <= y2-c.img.getHeight()){
-					xpos = x1;
-					ypos += c.img.getHeight();
-					g.drawImage(c.img, xpos, ypos, xpos+c.img.getWidth(), ypos+c.img.getHeight(), 0, 0, c.img.getWidth(), c.img.getHeight(), null);
-					xpos+=c.img.getWidth();
+		//	if(w == ' ') {
+		//		xpos += f.yes.get(0).img.getWidth();
+		//	}else {
+				for(textChar c: f.yes) {
+				/*	int oIndex = cIndex;
+					if(prevCharacter == ' ') {
+						wordWidth = 0;
+						for(textChar o = c; o.associate != ' ';) {
+							wordWidth += o.img.getWidth();
+							if(oIndex + 1 < f.yes.size()&&(f.yes.get(oIndex).associate!=' ')) {
+								o = f.yes.get(oIndex+1);
+								++oIndex;
+							}else {
+								break;
+							}
+						}
+					}
+					
+					certain pieces of code disabled to maintain sanity - peter*/
+
+					if(c.associate==w&&xpos <= x2-wordWidth&&ypos <= y2-c.img.getHeight()) {
+						g.drawImage(c.img, xpos, ypos, xpos+c.img.getWidth(), ypos+c.img.getHeight(), 0, 0, c.img.getWidth(), c.img.getHeight(), null);
+						xpos+=c.img.getWidth();
+						prevCharacter = c.associate;
+					}else if(c.associate==w&&ypos <= y2-c.img.getHeight()){
+						xpos = x1;
+						ypos += c.img.getHeight();
+						g.drawImage(c.img, xpos, ypos, xpos+c.img.getWidth(), ypos+c.img.getHeight(), 0, 0, c.img.getWidth(), c.img.getHeight(), null);
+						xpos+=c.img.getWidth();
+						prevCharacter = c.associate;
+					}
+					++cIndex;
 				}
-			}
+		//	}
 		}
-		return ypos + f.yes[0].img.getHeight();
+		return ypos + f.yes.get(0).img.getHeight();
 	}
 	
 	public static class infiniteScroller{
@@ -98,7 +121,7 @@ public class drawText {
 	}
 	public static abstract class font {
 		public String name;
-		public textChar[] yes;
+		public ArrayList<textChar> yes;
 	}
 	public static class textChar {
 		public textChar(BufferedImage i, char a){

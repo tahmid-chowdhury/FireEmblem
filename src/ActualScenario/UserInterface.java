@@ -629,7 +629,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 					g.setColor(Color.RED);
 					g.drawRect((int)(a.parentFrame.getWidth()*0.02), (int)(a.parentFrame.getHeight()*0.87), a.parentFrame.getWidth(), a.parentFrame.getHeight());
 					
-					BaseMechanics.drawText.drawInBoundedBox(g, "holy shit look at the top of his head lorem ipsum wank wank wank dicks dicks dicks really i just gotta fill space up to see if it drops characters that fall outside its y boundry which is the intended behaviour to be fair you need an extremely high iq to understand rick and morty its humor is extremely subtle what the fuck did you just fucking say about me you little bitch ill have you know i graduated top of my class in the navy seals and i have over 300 confirmed kills and i'm too lazy to spam stuff so 1234567890abcdefhijklmnopqrstuvwxyz", 69, 69, 512, 512, basicFont);
+					BaseMechanics.drawText.drawInBoundedBox(g, "longertest longertest longertest longertest longertest longertest longertest longertest longertest longertest longertest", 69, 69, 512, 512, basicFont);
 					scrollTest.paint(g);
 				}
 				
@@ -638,7 +638,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			@Override
 			public void update(AllTogether a) {
 				if((char)a.input.p.e!=scrollTestchar) {
-					scrollTest.addItem(""+(char)a.input.p.e, basicFont);
+					scrollTest.addItem("button pressed with id "+a.input.p.e, basicFont);
 					scrollTestchar = (char) a.input.p.e;
 				}
 			}
