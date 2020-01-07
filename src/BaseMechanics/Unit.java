@@ -15,6 +15,7 @@ public abstract class Unit {
 	public boolean hasAttackedThisTurn;
 	public Attack[] attacks;
 	public int authorityLevel;
+	public String name;
 	
 	public enum Team {
 		PLAYER1,

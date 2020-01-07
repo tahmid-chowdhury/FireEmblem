@@ -56,7 +56,41 @@ public class Fonts {
 				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/9.png")), '9'));
 				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/space.png")), ' '));
 
-
+				//well fuck me
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/a.png")), 'A'));
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/b.png")), 'B'));
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/c.png")), 'C'));
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/d.png")), 'D'));
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/e.png")), 'E'));
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/f.png")), 'F'));
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/g.png")), 'G'));
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/h.png")), 'H'));
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/i.png")), 'I'));		
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/j.png")), 'J'));
+				
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/k.png")), 'K'));
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/l.png")), 'L'));
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/m.png")), 'M'));
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/n.png")), 'N'));
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/o.png")), 'O'));
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/p.png")), 'P'));
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/q.png")), 'Q'));
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/r.png")), 'R'));
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/s.png")), 'S'));
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/t.png")), 'T'));
+				
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/u.png")), 'U'));
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/v.png")), 'V'));
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/w.png")), 'W'));
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/x.png")), 'X'));
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/y.png")), 'Y'));
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/z.png")), 'Z'));
+				
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/period.png")), '.'));
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/colon.png")), ':'));
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/exclaim.png")), '!'));
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/comma.png")), ','));
+				
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
