@@ -237,7 +237,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 				drawText.drawUnbounded(g, "Speed:"+toRead.speed, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05), basicFont);
 				drawText.drawUnbounded(g, "Type:"+toRead.type, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+22, basicFont);
 				drawText.drawUnbounded(g, "Health:"+toRead.health, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+44, basicFont);
-				drawText.drawUnbounded(g, "Team:"+toRead.health, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+66, basicFont);
+				drawText.drawUnbounded(g, "Team:"+toRead.team, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+66, basicFont);
 
 				//Drawing the area that the character can move
 				for(int x = 0; x < a.map.grid.length; x++){ 
@@ -457,10 +457,12 @@ public class UserInterface extends BaseMechanics.UserInterface {
 	
 	public static class AttackLogic extends BaseMechanics.UserInterface.Element {
 			static BaseMechanics.drawText.infiniteScroller scrollTest;
+			static BaseMechanics.drawText.infiniteScroller attackNames;
 			char scrollTestchar;
 			static BufferedImage attack;
 			static{
 				scrollTest = new BaseMechanics.drawText.infiniteScroller(22, 768, 720, 1024);
+				attackNames = new drawText.infiniteScroller((int)(xsize*0.02), (int)(ysize*0.57), (int)(xsize*0.32), (int)(ysize*0.98));
 				try{
 					attack = ImageIO.read(new File("sprites/Gui/target.png"));
 
@@ -502,9 +504,9 @@ public class UserInterface extends BaseMechanics.UserInterface {
 				
 				if(controlState==ActualScenario.UserInterface.controlState.COMBAT){
 					g.setColor(Color.RED);
-					g.drawRect((int)(a.parentFrame.getWidth()*0.02), (int)(a.parentFrame.getHeight()*0.87), a.parentFrame.getWidth(), a.parentFrame.getHeight());
-					
-					BaseMechanics.drawText.drawInBoundedBox(g, "longertest longertest longertest longertest longertest longertest longertest longertest longertest longertest longertest", 69, 69, 512, 512, basicFont);
+					g.drawRect((int)(a.parentFrame.getWidth()*0.02), (int)(a.parentFrame.getHeight()*0.58), (int)(a.parentFrame.getWidth()*0.3), (int)(a.parentFrame.getHeight()*0.4));
+					drawText.drawUnbounded(g, "Attacks", (int)(a.parentFrame.getWidth()*0.02), (int)(a.parentFrame.getHeight()*0.58),basicFont);
+					attackNames.paint(g);
 				}
 				
 			}
@@ -514,6 +516,14 @@ public class UserInterface extends BaseMechanics.UserInterface {
 				if((char)a.input.p.e!=scrollTestchar&&debug) {
 					scrollTest.addItem("button pressed with id "+a.input.p.e, basicFont);
 					scrollTestchar = (char) a.input.p.e;
+				}
+				if(selected == null){
+					attackNames.clear();
+				}else if(selected.attacks !=null){
+					attackNames.clear();
+					for(Unit.Attack t: selected.attacks){
+						attackNames.addItem(t.name, basicFont);
+					}
 				}
 			}
 

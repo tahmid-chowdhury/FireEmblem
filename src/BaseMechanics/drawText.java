@@ -118,6 +118,10 @@ public class drawText {
 				scrolls.add(new scrollerString(s, f));
 			}
 		}
+		
+		public void clear(){
+			scrolls = new ArrayList<scrollerString>(0);
+		}
 	}
 	public static abstract class font {
 		public String name;
