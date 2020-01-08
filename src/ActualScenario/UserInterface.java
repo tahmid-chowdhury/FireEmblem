@@ -35,7 +35,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 	static BaseMechanics.drawText.font basicFont;
 	
 	static boolean debug;
-	
+		
 	static {
 		player1Authority = 0;
 		player2Authority = 0;
@@ -178,7 +178,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 								a.map.grid[x2][y2].occupyingUnit.hasMovedThisTurn = true;
 								
 								//Logging movement to "console"
-								TurnLogicContainer.AttackLogic.log("unit "+a.map.grid[x2][y2].occupyingUnit.name+" has moved from "+x2+","+y2+" to "+x+","+y);
+								TurnLogicContainer.AttackLogic.log(a.map.grid[x2][y2].occupyingUnit.name+" has moved from "+x2+","+y2+" to "+x+","+y);
 								
 								a.map.move(x2, y2, x, y);
 								a.map.grid[x2][y2].isHighlighted = false;
@@ -196,7 +196,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 	
 	public static class unitInfo extends BaseMechanics.UserInterface.Element{
 		
-		static BaseMechanics.Unit toRead;
+	//	static BaseMechanics.Unit toRead;
 		
 		static BufferedImage[] movementBorder;
 
@@ -218,31 +218,15 @@ public class UserInterface extends BaseMechanics.UserInterface {
 				}
 		}
 		
+
 		
 		@Override
 		public void paint(Graphics2D g, AllTogether a) {
-			if(toRead!=null){
-				g.setColor(Color.CYAN);
-				g.drawString("Unit Speed:"+toRead.speed, 69, 138);
-				g.setColor(Color.GREEN);
-				g.drawString("Unit Type:"+toRead.type, 69, 148);
-				g.setColor(Color.YELLOW);
-				g.drawString("Unit Health:"+toRead.health, 69, 158);
-				g.setColor(Color.PINK);
-				g.drawString("Team: "+toRead.team, 69, 168);
-				g.setColor(Color.ORANGE);
-				g.drawString("Unit ID:"+toRead.getClass().toString(), 69, 178);
-				
-				drawText.drawUnbounded(g, "Unit Info:",(int)(a.parentFrame.getWidth()*0.75),(int)(a.parentFrame.getHeight()*0.05)-22, basicFont);
-				drawText.drawUnbounded(g, "Health:"+toRead.health, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05), basicFont);
-				drawText.drawUnbounded(g, "Speed:"+toRead.speed, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+22, basicFont);
-				drawText.drawUnbounded(g, "Type:"+toRead.type, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+44, basicFont);
-				drawText.drawUnbounded(g, "Team:"+toRead.team, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+66, basicFont);
-
+			if(TurnLogicContainer.selected!=null){
 				//Drawing the area that the character can move
 				for(int x = 0; x < a.map.grid.length; x++){ 
 					for(int y = 0; y < a.map.grid[x].length; y++){
-						if(a.map.grid[x][y].occupyingUnit == toRead&&!a.map.grid[x][y].occupyingUnit.hasMovedThisTurn){
+						if(a.map.grid[x][y].occupyingUnit == TurnLogicContainer.selected&&!a.map.grid[x][y].occupyingUnit.hasMovedThisTurn){
 							for(int x2 = 0; x2 < a.map.grid.length; x2++){
 								for(int y2 = 0; y2 < a.map.grid[x].length; y2++){
 									if(a.map.moveCheck(x, y, x2, y2)){
@@ -292,11 +276,11 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		@Override
 		public void toIterateOnEachTile(AllTogether a, Tile tile, int x, int y) {
 			// TODO Auto-generated method stub
-			if(a.map.grid[x][y].occupyingUnit != null&&a.map.grid[x][y].isHighlighted){
+	/*		if(a.map.grid[x][y].occupyingUnit != null&&a.map.grid[x][y].isHighlighted){
 				toRead = a.map.grid[x][y].occupyingUnit;
 			}else if(a.map.grid[x][y].isHighlighted){
 				toRead = null;
-			}
+			}	*/
 		}
 		
 	}
@@ -401,18 +385,41 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			
 			boolean changeControl;
 			
+			public void paintData(Graphics2D g, AllTogether a){
+				if(TurnLogicContainer.selected!=null){
+					g.setColor(Color.CYAN);
+					g.drawString("Unit Speed:"+TurnLogicContainer.selected.speed, 69, 138);
+					g.setColor(Color.GREEN);
+					g.drawString("Unit Type:"+TurnLogicContainer.selected.type, 69, 148);
+					g.setColor(Color.YELLOW);
+					g.drawString("Unit Health:"+TurnLogicContainer.selected.health, 69, 158);
+					g.setColor(Color.PINK);
+					g.drawString("Team: "+TurnLogicContainer.selected.team, 69, 168);
+					g.setColor(Color.ORANGE);
+					g.drawString("Unit ID:"+TurnLogicContainer.selected.getClass().toString(), 69, 178);
+					
+					drawText.drawUnbounded(g, "Unit Info:",(int)(a.parentFrame.getWidth()*0.75),(int)(a.parentFrame.getHeight()*0.05)-22, basicFont);
+					drawText.drawUnbounded(g, "@"+TurnLogicContainer.selected.health, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05), basicFont);
+					drawText.drawUnbounded(g, "$"+TurnLogicContainer.selected.speed, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+22, basicFont);
+					drawText.drawUnbounded(g, "Type:"+TurnLogicContainer.selected.type, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+44, basicFont);
+					drawText.drawUnbounded(g, "Team:"+TurnLogicContainer.selected.team, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+66, basicFont);
+
+				}
+			}
 			
 			@Override
 			public void paint(Graphics2D g, AllTogether a) {
 				g.setColor(Color.MAGENTA);
 				g.drawString("Controlling Player: "+currentUser+" Turn Number: "+turnCount+" Control State: "+controlState, 69, 128);
-			/*
+			/**/
 				g.setColor(Color.gray);
 				g.fillRect(0, (int)(a.parentFrame.getHeight()*0.75), 9999, 9999);
 				g.fillRect((int)(a.parentFrame.getWidth()*0.75), 0, 9999, 9999);
 				g.fillRect(0, 0, (int)(a.parentFrame.getWidth()*0.02), a.parentFrame.getHeight());
 				g.fillRect(0, 0, a.parentFrame.getHeight(), (int)(a.parentFrame.getWidth()*0.02));
-			*/	
+				
+				paintData(g, a);
+			/**/	
 				g.drawImage(pauseMenu.pauseButton, a.parentFrame.getWidth()-pauseMenu.pauseButton.getWidth(), a.parentFrame.getHeight()-pauseMenu.pauseButton.getHeight(), a.parentFrame.getWidth(), a.parentFrame.getHeight(), 0, 0, pauseMenu.pauseButton.getWidth(), pauseMenu.pauseButton.getHeight(), null);
 				
 				AttackLogic.scrollTest.paint(g);
@@ -486,23 +493,23 @@ public class UserInterface extends BaseMechanics.UserInterface {
 						}
 					}
 				}
-				for(int x = 0; x < a.map.grid.length; x++){
-					for(int y = 0; y < a.map.grid[x].length; y++){
-						if(a.map.grid[x][y].occupyingUnit!=null){
-							if(a.map.grid[x][y].occupyingUnit.team == currentUser&&a.map.grid[x][y].isHighlighted){
-								for(int x2 = 0; x2 < a.map.grid.length; x2++){
-									for(int y2 = 0; y2 < a.map.grid[x].length; y2++){
-										if(a.map.checkAttack(x, y, x2, y2)){
-											drawArbritaryTile(a, x2, y2, attack, g);
+				if(controlState==ActualScenario.UserInterface.controlState.COMBAT){
+					for(int x = 0; x < a.map.grid.length; x++){
+						for(int y = 0; y < a.map.grid[x].length; y++){
+							if(a.map.grid[x][y].occupyingUnit!=null){
+								if(a.map.grid[x][y].occupyingUnit.team == currentUser&&a.map.grid[x][y].isHighlighted){
+									for(int x2 = 0; x2 < a.map.grid.length; x2++){
+										for(int y2 = 0; y2 < a.map.grid[x].length; y2++){
+											if(a.map.checkAttack(x, y, x2, y2)){
+												drawArbritaryTile(a, x2, y2, attack, g);
+											}
 										}
 									}
 								}
 							}
 						}
 					}
-				}
 				
-				if(controlState==ActualScenario.UserInterface.controlState.COMBAT){
 					g.setColor(Color.RED);
 					g.drawRect((int)(a.parentFrame.getWidth()*0.02), (int)(a.parentFrame.getHeight()*0.58), (int)(a.parentFrame.getWidth()*0.3), (int)(a.parentFrame.getHeight()*0.4));
 					drawText.drawUnbounded(g, "Attacks", (int)(a.parentFrame.getWidth()*0.02), (int)(a.parentFrame.getHeight()*0.58),basicFont);
