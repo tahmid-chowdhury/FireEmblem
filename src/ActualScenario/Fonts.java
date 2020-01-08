@@ -94,7 +94,7 @@ public class Fonts {
 				//special characters
 				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Icons/health.png")), '@'));
 				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Icons/speed.png")), '$'));
-				
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Icons/alert.png")), '#'));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
