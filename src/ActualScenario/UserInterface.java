@@ -234,9 +234,9 @@ public class UserInterface extends BaseMechanics.UserInterface {
 				g.drawString("Unit ID:"+toRead.getClass().toString(), 69, 178);
 				
 				drawText.drawUnbounded(g, "Unit Info:",(int)(a.parentFrame.getWidth()*0.75),(int)(a.parentFrame.getHeight()*0.05)-22, basicFont);
-				drawText.drawUnbounded(g, "Speed:"+toRead.speed, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05), basicFont);
-				drawText.drawUnbounded(g, "Type:"+toRead.type, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+22, basicFont);
-				drawText.drawUnbounded(g, "Health:"+toRead.health, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+44, basicFont);
+				drawText.drawUnbounded(g, "Health:"+toRead.health, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05), basicFont);
+				drawText.drawUnbounded(g, "Speed:"+toRead.speed, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+22, basicFont);
+				drawText.drawUnbounded(g, "Type:"+toRead.type, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+44, basicFont);
 				drawText.drawUnbounded(g, "Team:"+toRead.team, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+66, basicFont);
 
 				//Drawing the area that the character can move
@@ -461,7 +461,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			char scrollTestchar;
 			static BufferedImage attack;
 			static{
-				scrollTest = new BaseMechanics.drawText.infiniteScroller(22, 768, 720, 1024);
+				scrollTest = new BaseMechanics.drawText.infiniteScroller(22, 768, 800, 1024);
 				attackNames = new drawText.infiniteScroller((int)(xsize*0.02), (int)(ysize*0.57), (int)(xsize*0.32), (int)(ysize*0.98));
 				try{
 					attack = ImageIO.read(new File("sprites/Gui/target.png"));
@@ -514,17 +514,10 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			@Override
 			public void update(AllTogether a) {
 				if((char)a.input.p.e!=scrollTestchar&&debug) {
-					scrollTest.addItem("button pressed with id "+a.input.p.e, basicFont);
+					attackNames.addItem("button pressed with id "+a.input.p.e, basicFont);
 					scrollTestchar = (char) a.input.p.e;
 				}
-				if(selected == null){
-					attackNames.clear();
-				}else if(selected.attacks !=null){
-					attackNames.clear();
-					for(Unit.Attack t: selected.attacks){
-						attackNames.addItem(t.name, basicFont);
-					}
-				}
+				
 			}
 
 			@Override
