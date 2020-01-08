@@ -379,7 +379,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 					}
 				}
 				++turnCount;
-				AttackLogic.log("#Turn advanced. It is now turn "+((turnCount/2)+1)+" Please pass control back to player one.");
+				AttackLogic.log("#Turn advanced. It is now turn "+(turnCount+1)+", Please pass control back to player one.");
 			}
 		}
 		
