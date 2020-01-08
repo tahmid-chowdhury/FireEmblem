@@ -416,31 +416,7 @@ public class BetterMaps {
 				}
 			}
 		
-			grid[2][3].occupyingUnit = new Units.baseRanger();
-			grid[2][3].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER1;
-			grid[4][3].occupyingUnit = new Units.baseMage();
-			grid[4][3].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER1;
-			grid[6][3].occupyingUnit = new Units.foxFighter();
-			grid[6][3].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER1;
-			grid[9][3].occupyingUnit = new Units.basePriestess();
-			grid[9][3].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER1;
-			grid[11][3].occupyingUnit = new Units.mysticSwordsman();
-			grid[11][3].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER1;
-			grid[13][3].occupyingUnit = new Units.robot();
-			grid[13][3].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER1;
-
-			grid[2][28].occupyingUnit = new Units.mrDavis();
-			grid[2][28].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
-			grid[4][28].occupyingUnit = new Units.baseAssin();
-			grid[4][28].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
-			grid[6][28].occupyingUnit = new Units.selfEntitled();
-			grid[6][28].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
-			grid[9][28].occupyingUnit = new Units.lonelyWanderer();
-			grid[9][28].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
-			grid[11][28].occupyingUnit = new Units.derpSwordsman();
-			grid[11][28].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
-			grid[13][28].occupyingUnit = new Units.baseSwordsman();
-			grid[13][28].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
+			grid[0][0].occupyingUnit = new Units.baseRanger();
 				
 			}
 		}

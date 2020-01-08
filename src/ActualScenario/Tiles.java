@@ -227,7 +227,7 @@ public class Tiles extends BaseMechanics.Tile {
 			 terrainType = 0;
 			 zAxis = 0;
 			 passable = true;
-			 tall = false;			
+			 tall = false;
 			//Drawing Stuff
 			 try {
 				sprite = ImageIO.read(new File(/*benis*/"sprites/land/pacmanBlank.png"));
