@@ -234,9 +234,9 @@ public class UserInterface extends BaseMechanics.UserInterface {
 				g.drawString("Unit ID:"+toRead.getClass().toString(), 69, 178);
 				
 				drawText.drawUnbounded(g, "Unit Info:",(int)(a.parentFrame.getWidth()*0.75),(int)(a.parentFrame.getHeight()*0.05)-22, basicFont);
-				drawText.drawUnbounded(g, "Speed:"+toRead.speed, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05), basicFont);
-				drawText.drawUnbounded(g, "Type:"+toRead.type, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+22, basicFont);
-				drawText.drawUnbounded(g, "Health:"+toRead.health, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+44, basicFont);
+				drawText.drawUnbounded(g, "Health:"+toRead.health, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05), basicFont);
+				drawText.drawUnbounded(g, "Speed:"+toRead.speed, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+22, basicFont);
+				drawText.drawUnbounded(g, "Type:"+toRead.type, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+44, basicFont);
 				drawText.drawUnbounded(g, "Team:"+toRead.team, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+66, basicFont);
 
 				//Drawing the area that the character can move
@@ -517,14 +517,14 @@ public class UserInterface extends BaseMechanics.UserInterface {
 					scrollTest.addItem("button pressed with id "+a.input.p.e, basicFont);
 					scrollTestchar = (char) a.input.p.e;
 				}
-				if(selected == null){
+				/*if(selected == null){
 					attackNames.clear();
 				}else if(selected.attacks !=null){
 					attackNames.clear();
 					for(Unit.Attack t: selected.attacks){
 						attackNames.addItem(t.name, basicFont);
 					}
-				}
+				}*/
 			}
 
 			@Override
