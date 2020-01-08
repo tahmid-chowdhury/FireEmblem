@@ -90,6 +90,7 @@ public class Fonts {
 				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/colon.png")), ':'));
 				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/exclaim.png")), '!'));
 				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/comma.png")), ','));
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/dash.png")), '-'));
 				
 				//special characters
 				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Icons/health.png")), '@'));
