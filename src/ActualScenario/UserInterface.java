@@ -178,7 +178,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 								a.map.grid[x2][y2].occupyingUnit.hasMovedThisTurn = true;
 								
 								//Logging movement to "console"
-								TurnLogicContainer.AttackLogic.log("unit "+a.map.grid[x2][y2].occupyingUnit.name+" has moved from "+x2+","+y2+" to "+x+","+y);
+								TurnLogicContainer.AttackLogic.log(a.map.grid[x2][y2].occupyingUnit.name+" has moved from "+x2+","+y2+" to "+x+","+y);
 								
 								a.map.move(x2, y2, x, y);
 								a.map.grid[x2][y2].isHighlighted = false;
@@ -399,8 +399,8 @@ public class UserInterface extends BaseMechanics.UserInterface {
 					g.drawString("Unit ID:"+TurnLogicContainer.selected.getClass().toString(), 69, 178);
 					
 					drawText.drawUnbounded(g, "Unit Info:",(int)(a.parentFrame.getWidth()*0.75),(int)(a.parentFrame.getHeight()*0.05)-22, basicFont);
-					drawText.drawUnbounded(g, "Health:"+TurnLogicContainer.selected.health, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05), basicFont);
-					drawText.drawUnbounded(g, "Speed:"+TurnLogicContainer.selected.speed, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+22, basicFont);
+					drawText.drawUnbounded(g, "@"+TurnLogicContainer.selected.health, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05), basicFont);
+					drawText.drawUnbounded(g, "$"+TurnLogicContainer.selected.speed, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+22, basicFont);
 					drawText.drawUnbounded(g, "Type:"+TurnLogicContainer.selected.type, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+44, basicFont);
 					drawText.drawUnbounded(g, "Team:"+TurnLogicContainer.selected.team, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+66, basicFont);
 

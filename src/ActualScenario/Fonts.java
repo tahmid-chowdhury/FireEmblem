@@ -91,6 +91,10 @@ public class Fonts {
 				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/exclaim.png")), '!'));
 				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/comma.png")), ','));
 				
+				//special characters
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Icons/health.png")), '@'));
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Icons/speed.png")), '$'));
+				
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
