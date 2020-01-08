@@ -178,7 +178,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 								a.map.grid[x2][y2].occupyingUnit.hasMovedThisTurn = true;
 								
 								//Logging movement to "console"
-								TurnLogicContainer.AttackLogic.log(a.map.grid[x2][y2].occupyingUnit.name+" has moved from "+x2+","+y2+" to "+x+","+y);
+								TurnLogicContainer.AttackLogic.log("$"+a.map.grid[x2][y2].occupyingUnit.name+" has moved from "+x2+","+y2+" to "+x+","+y);
 								
 								a.map.move(x2, y2, x, y);
 								a.map.grid[x2][y2].isHighlighted = false;
