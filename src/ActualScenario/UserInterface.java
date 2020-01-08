@@ -174,6 +174,8 @@ public class UserInterface extends BaseMechanics.UserInterface {
 								//Wait, But I'm not done yet!
 								&&
 								(TurnLogicContainer.currentUser == a.map.grid[x2][y2].occupyingUnit.team||God)
+								&&
+								a.map.moveCheck(x2, y2, x, y)
 									){
 								a.map.grid[x2][y2].occupyingUnit.hasMovedThisTurn = true;
 								
