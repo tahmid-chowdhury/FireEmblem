@@ -90,11 +90,14 @@ public class Fonts {
 				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/colon.png")), ':'));
 				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/exclaim.png")), '!'));
 				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/comma.png")), ','));
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Basic/dash.png")), '-'));
 				
 				//special characters
 				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Icons/health.png")), '@'));
 				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Icons/speed.png")), '$'));
-				
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Icons/alert.png")), '#'));
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Icons/Team1.png")), '{'));
+				yes.add(new textChar(ImageIO.read(new File("sprites/Gui/Fonts/Icons/Team2.png")), '}'));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

@@ -174,11 +174,13 @@ public class UserInterface extends BaseMechanics.UserInterface {
 								//Wait, But I'm not done yet!
 								&&
 								(TurnLogicContainer.currentUser == a.map.grid[x2][y2].occupyingUnit.team||God)
+								&&
+								a.map.moveCheck(x2, y2, x, y)
 									){
 								a.map.grid[x2][y2].occupyingUnit.hasMovedThisTurn = true;
 								
 								//Logging movement to "console"
-								TurnLogicContainer.AttackLogic.log("$"+a.map.grid[x2][y2].occupyingUnit.name+" has moved from "+x2+","+y2+" to "+x+","+y);
+								TurnLogicContainer.AttackLogic.log("$"+a.map.grid[x2][y2].occupyingUnit.getNameWithTeam()+" has moved from "+x2+","+y2+" to "+x+","+y);
 								
 								a.map.move(x2, y2, x, y);
 								a.map.grid[x2][y2].isHighlighted = false;
@@ -365,7 +367,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		public static void advanceTurn(AllTogether a){
 			if(currentUser == BaseMechanics.Unit.Team.PLAYER1){
 				currentUser = BaseMechanics.Unit.Team.PLAYER2;
-				AttackLogic.log("Please pass the controls to player two.");
+				AttackLogic.log("#Please pass the controls to player two.");
 			}else if(currentUser == BaseMechanics.Unit.Team.PLAYER2){
 				currentUser = BaseMechanics.Unit.Team.PLAYER1;
 				for(int x = 0; x < a.map.grid.length; x++){
@@ -377,7 +379,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 					}
 				}
 				++turnCount;
-				AttackLogic.log("Turn advanced. It is now turn "+((turnCount/2)+1)+" Please pass control back to player one.");
+				AttackLogic.log("#Turn advanced. It is now turn "+((turnCount/2)+1)+" Please pass control back to player one.");
 			}
 		}
 		

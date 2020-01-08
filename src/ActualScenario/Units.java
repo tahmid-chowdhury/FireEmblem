@@ -440,7 +440,7 @@ public class Units {
 			this.sprites = new BufferedImage[2];
 			this.speed = 1;
 			this.type = Unit.Type.MELEE;
-			this.name = "F1ST-e-CUFF";
+			this.name = "F1ST-3-CUFF";
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/body.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/head.png"));
