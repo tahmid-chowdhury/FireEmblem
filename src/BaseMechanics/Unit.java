@@ -30,6 +30,14 @@ public abstract class Unit {
 		SPECIAL
 	}
 	
+	public String getNameWithTeam(){
+		if(team == Team.PLAYER2){
+			return name+" }";
+		}else{
+			return name+" {";
+		}
+	}
+	
 	//His Majesty's Royal Banter Battalion
 	public static abstract class Attack {
 		public String name;
