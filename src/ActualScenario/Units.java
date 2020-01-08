@@ -209,6 +209,7 @@ public class Units {
 			this.sprites = new BufferedImage[3];
 			this.speed = 2;
 			this.type = Unit.Type.MELEE;
+			this.name = "Prince Gallows";
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/mbody5.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/mhead5.png"));
@@ -262,6 +263,7 @@ public class Units {
 			this.sprites = new BufferedImage[2];
 			this.speed = 1.5;
 			this.type = Unit.Type.MAGIC;
+			this.name = "Belle";
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/fbody4.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/fhead4.png"));
@@ -296,6 +298,7 @@ public class Units {
 			this.sprites = new BufferedImage[2];
 			this.speed = 1.5;
 			this.type = Unit.Type.MELEE;
+			this.name = "Tyra";
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/mbody3.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/mhead3.png"));
@@ -367,6 +370,7 @@ public class Units {
 			this.sprites = new BufferedImage[2];
 			this.speed = 2;
 			this.type = Unit.Type.MELEE;
+			this.name = "Joran";
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/mbody4.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/mhead4.png"));
@@ -401,6 +405,7 @@ public class Units {
 			this.sprites = new BufferedImage[2];
 			this.speed = 2;
 			this.type = Unit.Type.MELEE;
+			this.name = "Stefan";
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/mbody6.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/mhead6.png"));
@@ -435,6 +440,7 @@ public class Units {
 			this.sprites = new BufferedImage[2];
 			this.speed = 1;
 			this.type = Unit.Type.MELEE;
+			this.name = "F1ST-e-CUFF";
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/body.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/head.png"));
@@ -462,6 +468,43 @@ public class Units {
 					0, 0, sprites[1].getWidth(), sprites[1].getHeight(), null);
 			super.paint(g, x, y, scaleFactor, xOffset, yOffset, xSize, ySize);
 
+		}
+	}
+	
+	public static class femRanger extends BaseMechanics.Unit{
+		public femRanger(){
+			this.sprites = new BufferedImage[2];
+			this.speed = 3.5;
+			this.type = Unit.Type.RANGED;
+			this.name = "Carmen";
+			try{
+				sprites[0] = ImageIO.read(new File("sprites/characters/body/fbody5.png"));
+				sprites[1] = ImageIO.read(new File("sprites/characters/heads/fhead5.png"));
+			}catch(Exception e){
+				
+			}
+			this.attacks = new Attack[1];
+			attacks[0] = new Attacks.GenericMelee();
+		}
+		
+		public void paint(Graphics2D g, int x, int y, double scaleFactor, double xOffset, double yOffset, int xSize, int ySize){
+			super.paint(g, x, y, scaleFactor, xOffset, yOffset, xSize, ySize);
+			
+			g.drawImage(sprites[1], 
+					//destination x co-ord 1
+					(int)(x*sprites[1].getWidth()*scaleFactor) + (int) (xOffset*(sprites[1].getWidth()*scaleFactor*xSize)), 
+					
+					//destination y co-ord 1
+					(int)(y*sprites[1].getHeight()*scaleFactor) + (int) (yOffset*(sprites[1].getHeight()*scaleFactor*ySize)), 
+					
+					//destination x co-ord 2
+					(int)(x*sprites[1].getWidth()*scaleFactor + sprites[1].getWidth()*scaleFactor) + (int) (xOffset*(sprites[1].getWidth()*scaleFactor*xSize)), 
+					
+					//destination y co-ord 2
+					(int)(y*sprites[1].getHeight()*scaleFactor + sprites[1].getHeight()*scaleFactor) + (int) (yOffset*(sprites[1].getHeight()*scaleFactor*ySize)),
+					
+					
+					0, 0, sprites[1].getWidth(), sprites[1].getHeight(), null);
 		}
 	}
 	
