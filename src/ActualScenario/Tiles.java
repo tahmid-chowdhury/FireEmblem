@@ -218,4 +218,234 @@ public class Tiles extends BaseMechanics.Tile {
 			};
 		}
 	}
+	
+	public static class PacmanBlank extends BaseMechanics.Tile {
+		public PacmanBlank() {
+			
+			super();
+			
+			 terrainType = 0;
+			 zAxis = 0;
+			 passable = true;
+			 tall = false;			
+			//Drawing Stuff
+			 try {
+				sprite = ImageIO.read(new File(/*benis*/"sprites/land/pacmanBlank.png"));
+				highlight = ImageIO.read(new File("sprites/Gui/selector.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				
+				e.printStackTrace();
+			};
+		}
+	}
+	
+	public static class PacmanBottomLeft extends BaseMechanics.Tile {
+		public PacmanBottomLeft() {
+			
+			super();
+			
+			 terrainType = 0;
+			 zAxis = 0;
+			 passable = false;
+			 tall = true;			
+			//Drawing Stuff
+			 try {
+				sprite = ImageIO.read(new File(/*benis*/"sprites/land/pacmanBlockBottomLeft.png"));
+				highlight = ImageIO.read(new File("sprites/Gui/selector.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				
+				e.printStackTrace();
+			};
+		}
+	}
+	
+	public static class PacmanBottomRight extends BaseMechanics.Tile {
+		public PacmanBottomRight() {
+			
+			super();
+			
+			 terrainType = 0;
+			 zAxis = 0;
+			 passable = false;
+			 tall = true;			
+			//Drawing Stuff
+			 try {
+				sprite = ImageIO.read(new File(/*benis*/"sprites/land/pacmanBlockBottomRight.png"));
+				highlight = ImageIO.read(new File("sprites/Gui/selector.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				
+				e.printStackTrace();
+			};
+		}
+	}
+	
+	public static class PacmanLeft extends BaseMechanics.Tile {
+		public PacmanLeft() {
+			
+			super();
+			
+			 terrainType = 0;
+			 zAxis = 0;
+			 passable = false;
+			 tall = true;			
+			//Drawing Stuff
+			 try {
+				sprite = ImageIO.read(new File(/*benis*/"sprites/land/pacmanBlockLeft.png"));
+				highlight = ImageIO.read(new File("sprites/Gui/selector.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				
+				e.printStackTrace();
+			};
+		}
+	}
+	
+	public static class PacmanMid extends BaseMechanics.Tile {
+		public PacmanMid() {
+			
+			super();
+			
+			 terrainType = 0;
+			 zAxis = 0;
+			 passable = false;
+			 tall = true;			
+			//Drawing Stuff
+			 try {
+				sprite = ImageIO.read(new File(/*benis*/"sprites/land/pacmanBlockMid.png"));
+				highlight = ImageIO.read(new File("sprites/Gui/selector.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				
+				e.printStackTrace();
+			};
+		}
+	}
+	
+	public static class PacmanMidSide extends BaseMechanics.Tile {
+		public PacmanMidSide() {
+			
+			super();
+			
+			 terrainType = 0;
+			 zAxis = 0;
+			 passable = false;
+			 tall = true;			
+			//Drawing Stuff
+			 try {
+				sprite = ImageIO.read(new File(/*benis*/"sprites/land/pacmanBlockMidSide.png"));
+				highlight = ImageIO.read(new File("sprites/Gui/selector.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				
+				e.printStackTrace();
+			};
+		}
+	}
+	
+	public static class PacmanRight extends BaseMechanics.Tile {
+		public PacmanRight() {
+			
+			super();
+			
+			 terrainType = 0;
+			 zAxis = 0;
+			 passable = false;
+			 tall = true;			
+			//Drawing Stuff
+			 try {
+				sprite = ImageIO.read(new File(/*benis*/"sprites/land/pacmanBlockRight.png"));
+				highlight = ImageIO.read(new File("sprites/Gui/selector.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				
+				e.printStackTrace();
+			};
+		}
+	}
+	
+	public static class PacmanTop extends BaseMechanics.Tile {
+		public PacmanTop() {
+			
+			super();
+			
+			 terrainType = 0;
+			 zAxis = 0;
+			 passable = false;
+			 tall = true;			
+			//Drawing Stuff
+			 try {
+				sprite = ImageIO.read(new File(/*benis*/"sprites/land/pacmanBlockTop.png"));
+				highlight = ImageIO.read(new File("sprites/Gui/selector.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				
+				e.printStackTrace();
+			};
+		}
+	}
+	
+	public static class PacmanTopLeft extends BaseMechanics.Tile {
+		public PacmanTopLeft() {
+			
+			super();
+			
+			 terrainType = 0;
+			 zAxis = 0;
+			 passable = false;
+			 tall = true;			
+			//Drawing Stuff
+			 try {
+				sprite = ImageIO.read(new File(/*benis*/"sprites/land/pacmanBlockTopLeft.png"));
+				highlight = ImageIO.read(new File("sprites/Gui/selector.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				
+				e.printStackTrace();
+			};
+		}
+	}
+	
+	public static class PacmanTopRight extends BaseMechanics.Tile {
+		public PacmanTopRight() {
+			
+			super();
+			
+			 terrainType = 0;
+			 zAxis = 0;
+			 passable = false;
+			 tall = true;			
+			//Drawing Stuff
+			 try {
+				sprite = ImageIO.read(new File(/*benis*/"sprites/land/pacmanBlockTopRight.png"));
+				highlight = ImageIO.read(new File("sprites/Gui/selector.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				
+				e.printStackTrace();
+			};
+		}
+	}
+	public static class PacmanBlock extends BaseMechanics.Tile {
+		public PacmanBlock() {
+			
+			super();
+			
+			 terrainType = 0;
+			 zAxis = 0;
+			 passable = false;
+			 tall = true;			
+			//Drawing Stuff
+			 try {
+				sprite = ImageIO.read(new File(/*benis*/"sprites/land/pacmanSingleBlock.png"));
+				highlight = ImageIO.read(new File("sprites/Gui/selector.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				
+				e.printStackTrace();
+			};
+		}
+	}
 }
