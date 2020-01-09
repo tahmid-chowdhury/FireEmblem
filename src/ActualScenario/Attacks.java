@@ -8,7 +8,7 @@ public class Attacks {
 			this.name = "Generic Melee";
 		}
 		@Override
-		public int calcDamage(Unit target) {
+		public int calcDamage(Unit target, Unit attacker) {
 			// TODO Auto-generated method stub
 			return 0;
 		}

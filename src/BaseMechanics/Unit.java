@@ -11,6 +11,7 @@ public abstract class Unit {
 	public int health;
 	public Team team;
 	public double speed;
+	public double armour;
 	public boolean hasMovedThisTurn;
 	public boolean hasAttackedThisTurn;
 	public Attack[] attacks;
@@ -32,9 +33,9 @@ public abstract class Unit {
 	
 	public String getNameWithTeam(){
 		if(team == Team.PLAYER2){
-			return name+" }";
+			return name+"}";
 		}else{
-			return name+" {";
+			return name+"{";
 		}
 	}
 	
@@ -55,7 +56,7 @@ public abstract class Unit {
 			RANGED,
 			MELEE
 		}
-		public abstract int calcDamage(Unit target);
+		public abstract int calcDamage(Unit target, Unit attacker);
 	}
 	
 /*	public int calcDamage(Attack attack, Unit target){

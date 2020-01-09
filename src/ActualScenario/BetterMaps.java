@@ -1,6 +1,7 @@
 package ActualScenario;
 
 import BaseMechanics.Tile;
+import BaseMechanics.Unit;
 
 public class BetterMaps {
 	public static class Plains extends BaseMechanics.Map {
@@ -417,6 +418,7 @@ public class BetterMaps {
 			}
 		
 			grid[0][0].occupyingUnit = new Units.baseRanger();
+			grid[0][0].occupyingUnit.team = Unit.Team.PLAYER1;
 				
 			}
 		}
