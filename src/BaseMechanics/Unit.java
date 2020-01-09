@@ -46,6 +46,7 @@ public abstract class Unit {
 		double areaOfEffect;
 		int authorityThreshold;
 		int baseDamage; //yes, negative basedamage will heal
+		public BufferedImage button;
 		attackMethod method;
 		attackType type;
 		public enum attackMethod{
