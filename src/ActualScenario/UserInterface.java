@@ -533,19 +533,20 @@ public class UserInterface extends BaseMechanics.UserInterface {
 						}
 					}
 				
-					g.setColor(Color.RED);
-					g.drawRect((int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.4), (int)(a.parentFrame.getWidth()*0.3), (int)(a.parentFrame.getHeight()*0.4));
-					drawText.drawUnbounded(g, "Attacks", (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.4),basicFont);
-					if(selected!=null&&selected.attacks!=null){
-						for(int o = 0; o < selected.attacks.length; o++){
-						g.drawImage(selected.attacks[o].button, 
-								(int)(a.parentFrame.getWidth()*0.75),
-								(int)(a.parentFrame.getHeight()*0.4)+/*(160*o)*/(selected.attacks[o].button.getHeight()*o),
-								(int)(a.parentFrame.getWidth()*0.75)+selected.attacks[o].button.getWidth(),
-								(int)(a.parentFrame.getHeight()*0.4)+selected.attacks[o].button.getHeight()+/*(160*o)*/(selected.attacks[o].button.getHeight()*o),
-								
-								0, 0, selected.attacks[o].button.getWidth(), selected.attacks[o].button.getHeight(), null);
-						}
+
+					}
+				g.setColor(Color.RED);
+				g.drawRect((int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.25), (int)(a.parentFrame.getWidth()*0.3), (int)(a.parentFrame.getHeight()*0.4));
+				drawText.drawUnbounded(g, "Attacks", (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.25),basicFont);
+				if(selected!=null&&selected.attacks!=null){
+					for(int o = 0; o < selected.attacks.length; o++){
+					g.drawImage(selected.attacks[o].button, 
+							(int)(a.parentFrame.getWidth()*0.75),
+							(int)(a.parentFrame.getHeight()*0.25)+/*(160*o)*/(selected.attacks[o].button.getHeight()*o),
+							(int)(a.parentFrame.getWidth()*0.75)+selected.attacks[o].button.getWidth(),
+							(int)(a.parentFrame.getHeight()*0.25)+selected.attacks[o].button.getHeight()+/*(160*o)*/(selected.attacks[o].button.getHeight()*o),
+							
+							0, 0, selected.attacks[o].button.getWidth(), selected.attacks[o].button.getHeight(), null);
 					}
 				}
 				
