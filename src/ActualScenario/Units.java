@@ -22,9 +22,11 @@ public class Units {
 			}catch(Exception e){
 				
 			}
-			this.attacks = new Attack[2];
+			this.attacks = new Attack[3];
 			attacks[0] = new Attacks.GenericMelee();
 			attacks[1] = new Attacks.GenericMelee();
+			attacks[2] = new Attacks.GenericMelee();
+
 		}
 		
 		public void paint(Graphics2D g, int x, int y, double scaleFactor, double xOffset, double yOffset, int xSize, int ySize){
