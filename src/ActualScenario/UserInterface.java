@@ -56,8 +56,8 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		ysize = f.getHeight();
 		this.elements.add(new mouseGrid());
 		this.elements.add(new unitInfo());
-		this.elements.add(new TurnLogicContainer.AttackLogic());
 		this.elements.add(new TurnLogicContainer.TurnLogicDisplay());
+		this.elements.add(new TurnLogicContainer.AttackLogic());
 	//	this.elements.add(new pauseMenu());
 	//	this.elements.add(new border());
 		j = f;
@@ -420,7 +420,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 					g.setColor(Color.ORANGE);
 					g.drawString("Unit ID:"+TurnLogicContainer.selected.getClass().toString(), 69, 178);
 					
-					drawText.drawUnbounded(g, "Unit Info:",(int)(a.parentFrame.getWidth()*0.75),(int)(a.parentFrame.getHeight()*0.05)-22, basicFont);
+					drawText.drawUnbounded(g, selected.getNameWithTeam()+":",(int)(a.parentFrame.getWidth()*0.75),(int)(a.parentFrame.getHeight()*0.05)-22, basicFont);
 					drawText.drawUnbounded(g, "@"+TurnLogicContainer.selected.health, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05), basicFont);
 					drawText.drawUnbounded(g, "$"+TurnLogicContainer.selected.speed, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+22, basicFont);
 					drawText.drawUnbounded(g, "Type:"+TurnLogicContainer.selected.type, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+44, basicFont);
@@ -491,7 +491,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			static BufferedImage attack;
 			static{
 				scrollTest = new BaseMechanics.drawText.infiniteScroller(22, 768, 800, 1024);
-				attackNames = new drawText.infiniteScroller((int)(xsize*0.02), (int)(ysize*0.57), (int)(xsize*0.32), (int)(ysize*0.98));
+				attackNames = new drawText.infiniteScroller((int)(xsize*0.75), (int)(ysize*0.42), (int)(xsize*1), (int)(ysize*0.98));
 				try{
 					attack = ImageIO.read(new File("sprites/Gui/target.png"));
 
@@ -533,16 +533,23 @@ public class UserInterface extends BaseMechanics.UserInterface {
 					}
 				
 					g.setColor(Color.RED);
-					g.drawRect((int)(a.parentFrame.getWidth()*0.02), (int)(a.parentFrame.getHeight()*0.58), (int)(a.parentFrame.getWidth()*0.3), (int)(a.parentFrame.getHeight()*0.4));
-					drawText.drawUnbounded(g, "Attacks", (int)(a.parentFrame.getWidth()*0.02), (int)(a.parentFrame.getHeight()*0.58),basicFont);
-					attackNames.paint(g);
+					g.drawRect((int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.4), (int)(a.parentFrame.getWidth()*0.3), (int)(a.parentFrame.getHeight()*0.4));
+					drawText.drawUnbounded(g, "Attacks", (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.4),basicFont);
+					if(selected!=null&&selected.attacks!=null){
+						drawText.drawUnbounded(g, selected.attacks[0].name, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.4)+21, basicFont);
+					}
 				}
 				
 			}
 	
 			@Override
 			public void update(AllTogether a) {
-				
+			/*	attackNames.clear();
+				if(selected!=null&&selected.attacks!=null){
+					for(int x = 0; x < selected.attacks.length; x++){
+						attackNames.addItem(selected.attacks[x].name, basicFont);
+					}
+				}*/
 			}
 
 			@Override
