@@ -279,18 +279,20 @@ public class BetterMaps {
 			grid[9][3].occupyingUnit = new Units.robot();
 			grid[9][3].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER1;
 
-			grid[4][5].occupyingUnit = new Units.mrDavis();
-			grid[4][5].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
-			grid[5][5].occupyingUnit = new Units.baseAssin();
-			grid[5][5].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
-			grid[6][5].occupyingUnit = new Units.selfEntitled();
-			grid[6][5].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
-			grid[7][5].occupyingUnit = new Units.lonelyWanderer();
-			grid[7][5].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
-			grid[8][5].occupyingUnit = new Units.derpSwordsman();
-			grid[8][5].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
-			grid[9][5].occupyingUnit = new Units.baseSwordsman();
-			grid[9][5].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
+			grid[4][30].occupyingUnit = new Units.mrDavis();
+			grid[4][30].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
+			grid[5][30].occupyingUnit = new Units.baseAssin();
+			grid[5][30].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
+			grid[6][30].occupyingUnit = new Units.selfEntitled();
+			grid[6][30].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
+			grid[7][30].occupyingUnit = new Units.lonelyWanderer();
+			grid[7][30].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
+			grid[8][30].occupyingUnit = new Units.derpSwordsman();
+			grid[8][30].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
+			grid[9][30].occupyingUnit = new Units.baseSwordsman();
+			grid[9][30].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
+			grid[10][30].occupyingUnit = new Units.femRanger();
+			grid[10][30].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
 
 			grid[9][9].occupyingUnit = new Units.DwayneJohnson();
 			grid[9][10].occupyingUnit = new Units.DwayneJohnson();
