@@ -489,6 +489,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			static BaseMechanics.drawText.infiniteScroller attackNames;
 			char scrollTestchar;
 			static BufferedImage attack;
+			int selectedAttack;
 			static{
 				scrollTest = new BaseMechanics.drawText.infiniteScroller(22, 768, 800, 1024);
 				attackNames = new drawText.infiniteScroller((int)(xsize*0.75), (int)(ysize*0.42), (int)(xsize*1), (int)(ysize*0.98));
@@ -536,7 +537,9 @@ public class UserInterface extends BaseMechanics.UserInterface {
 					g.drawRect((int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.4), (int)(a.parentFrame.getWidth()*0.3), (int)(a.parentFrame.getHeight()*0.4));
 					drawText.drawUnbounded(g, "Attacks", (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.4),basicFont);
 					if(selected!=null&&selected.attacks!=null){
-						drawText.drawUnbounded(g, selected.attacks[0].name, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.4)+21, basicFont);
+						for(int o = 0; o < selected.attacks.length; o++){
+							drawText.drawUnbounded(g, selected.attacks[o].name, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.4)+21+(21*o), basicFont);
+						}
 					}
 				}
 				
@@ -544,12 +547,9 @@ public class UserInterface extends BaseMechanics.UserInterface {
 	
 			@Override
 			public void update(AllTogether a) {
-			/*	attackNames.clear();
-				if(selected!=null&&selected.attacks!=null){
-					for(int x = 0; x < selected.attacks.length; x++){
-						attackNames.addItem(selected.attacks[x].name, basicFont);
-					}
-				}*/
+				if(selected==null||selected.team!=currentUser){
+					selectedAttack = -1;
+				}
 			}
 
 			@Override

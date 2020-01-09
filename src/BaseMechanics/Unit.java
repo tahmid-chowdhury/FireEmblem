@@ -56,7 +56,7 @@ public abstract class Unit {
 			RANGED,
 			MELEE
 		}
-		public abstract int calcDamage(Unit target);
+		public abstract int calcDamage(Unit target, Unit attacker);
 	}
 	
 /*	public int calcDamage(Attack attack, Unit target){
