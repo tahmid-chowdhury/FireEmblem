@@ -96,6 +96,26 @@ public class UserInterface extends BaseMechanics.UserInterface {
 				0, 0, sprite.getWidth(), sprite.getHeight(), null);
 	}
 	
+	public static abstract class button extends BaseMechanics.UserInterface.Element{
+		BufferedImage sprite;
+		int x;
+		int y;
+		
+		public abstract void onClickAction(AllTogether a);
+		
+		public void update(AllTogether a){
+			if(mouse.pulse){
+				if(mouse.CurrentMouseInputs[0] <= x+sprite.getWidth()&&
+					mouse.CurrentMouseInputs[0] >= x&&
+					mouse.CurrentMouseInputs[1] <= y+sprite.getWidth()&&
+					mouse.CurrentMouseInputs[1] >= y
+						){
+					onClickAction(a);
+				}
+			}
+		}
+	}
+	
 	public static class mouseGrid extends BaseMechanics.UserInterface.Element {
 		
 		boolean test;
@@ -302,12 +322,12 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		
 		@Override
 		public void paint(Graphics2D g, AllTogether a) {
-			if(controlState == ActualScenario.UserInterface.controlState.MENU) {
-				g.drawImage(pausebg, 0, 0, a.parentFrame.getWidth(), a.parentFrame.getHeight(), 0, 0, pausebg.getWidth(), pausebg.getHeight(), null);
-				g.drawImage(pauseButton, 0, a.parentFrame.getHeight()-pauseButton.getHeight(), pauseButton.getWidth(), a.parentFrame.getHeight(), 
-						
-						0, 0, pauseButton.getWidth(), pauseButton.getHeight(), null);
-			}
+	//		if(controlState == ActualScenario.UserInterface.controlState.MENU) {
+	//			g.drawImage(pausebg, 0, 0, a.parentFrame.getWidth(), a.parentFrame.getHeight(), 0, 0, pausebg.getWidth(), pausebg.getHeight(), null);
+	//			g.drawImage(pauseButton, 0, a.parentFrame.getHeight()-pauseButton.getHeight(), pauseButton.getWidth(), a.parentFrame.getHeight(), 
+	//					
+	//					0, 0, pauseButton.getWidth(), pauseButton.getHeight(), null);
+	//		}
 		}
 
 		@Override
@@ -522,10 +542,6 @@ public class UserInterface extends BaseMechanics.UserInterface {
 	
 			@Override
 			public void update(AllTogether a) {
-				if((char)a.input.p.e!=scrollTestchar&&debug) {
-					attackNames.addItem("button pressed with id "+a.input.p.e, basicFont);
-					scrollTestchar = (char) a.input.p.e;
-				}
 				
 			}
 
