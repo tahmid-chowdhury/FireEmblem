@@ -377,7 +377,9 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		static int turnCount;
 		static Unit selected;
 		
+		
 		static{
+			
 			reset();
 		}
 		
@@ -408,6 +410,21 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		}
 		
 		public static class TurnLogicDisplay extends BaseMechanics.UserInterface.Element{
+
+			static BufferedImage player1indicate;
+			static BufferedImage player2indicate;
+			
+			public TurnLogicDisplay(){
+				
+			}
+			static{
+				try{
+					player1indicate = ImageIO.read(new File("sprites/Gui/Fonts/Icons/Team1OL.png"));
+					player2indicate = ImageIO.read(new File("sprites/Gui/Fonts/Icons/Team2OL.png"));
+				}catch(Exception e){
+					
+				}
+			}
 			
 			boolean changeControl;
 			
@@ -439,9 +456,10 @@ public class UserInterface extends BaseMechanics.UserInterface {
 					case NEUTRAL:
 						break;
 					case PLAYER1:
-						drawArbritaryTile(a, x, y, a.map.grid[x][y].highlight, g);
+						drawArbritaryTile(a, x, y, player1indicate, g);
 						break;
 					case PLAYER2:
+						drawArbritaryTile(a, x, y, player2indicate, g);
 						break;
 					default:
 						break;
@@ -454,6 +472,14 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			public void paint(Graphics2D g, AllTogether a) {
 				g.setColor(Color.MAGENTA);
 				g.drawString("Controlling Player: "+currentUser+" Turn Number: "+turnCount+" Control State: "+controlState, 69, 128);
+			/**/	
+				for(int x = 0; x < a.map.grid.length; x++){
+					for(int y = 0; y < a.map.grid[x].length; y++){
+						if(!a.map.grid[x][y].isHighlighted){
+							paintTeams(g, a, x, y);
+						}
+					}
+				}
 			/**/
 				g.setColor(Color.gray);
 				g.fillRect(0, (int)(a.parentFrame.getHeight()*0.75), 9999, 9999);
@@ -466,6 +492,8 @@ public class UserInterface extends BaseMechanics.UserInterface {
 				g.drawImage(pauseMenu.pauseButton, a.parentFrame.getWidth()-pauseMenu.pauseButton.getWidth(), a.parentFrame.getHeight()-pauseMenu.pauseButton.getHeight(), a.parentFrame.getWidth(), a.parentFrame.getHeight(), 0, 0, pauseMenu.pauseButton.getWidth(), pauseMenu.pauseButton.getHeight(), null);
 				
 				AttackLogic.scrollTest.paint(g);
+				
+				
 			}
 
 			@Override
