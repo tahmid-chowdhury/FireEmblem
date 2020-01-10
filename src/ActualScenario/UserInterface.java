@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 
 import com.sun.glass.events.KeyEvent;
 
+import ActualScenario.UserInterface.TurnLogicContainer.AttackLogic.attackButton;
 import BaseMechanics.AllTogether;
 import BaseMechanics.drawText;
 import BaseMechanics.InputMethod;
@@ -34,6 +35,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 	static int player1Authority;
 	static int player2Authority;
 	static BaseMechanics.drawText.font basicFont;
+	static ArrayList<attackButton> buttons;
 	
 	static boolean debug;
 		
@@ -64,6 +66,13 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		j = f;
 		mouse = m;
 	}
+	public void paint(Graphics2D g, AllTogether a){
+		super.paint(g, a);
+		for(attackButton i: buttons){
+			i.paint(g, a);
+		}
+	}
+
 	
 	public void update(AllTogether a) {
 		if(a.input.p.e==KeyEvent.VK_ESCAPE&&a.input.p.t==NewInputMethod.newKeyboardInput.eventType.RELEASED&&controlState!=ActualScenario.UserInterface.controlState.MENU){
@@ -76,6 +85,9 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		xsize = j.getWidth();
 		ysize = j.getHeight();
 		super.update(a);
+		for(attackButton i: buttons){
+			i.update(a);
+		}
 	}
 	
 	protected static void drawArbritaryTile(AllTogether a, int x, int y, BufferedImage sprite, Graphics2D g){
@@ -445,8 +457,11 @@ public class UserInterface extends BaseMechanics.UserInterface {
 					drawText.drawUnbounded(g, "@"+TurnLogicContainer.selected.health, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05), basicFont);
 					drawText.drawUnbounded(g, "$"+TurnLogicContainer.selected.speed, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+22, basicFont);
 					drawText.drawUnbounded(g, "Type:"+TurnLogicContainer.selected.type, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+44, basicFont);
-					drawText.drawUnbounded(g, "Team:"+TurnLogicContainer.selected.team, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+66, basicFont);
-
+				//	drawText.drawUnbounded(g, "Team:"+TurnLogicContainer.selected.team, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+66, basicFont);
+					if(AttackLogic.selectedAttack!=null){
+						drawText.drawUnbounded(g, "Selected Attack: "+AttackLogic.selectedAttack.name, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+66, basicFont);
+						drawText.drawUnbounded(g, AttackLogic.selectedAttack.name, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+88, basicFont);
+					}
 				}
 			}
 			
@@ -536,10 +551,9 @@ public class UserInterface extends BaseMechanics.UserInterface {
 	public static class AttackLogic extends BaseMechanics.UserInterface.Element {
 			static BaseMechanics.drawText.infiniteScroller scrollTest;
 			static BaseMechanics.drawText.infiniteScroller attackNames;
-			char scrollTestchar;
 			static BufferedImage attack;
-			static Attack selectedAttack;
-			static ArrayList<attackButton> buttons;
+		public	static Attack selectedAttack;
+			static String previousSelect;
 			static{
 				scrollTest = new BaseMechanics.drawText.infiniteScroller(22, 768, 800, 1024);
 				attackNames = new drawText.infiniteScroller((int)(xsize*0.75), (int)(ysize*0.42), (int)(xsize*1), (int)(ysize*0.98));
@@ -574,6 +588,10 @@ public class UserInterface extends BaseMechanics.UserInterface {
 					this.sprite = null;
 					this.attack = new Attacks.nullAttack();
 				}
+				
+				/*public void ManualPaint(Graphics2D g, AllTogether a) {
+					g.drawImage(sprite, x, y, x+sprite.getWidth(), y+sprite.getHeight(), 0, 0, sprite.getWidth(), sprite.getHeight(), null);
+				}*/
 
 				@Override
 				public void onClickAction(AllTogether a) {
@@ -581,11 +599,6 @@ public class UserInterface extends BaseMechanics.UserInterface {
 					
 				}
 
-				@Override
-				public void paint(Graphics2D g, AllTogether a) {
-					// TODO Auto-generated method stub
-					
-				}
 
 				@Override
 				public void toIterateOnEachTile(AllTogether a, Tile tile, int x, int y) {
@@ -630,14 +643,17 @@ public class UserInterface extends BaseMechanics.UserInterface {
 				g.drawRect((int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.25), (int)(a.parentFrame.getWidth()*0.3), (int)(a.parentFrame.getHeight()*0.4));
 				drawText.drawUnbounded(g, "Attacks", (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.25),basicFont);
 				if(selected!=null&&selected.attacks!=null){
-					for(int o = 0; o < selected.attacks.length; o++){
-					g.drawImage(selected.attacks[o].button, 
-							(int)(a.parentFrame.getWidth()*0.75),
-							(int)(a.parentFrame.getHeight()*0.25)+/*(160*o)*/(selected.attacks[o].button.getHeight()*o),
-							(int)(a.parentFrame.getWidth()*0.75)+selected.attacks[o].button.getWidth(),
-							(int)(a.parentFrame.getHeight()*0.25)+selected.attacks[o].button.getHeight()+/*(160*o)*/(selected.attacks[o].button.getHeight()*o),
-							
-							0, 0, selected.attacks[o].button.getWidth(), selected.attacks[o].button.getHeight(), null);
+					//for(int o = 0; o < selected.attacks.length; o++){
+					//g.drawImage(selected.attacks[o].button, 
+					//		(int)(a.parentFrame.getWidth()*0.75),
+					//		(int)(a.parentFrame.getHeight()*0.25)+/*(160*o)*/(selected.attacks[o].button.getHeight()*o),
+					//		(int)(a.parentFrame.getWidth()*0.75)+selected.attacks[o].button.getWidth(),
+					//		(int)(a.parentFrame.getHeight()*0.25)+selected.attacks[o].button.getHeight()+/*(160*o)*/(selected.attacks[o].button.getHeight()*o),
+					//		
+					//		0, 0, selected.attacks[o].button.getWidth(), selected.attacks[o].button.getHeight(), null);
+					//}
+					for(attackButton i: buttons){
+					//	i.ManualPaint(g, a);
 					}
 				}
 				
@@ -647,6 +663,19 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			public void update(AllTogether a) {
 				if(selected==null||selected.team!=currentUser){
 					selectedAttack = null;
+					buttons.clear();
+				}else if(!selected.name.equals(previousSelect)){
+					buttons.clear();
+					if(selected.attacks!=null){
+						for(int x = 0; x < selected.attacks.length; x++){
+							buttons.add(new attackButton(selected.attacks[x],(int)(a.parentFrame.getWidth()*0.75),
+								(int)(a.parentFrame.getHeight()*0.25)+/*(160*o)*/(selected.attacks[x].button.getHeight()*x)
+								 ));
+						}
+					}
+				}
+				if(selected!=null){
+					previousSelect = new String(selected.name);
 				}
 			}
 

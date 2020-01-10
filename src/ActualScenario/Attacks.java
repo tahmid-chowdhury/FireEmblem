@@ -10,7 +10,7 @@ import BaseMechanics.Unit;
 public class Attacks {
 	public static class GenericMelee extends BaseMechanics.Unit.Attack{
 		public GenericMelee() {
-			this.name = "Generic Melee";
+			this.name = "Basic Melee";
 			try {
 				this.button = ImageIO.read(new File("sprites/Gui/skillButtons/Basic Melee.png"));
 			} catch (IOException e) {
