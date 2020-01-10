@@ -665,6 +665,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 					selectedAttack = null;
 					buttons.clear();
 				}else if(!selected.name.equals(previousSelect)){
+					selectedAttack = null;
 					buttons.clear();
 					if(selected.attacks!=null){
 						for(int x = 0; x < selected.attacks.length; x++){

@@ -31,7 +31,7 @@ public class Attacks {
 		public BaseRanged(){
 			this.name = "Basic Ranged";
 			try{
-				this.button = ImageIO.read(new File("sprites/Gui/skillButtons/Basic Melee.png"));
+				this.button = ImageIO.read(new File("sprites/Gui/skillButtons/Basic Ranged.png"));
 			}catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

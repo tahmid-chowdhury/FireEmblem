@@ -22,10 +22,8 @@ public class Units {
 			}catch(Exception e){
 				
 			}
-			this.attacks = new Attack[3];
-			attacks[0] = new Attacks.GenericMelee();
-			attacks[1] = new Attacks.GenericMelee();
-			attacks[2] = new Attacks.GenericMelee();
+			this.attacks = new Attack[1];
+			attacks[0] = new Attacks.BaseRanged();
 
 		}
 		
@@ -93,6 +91,8 @@ public class Units {
 			this.type = Unit.Type.MELEE;
 			this.name = "Harriot";
 			this.health = 100;
+			this.attacks = new Attack[1];
+			attacks[0] = new Attacks.GenericMelee();
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/fbody3.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/fhead3.png"));
@@ -183,6 +183,8 @@ public class Units {
 			this.type = Unit.Type.MELEE;
 			this.name = "Yesera";
 			this.health = 100;
+			this.attacks = new Attack[1];
+			attacks[0] = new Attacks.GenericMelee();
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/fbody2.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/fhead2.png"));
@@ -219,6 +221,8 @@ public class Units {
 			this.type = Unit.Type.MELEE;
 			this.name = "Prince Victor";
 			this.health = 100;
+			this.attacks = new Attack[1];
+			attacks[0] = new Attacks.GenericMelee();
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/mbody5.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/mhead5.png"));
@@ -310,6 +314,8 @@ public class Units {
 			this.type = Unit.Type.MELEE;
 			this.name = "Tyra";
 			this.health = 100;
+			this.attacks = new Attack[1];
+			attacks[0] = new Attacks.GenericMelee();
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/mbody3.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/mhead3.png"));
@@ -384,6 +390,8 @@ public class Units {
 			this.type = Unit.Type.MELEE;
 			this.name = "Joran";
 			this.health = 100;
+			this.attacks = new Attack[1];
+			attacks[0] = new Attacks.GenericMelee();
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/mbody4.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/mhead4.png"));
@@ -420,6 +428,8 @@ public class Units {
 			this.type = Unit.Type.MELEE;
 			this.name = "Stefan";
 			this.health = 100;
+			this.attacks = new Attack[1];
+			attacks[0] = new Attacks.GenericMelee();
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/mbody6.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/mhead6.png"));
@@ -456,6 +466,8 @@ public class Units {
 			this.type = Unit.Type.MELEE;
 			this.name = "F1ST-3-CUFF";
 			this.health = 100;
+			this.attacks = new Attack[1];
+			attacks[0] = new Attacks.GenericMelee();
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/body.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/head.png"));
@@ -493,6 +505,7 @@ public class Units {
 			this.type = Unit.Type.RANGED;
 			this.name = "Carmen";
 			this.health = 100;
+			
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/fbody5.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/fhead5.png"));
@@ -500,7 +513,7 @@ public class Units {
 				
 			}
 			this.attacks = new Attack[1];
-			attacks[0] = new Attacks.GenericMelee();
+			attacks[0] = new Attacks.BaseRanged();
 		}
 		
 		public void paint(Graphics2D g, int x, int y, double scaleFactor, double xOffset, double yOffset, int xSize, int ySize){
