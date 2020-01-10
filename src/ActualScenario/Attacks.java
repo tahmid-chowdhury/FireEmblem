@@ -10,7 +10,7 @@ import BaseMechanics.Unit;
 public class Attacks {
 	public static class GenericMelee extends BaseMechanics.Unit.Attack{
 		public GenericMelee() {
-			this.name = "Generic Melee";
+			this.name = "Basic Melee";
 			try {
 				this.button = ImageIO.read(new File("sprites/Gui/skillButtons/Basic Melee.png"));
 			} catch (IOException e) {
@@ -18,6 +18,24 @@ public class Attacks {
 				e.printStackTrace();
 			}
 
+		}
+		@Override
+		public int calcDamage(Unit target, Unit attacker) {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+		
+	}
+	
+	public static class BaseRanged extends BaseMechanics.Unit.Attack{
+		public BaseRanged(){
+			this.name = "Basic Ranged";
+			try{
+				this.button = ImageIO.read(new File("sprites/Gui/skillButtons/Basic Melee.png"));
+			}catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		@Override
 		public int calcDamage(Unit target, Unit attacker) {
