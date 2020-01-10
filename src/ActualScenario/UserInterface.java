@@ -433,6 +433,23 @@ public class UserInterface extends BaseMechanics.UserInterface {
 				}
 			}
 			
+			public void paintTeams(Graphics2D g, AllTogether a, int x, int y){
+				if(a.map.grid[x][y].occupyingUnit!=null){
+					switch(a.map.grid[x][y].occupyingUnit.team){
+					case NEUTRAL:
+						break;
+					case PLAYER1:
+						drawArbritaryTile(a, x, y, a.map.grid[x][y].highlight, g);
+						break;
+					case PLAYER2:
+						break;
+					default:
+						break;
+					
+					}
+				}
+			}
+			
 			@Override
 			public void paint(Graphics2D g, AllTogether a) {
 				g.setColor(Color.MAGENTA);
