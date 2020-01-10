@@ -19,6 +19,7 @@ import BaseMechanics.NewInputMethod;
 import BaseMechanics.NewInputMethod.newKeyboardInput.keyboardDataPkg;
 import BaseMechanics.Tile;
 import BaseMechanics.Unit;
+import BaseMechanics.Unit.Attack;
 import BaseMechanics.UserInterface.Element;
 
 public class UserInterface extends BaseMechanics.UserInterface {
@@ -113,6 +114,9 @@ public class UserInterface extends BaseMechanics.UserInterface {
 					onClickAction(a);
 				}
 			}
+		}
+		public void paint(Graphics2D g, AllTogether a) {
+			g.drawImage(sprite, x, y, x+sprite.getWidth(), y+sprite.getHeight(), 0, 0, sprite.getWidth(), sprite.getHeight(), null);
 		}
 	}
 	
@@ -489,10 +493,15 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			static BaseMechanics.drawText.infiniteScroller attackNames;
 			char scrollTestchar;
 			static BufferedImage attack;
-			int selectedAttack;
+			static Attack selectedAttack;
+			static ArrayList<attackButton> buttons;
 			static{
 				scrollTest = new BaseMechanics.drawText.infiniteScroller(22, 768, 800, 1024);
 				attackNames = new drawText.infiniteScroller((int)(xsize*0.75), (int)(ysize*0.42), (int)(xsize*1), (int)(ysize*0.98));
+				buttons = new ArrayList<attackButton>(0);
+				for(int p = 0; p < 3; p++) {
+					buttons.add(0, new attackButton());
+				}
 				try{
 					attack = ImageIO.read(new File("sprites/Gui/target.png"));
 
@@ -502,6 +511,43 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			}
 			public static void log(String s){
 				scrollTest.addItem(s, basicFont);
+			}
+			
+			public static class attackButton extends button{
+				
+				Attack attack;
+				public attackButton(Attack attack, int x, int y){
+					 this.attack = attack;
+					 this.x = x;
+					 this.y = y;
+					 this.sprite = attack.button;
+				}
+				
+				public attackButton() {
+					this.x = 0;
+					this.y = 0;
+					this.sprite = null;
+					this.attack = new Attacks.nullAttack();
+				}
+
+				@Override
+				public void onClickAction(AllTogether a) {
+					selectedAttack = this.attack;
+					
+				}
+
+				@Override
+				public void paint(Graphics2D g, AllTogether a) {
+					// TODO Auto-generated method stub
+					
+				}
+
+				@Override
+				public void toIterateOnEachTile(AllTogether a, Tile tile, int x, int y) {
+					// TODO Auto-generated method stub
+					
+				}
+				
 			}
 			
 			@Override
@@ -555,13 +601,13 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			@Override
 			public void update(AllTogether a) {
 				if(selected==null||selected.team!=currentUser){
-					selectedAttack = -1;
+					selectedAttack = null;
 				}
 			}
 
 			@Override
 			public void toIterateOnEachTile(AllTogether a, Tile tile, int x, int y) {
-				if(tile.occupyingUnit!=null&&tile.isHighlighted) {
+				if(tile.occupyingUnit!=null&&tile.isHighlighted&&tile.occupyingUnit.type!=Unit.Type.TYPELESS) {
 					selected = tile.occupyingUnit;
 				}else if(tile.isHighlighted){
 					selected = null;

@@ -26,4 +26,16 @@ public class Attacks {
 		}
 		
 	}
+	public static class nullAttack extends BaseMechanics.Unit.Attack{
+		public nullAttack() {
+			this.name = "null";
+			this.button = null;
+		}
+		@Override
+		public int calcDamage(Unit target, Unit attacker) {
+			// TODO Auto-generated method stub
+			return Integer.MAX_VALUE;
+		}
+		
+	}
 }
