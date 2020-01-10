@@ -1,1 +1,5 @@
-# Fire Emblem
+# Siegward
+## Description
+This project will address fans of Fire Emblem’s desire to play on PC. For anyone to be able to access a top-down tactical RPG online.
+A top down turn based combat game based off of the game Fire Emblem: Fates. Art-style is to be done in 16x16 for characters and other graphics are to be done with simplistic pixel art. Characters will take up a single plot on the 8-16x6-12 grid and players will have 4 each team. 
+A few assumptions being made for this project are: Nintendo is aware and allowing this game to be developed; fans of Fire Emblem will make up the majority of players (target audience); and that we have been A few assumptions being made for this project are: Nintendo is aware and allowing this game to be developed; fans of Fire Emblem will make up the majority of players (target audience); and that we have been given a one month deadline to complete the project. 
