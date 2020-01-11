@@ -682,9 +682,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 					buttons.clear();
 					if(selected.attacks!=null){
 						for(int x = 0; x < selected.attacks.length; x++){
-							buttons.add(new attackButton(selected.attacks[x],(int)(a.parentFrame.getWidth()*0.75),
-								(int)(a.parentFrame.getHeight()*0.25)+/*(160*o)*/(selected.attacks[x].button.getHeight()*x)
-								 ));
+							buttons.add(new attackButton(selected.attacks[x],(int)(a.parentFrame.getWidth()*0.75),(int)(a.parentFrame.getHeight()*0.25)+/*(160*o)*/(selected.attacks[x].button.getHeight()*x)));
 						}
 					}
 				}
