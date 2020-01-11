@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 
 import com.sun.glass.events.KeyEvent;
 
+import ActualScenario.UserInterface.TurnLogicContainer.AttackLogic;
 import ActualScenario.UserInterface.TurnLogicContainer.AttackLogic.attackButton;
 import BaseMechanics.AllTogether;
 import BaseMechanics.drawText;
@@ -189,7 +190,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 				}
 			}
 			
-			if(mouse.rightPulse&&controlState == ActualScenario.UserInterface.controlState.MOVEMENT){
+			if(mouse.rightPulse){
 				//See viewport if these statements don't make sense
 				if(
 				mouse.CurrentMouseInputs[0] >= (x*a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor) +  (a.viewport.xOffset*(a.map.grid[x][y].sprite.getWidth()*a.viewport.scaleFactor*a.map.grid.length))
@@ -212,6 +213,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 								(TurnLogicContainer.currentUser == a.map.grid[x2][y2].occupyingUnit.team||God)
 								&&
 								a.map.moveCheck(x2, y2, x, y)
+								&&controlState == ActualScenario.UserInterface.controlState.MOVEMENT
 									){
 								a.map.grid[x2][y2].occupyingUnit.hasMovedThisTurn = true;
 								
@@ -221,6 +223,17 @@ public class UserInterface extends BaseMechanics.UserInterface {
 								a.map.move(x2, y2, x, y);
 								a.map.grid[x2][y2].isHighlighted = false;
 								a.map.grid[x][y].isHighlighted = true;
+							}
+							if(controlState == ActualScenario.UserInterface.controlState.COMBAT
+								&&a.map.grid[x2][y2].isHighlighted
+								&&a.map.grid[x2][y2].occupyingUnit!=null
+								&&!a.map.grid[x2][y2].occupyingUnit.hasAttackedThisTurn
+								&&a.map.grid[x][y].occupyingUnit!=null
+								&&a.map.grid[x][y].occupyingUnit.type!=Unit.Type.TYPELESS
+								&&AttackLogic.selectedAttack!=null) {
+								
+								TurnLogicContainer.AttackLogic.log("@"+a.map.grid[x2][y2].occupyingUnit.getNameWithTeam()+" attacked "+a.map.grid[x][y].occupyingUnit.getNameWithTeam()+" with "+AttackLogic.selectedAttack.name+".");
+								
 							}
 						}
 					}
