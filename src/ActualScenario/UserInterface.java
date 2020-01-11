@@ -232,8 +232,13 @@ public class UserInterface extends BaseMechanics.UserInterface {
 								&&a.map.grid[x][y].occupyingUnit.type!=Unit.Type.TYPELESS
 								&&AttackLogic.selectedAttack!=null) {
 								
-								TurnLogicContainer.AttackLogic.log("@"+a.map.grid[x2][y2].occupyingUnit.getNameWithTeam()+" attacked "+a.map.grid[x][y].occupyingUnit.getNameWithTeam()+" with "+AttackLogic.selectedAttack.name+".");
-								
+								a.map.grid[x2][y2].occupyingUnit.hasAttackedThisTurn = true;
+								TurnLogicContainer.AttackLogic.log("@"+a.map.grid[x2][y2].occupyingUnit.getNameWithTeam()+" attacked "+a.map.grid[x][y].occupyingUnit.getNameWithTeam()+" with "+AttackLogic.selectedAttack.name+" dealing "+AttackLogic.selectedAttack.calcDamage(a.map.grid[x][y].occupyingUnit, a.map.grid[x2][y2].occupyingUnit)+" damage.");
+								a.map.grid[x][y].occupyingUnit.health -= AttackLogic.selectedAttack.calcDamage(a.map.grid[x][y].occupyingUnit, a.map.grid[x2][y2].occupyingUnit);
+								if(a.map.grid[x][y].occupyingUnit.health <= 0) {
+									TurnLogicContainer.AttackLogic.log("@"+a.map.grid[x][y].occupyingUnit.name+" has fucking died.");
+									a.map.grid[x][y].occupyingUnit = null;
+								}
 							}
 						}
 					}

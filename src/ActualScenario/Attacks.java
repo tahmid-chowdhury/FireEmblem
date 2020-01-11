@@ -22,7 +22,7 @@ public class Attacks {
 		@Override
 		public int calcDamage(Unit target, Unit attacker) {
 			// TODO Auto-generated method stub
-			return 0;
+			return 5;
 		}
 		
 	}
@@ -40,7 +40,7 @@ public class Attacks {
 		@Override
 		public int calcDamage(Unit target, Unit attacker) {
 			// TODO Auto-generated method stub
-			return 0;
+			return 5;
 		}
 		
 	}
