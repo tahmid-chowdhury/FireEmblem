@@ -76,13 +76,13 @@ public class UserInterface extends BaseMechanics.UserInterface {
 
 	
 	public void update(AllTogether a) {
-		if(a.input.p.e==KeyEvent.VK_ESCAPE&&a.input.p.t==NewInputMethod.newKeyboardInput.eventType.RELEASED&&controlState!=ActualScenario.UserInterface.controlState.MENU){
+	/*	if(a.input.p.e==KeyEvent.VK_ESCAPE&&a.input.p.t==NewInputMethod.newKeyboardInput.eventType.RELEASED&&controlState!=ActualScenario.UserInterface.controlState.MENU){
 			controlState = ActualScenario.UserInterface.controlState.MENU;
 			a.input.p.clear();
 		}else if(a.input.p.e==KeyEvent.VK_ESCAPE&&a.input.p.t==NewInputMethod.newKeyboardInput.eventType.RELEASED&&controlState==ActualScenario.UserInterface.controlState.MENU){
 			controlState = ActualScenario.UserInterface.controlState.MOVEMENT;
 			a.input.p.clear();	
-		}
+		}*/
 		xsize = j.getWidth();
 		ysize = j.getHeight();
 		super.update(a);
@@ -234,9 +234,10 @@ public class UserInterface extends BaseMechanics.UserInterface {
 								
 								a.map.grid[x2][y2].occupyingUnit.hasAttackedThisTurn = true;
 								TurnLogicContainer.AttackLogic.log("@"+a.map.grid[x2][y2].occupyingUnit.getNameWithTeam()+" attacked "+a.map.grid[x][y].occupyingUnit.getNameWithTeam()+" with "+AttackLogic.selectedAttack.name+" dealing "+AttackLogic.selectedAttack.calcDamage(a.map.grid[x][y].occupyingUnit, a.map.grid[x2][y2].occupyingUnit)+" damage.");
+
 								a.map.grid[x][y].occupyingUnit.health -= AttackLogic.selectedAttack.calcDamage(a.map.grid[x][y].occupyingUnit, a.map.grid[x2][y2].occupyingUnit);
 								if(a.map.grid[x][y].occupyingUnit.health <= 0) {
-									TurnLogicContainer.AttackLogic.log("@"+a.map.grid[x][y].occupyingUnit.name+" has fucking died.");
+									TurnLogicContainer.AttackLogic.log("@"+a.map.grid[x][y].occupyingUnit.name+" has been defeated.");
 									a.map.grid[x][y].occupyingUnit = null;
 								}
 							}
@@ -613,8 +614,14 @@ public class UserInterface extends BaseMechanics.UserInterface {
 
 				@Override
 				public void onClickAction(AllTogether a) {
-					selectedAttack = this.attack;
-					
+					if(selected.authorityLevel >= attack.authorityThreshold) {
+						selectedAttack = this.attack;
+						controlState = ActualScenario.UserInterface.controlState.COMBAT;
+						AttackLogic.log("#You are now in combat mode. Press 1 to return to movement mode.");
+					}else {
+						AttackLogic.log("#Couldn't select attack... Not enough authority.");
+					}
+
 				}
 
 
