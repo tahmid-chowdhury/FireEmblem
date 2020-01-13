@@ -16,6 +16,7 @@ public class Units {
 			this.type = Unit.Type.RANGED;
 			this.name = "Wolke";
 			this.health = 100;
+			this.baseDMG = 5;
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/mbody1.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/mhead1.png"));
@@ -55,6 +56,7 @@ public class Units {
 			this.type = Unit.Type.MAGIC;
 			this.name = "Silynia";
 			this.health = 100;
+			this.baseDMG = 2.5;
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/fbody1.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/fhead1.png"));
@@ -93,6 +95,8 @@ public class Units {
 			this.type = Unit.Type.MELEE;
 			this.name = "Harriot";
 			this.health = 100;
+			this.baseDMG = 5;
+
 			this.attacks = new Attack[1];
 			attacks[0] = new Attacks.GenericMelee();
 			try{
@@ -149,6 +153,8 @@ public class Units {
 			this.type = Unit.Type.SPECIAL;
 			this.name = "Xehan";
 			this.health = 100;
+			this.baseDMG = 5;
+
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/mbody2.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/mhead2.png"));
@@ -185,6 +191,7 @@ public class Units {
 			this.type = Unit.Type.MELEE;
 			this.name = "Yesera";
 			this.health = 100;
+			this.baseDMG = 5;
 			this.attacks = new Attack[1];
 			attacks[0] = new Attacks.GenericMelee();
 			try{
@@ -223,6 +230,7 @@ public class Units {
 			this.type = Unit.Type.MELEE;
 			this.name = "Prince Victor";
 			this.health = 100;
+			this.baseDMG = 5;
 			this.attacks = new Attack[1];
 			attacks[0] = new Attacks.GenericMelee();
 			try{
@@ -280,6 +288,7 @@ public class Units {
 			this.type = Unit.Type.MAGIC;
 			this.name = "Belle";
 			this.health = 100;
+			this.baseDMG = 2.5;
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/fbody4.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/fhead4.png"));
@@ -318,6 +327,7 @@ public class Units {
 			this.type = Unit.Type.MELEE;
 			this.name = "Tyra";
 			this.health = 100;
+			this.baseDMG = 5;
 			this.attacks = new Attack[1];
 			attacks[0] = new Attacks.GenericMelee();
 			try{
@@ -397,6 +407,7 @@ public class Units {
 			this.type = Unit.Type.MELEE;
 			this.name = "Joran";
 			this.health = 100;
+			this.baseDMG = 5;
 			this.attacks = new Attack[1];
 			attacks[0] = new Attacks.GenericMelee();
 			try{
@@ -435,6 +446,7 @@ public class Units {
 			this.type = Unit.Type.MELEE;
 			this.name = "Stefan";
 			this.health = 100;
+			this.baseDMG = 5;
 			this.attacks = new Attack[1];
 			attacks[0] = new Attacks.GenericMelee();
 			try{
@@ -473,6 +485,7 @@ public class Units {
 			this.type = Unit.Type.MELEE;
 			this.name = "F1ST-3-CUFF";
 			this.health = 100;
+			this.baseDMG = 7;
 			this.attacks = new Attack[1];
 			attacks[0] = new Attacks.GenericMelee();
 			try{
@@ -512,6 +525,7 @@ public class Units {
 			this.type = Unit.Type.RANGED;
 			this.name = "Carmen";
 			this.health = 100;
+			this.baseDMG = 5;
 			
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/fbody5.png"));
@@ -551,6 +565,7 @@ public class Units {
 			this.type = Unit.Type.MAGIC;
 			this.name = "Ciel";
 			this.health = 100;
+			this.baseDMG = 2.5;
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/heads/fhead6.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/body/fbody6.png"));

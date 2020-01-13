@@ -9,7 +9,7 @@ public abstract class Unit {
 	//Actual Battle Logic
 	public Type type;
 	public int health;
-	public int baseDMG;
+	public double baseDMG;
 	public Team team;
 	public double speed;
 	public double armour;
