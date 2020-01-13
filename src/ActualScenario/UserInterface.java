@@ -688,6 +688,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			public void update(AllTogether a) {
 				if(selected==null||selected.team!=currentUser){
 					selectedAttack = null;
+					previousSelect = "";
 					buttons.clear();
 				}else if(!selected.name.equals(previousSelect)){
 					selectedAttack = null;
