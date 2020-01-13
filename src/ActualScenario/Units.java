@@ -357,6 +357,9 @@ public class Units {
 			this.type = Unit.Type.MELEE;
 			this.name = "god";
 			this.health = Integer.MAX_VALUE;
+			
+			this.attacks = new Attack[1];
+			this.attacks[0] = new Attacks.nullAttack();
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/mbody3hq.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/mhead3hq.png"));

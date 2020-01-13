@@ -9,6 +9,7 @@ public abstract class Unit {
 	//Actual Battle Logic
 	public Type type;
 	public int health;
+	public int baseDMG;
 	public Team team;
 	public double speed;
 	public double armour;
@@ -17,6 +18,7 @@ public abstract class Unit {
 	public Attack[] attacks;
 	public int authorityLevel;
 	public String name;
+	
 	
 	public enum Team {
 		PLAYER1,
@@ -36,6 +38,15 @@ public abstract class Unit {
 			return name+"}";
 		}else{
 			return name+"{";
+		}
+	}
+	
+	public void checkTurn() {
+		if(authorityLevel >= 10) {
+			switch(type) {
+			case MELEE:
+				
+			}
 		}
 	}
 	

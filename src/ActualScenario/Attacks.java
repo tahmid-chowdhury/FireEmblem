@@ -29,7 +29,7 @@ public class Attacks {
 				attacker.authorityLevel += target.authorityLevel;
 				target.authorityLevel = 0;
 			}
-			return (int)(5*target.armour);
+			return (int)(attacker.baseDMG*target.armour);
 		}
 		
 	}
@@ -54,7 +54,7 @@ public class Attacks {
 				attacker.authorityLevel += target.authorityLevel;
 				target.authorityLevel = 0;
 			}
-			return (int)(5*target.armour);
+			return (int)(attacker.baseDMG*target.armour);
 		}
 		
 		
@@ -80,7 +80,7 @@ public class Attacks {
 				attacker.authorityLevel += target.authorityLevel;
 				target.authorityLevel = 0;
 			}
-			return (int)(5*target.armour);
+			return (int)(attacker.baseDMG*target.armour);
 		}
 		
 		
