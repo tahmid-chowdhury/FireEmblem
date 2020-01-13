@@ -44,6 +44,24 @@ public class Attacks {
 		}
 		
 	}
+	
+	public static class BaseMagic extends BaseMechanics.Unit.Attack{
+		public BaseMagic(){
+			this.name = "Basic Magic";
+			try{
+				this.button = ImageIO.read(new File("sprites/Gui/skillButtons/Basic Mage.png"));
+			}catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		@Override
+		public int calcDamage(Unit target, Unit attacker) {
+			// TODO Auto-generated method stub
+			return 5;
+		}
+		
+	}
 	public static class nullAttack extends BaseMechanics.Unit.Attack{
 		public nullAttack() {
 			this.name = "null";
