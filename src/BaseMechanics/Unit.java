@@ -9,6 +9,7 @@ public abstract class Unit {
 	//Actual Battle Logic
 	public Type type;
 	public int health;
+	public int level;
 	public double baseDMG;
 	public Team team;
 	public double speed;
@@ -58,6 +59,7 @@ public abstract class Unit {
 		public int authorityThreshold;
 		int baseDamage; //yes, negative basedamage will heal
 		public BufferedImage button;
+		public boolean abilityOverride;
 		attackMethod method;
 		attackType type;
 		public enum attackMethod{
