@@ -198,6 +198,90 @@ public class Tiles extends BaseMechanics.Tile {
 		}
 	}
 	
+	public static class BotRightPathFieldC extends BaseMechanics.Tile {
+		public BotRightPathFieldC() {
+			
+			super();
+			
+			 terrainType = 0;
+			 zAxis = 0;
+			 passable = true;
+			 tall = false;			
+			//Drawing Stuff
+			 try {
+				sprite = ImageIO.read(new File(/*benis*/"sprites/land/betterGrassBotRightCon.png"));
+				highlight = ImageIO.read(new File("sprites/Gui/selector.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				
+				e.printStackTrace();
+			};
+		}
+	}
+	
+	public static class BotLeftPathFieldC extends BaseMechanics.Tile {
+		public BotLeftPathFieldC() {
+			
+			super();
+			
+			 terrainType = 0;
+			 zAxis = 0;
+			 passable = true;
+			 tall = false;			
+			//Drawing Stuff
+			 try {
+				sprite = ImageIO.read(new File(/*benis*/"sprites/land/betterGrassBotLeftCon.png"));
+				highlight = ImageIO.read(new File("sprites/Gui/selector.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				
+				e.printStackTrace();
+			};
+		}
+	}
+	
+	public static class TopRightPathFieldC extends BaseMechanics.Tile {
+		public TopRightPathFieldC() {
+			
+			super();
+			
+			 terrainType = 0;
+			 zAxis = 0;
+			 passable = true;
+			 tall = false;			
+			//Drawing Stuff
+			 try {
+				sprite = ImageIO.read(new File(/*benis*/"sprites/land/betterGrassTopRightCon.png"));
+				highlight = ImageIO.read(new File("sprites/Gui/selector.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				
+				e.printStackTrace();
+			};
+		}
+	}
+	
+	public static class TopLeftPathFieldC extends BaseMechanics.Tile {
+		public TopLeftPathFieldC() {
+			
+			super();
+			
+			 terrainType = 0;
+			 zAxis = 0;
+			 passable = true;
+			 tall = false;			
+			//Drawing Stuff
+			 try {
+				sprite = ImageIO.read(new File(/*benis*/"sprites/land/betterGrassTopLeftCon.png"));
+				highlight = ImageIO.read(new File("sprites/Gui/selector.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				
+				e.printStackTrace();
+			};
+		}
+	}
+	
 	public static class BasicStone extends BaseMechanics.Tile {
 		public BasicStone() {
 			
