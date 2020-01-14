@@ -119,10 +119,10 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		
 		public void update(AllTogether a){
 			if(mouse.pulse){
-				if(mouse.CurrentMouseInputs[0] <= x+sprite.getWidth()&&
-					mouse.CurrentMouseInputs[0] >= x&&
-					mouse.CurrentMouseInputs[1] <= y+sprite.getWidth()&&
-					mouse.CurrentMouseInputs[1] >= y
+				if(mouse.CurrentMouseInputs[0] < x+sprite.getWidth()&&
+					mouse.CurrentMouseInputs[0] > x&&
+					mouse.CurrentMouseInputs[1] < y+sprite.getWidth()&&
+					mouse.CurrentMouseInputs[1] > y
 						){
 					onClickAction(a);
 				}
@@ -628,7 +628,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 							AttackLogic.log("#"+attack.name+" activated!");
 							for(int x = 0; x < a.map.grid.length; x++){
 								for(int y = 0; y < a.map.grid[x].length; y++){
-									if(a.map.grid[x][y].occupyingUnit.team == currentUser) {
+									if(a.map.grid[x][y].occupyingUnit!= null &&a.map.grid[x][y].occupyingUnit.team == currentUser) {
 										a.map.grid[x][y].occupyingUnit.health += 10;
 									}
 								}
