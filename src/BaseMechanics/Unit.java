@@ -16,6 +16,7 @@ public abstract class Unit {
 	public double armour;
 	public boolean hasMovedThisTurn;
 	public boolean hasAttackedThisTurn;
+	public boolean hasUsedAbilityThisTurn;
 	public Attack[] attacks;
 	public int authorityLevel;
 	public String name;

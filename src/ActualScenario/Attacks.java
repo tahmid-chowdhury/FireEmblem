@@ -100,8 +100,36 @@ public class Attacks {
 		}
 		@Override
 		public int calcDamage(Unit target, Unit attacker) {
-			attacker.hasMovedThisTurn = false;
-			return 0;
+			if(attacker.hasMovedThisTurn) {
+				attacker.hasMovedThisTurn = false;
+				return 0;
+			}else {
+				return 1;
+			}
+		}
+		
+	}
+	
+	public static class RangedSkill extends BaseMechanics.Unit.Attack{
+		public RangedSkill(){
+			this.name = "Barrage";
+			this.authorityThreshold = 20;
+			this.abilityOverride = true;
+			try{
+				this.button = ImageIO.read(new File("sprites/Gui/skillButtons/Skill 1 Ranged.png"));
+			}catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		@Override
+		public int calcDamage(Unit target, Unit attacker) {
+			if(attacker.hasAttackedThisTurn) {
+				attacker.hasAttackedThisTurn = false;
+				return 0;
+			}else {
+				return 1;
+			}
 		}
 		
 	}
@@ -117,6 +145,7 @@ public class Attacks {
 		@Override
 		public int calcDamage(Unit target, Unit attacker) {
 			// TODO Auto-generated method stub
+			attacker.authorityLevel = Integer.MAX_VALUE;
 			return Integer.MAX_VALUE;
 		}
 		

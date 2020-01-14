@@ -477,9 +477,9 @@ public class UserInterface extends BaseMechanics.UserInterface {
 					drawText.drawUnbounded(g, selected.getNameWithTeam()+":",(int)(a.parentFrame.getWidth()*0.75),(int)(a.parentFrame.getHeight()*0.05)-22, basicFont);
 					drawText.drawUnbounded(g, "@"+TurnLogicContainer.selected.health, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05), basicFont);
 					drawText.drawUnbounded(g, "$"+TurnLogicContainer.selected.speed, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+22, basicFont);
-					drawText.drawUnbounded(g, "Type:"+TurnLogicContainer.selected.type, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+44, basicFont);
+					drawText.drawUnbounded(g, "Type:"+TurnLogicContainer.selected.type, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+88, basicFont);
 					drawText.drawUnbounded(g, "Level:"+TurnLogicContainer.selected.level, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+66, basicFont);
-					drawText.drawUnbounded(g, "Authority:"+TurnLogicContainer.selected.authorityLevel, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+88, basicFont);
+					drawText.drawUnbounded(g, "^:"+TurnLogicContainer.selected.authorityLevel, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+44, basicFont);
 					if(AttackLogic.selectedAttack!=null){
 						drawText.drawUnbounded(g, "Selected Attack: "+AttackLogic.selectedAttack.name, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+110, basicFont);
 						drawText.drawUnbounded(g, AttackLogic.selectedAttack.name, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+132, basicFont);
@@ -621,9 +621,12 @@ public class UserInterface extends BaseMechanics.UserInterface {
 						selectedAttack = this.attack;
 						controlState = ActualScenario.UserInterface.controlState.COMBAT;
 						AttackLogic.log("#You are now in combat mode. Press 1 to return to movement mode.");
-					}else if(attack.abilityOverride && selected.authorityLevel >= attack.authorityThreshold){
-						attack.calcDamage(null, selected);
-						AttackLogic.log("#"+attack.name+" activated!");
+					}else if(attack.abilityOverride && selected.authorityLevel >= attack.authorityThreshold&&!selected.hasUsedAbilityThisTurn){
+						if(attack.calcDamage(null, selected) == 0) {
+							AttackLogic.log("#"+attack.name+" activated!");
+						}else {
+							AttackLogic.log("#"+attack.name+" could not activate.");
+						}
 					}else{
 						AttackLogic.log("#Couldn't select attack... Not enough authority.");
 					}
@@ -701,7 +704,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 					buttons.clear();
 					if(selected.attacks!=null){
 						for(int x = 0; x < selected.attacks.length; x++){
-							buttons.add(new attackButton(selected.attacks[x],(int)(a.parentFrame.getWidth()*0.75),(int)(a.parentFrame.getHeight()*0.25)+/*(160*o)*/(selected.attacks[x].button.getHeight()*x)));
+							buttons.add(new attackButton(selected.attacks[x],(int)(a.parentFrame.getWidth()*0.75),(int)(a.parentFrame.getHeight()*0.25)+(/*selected.attacks[x].button.getHeight()*/160*x)));
 						}
 					}
 				}

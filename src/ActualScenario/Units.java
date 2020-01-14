@@ -24,8 +24,9 @@ public class Units {
 			}catch(Exception e){
 				
 			}
-			this.attacks = new Attack[1];
+			this.attacks = new Attack[2];
 			attacks[0] = new Attacks.BaseRanged();
+			attacks[1] = new Attacks.RangedSkill();
 
 		}
 		
@@ -166,7 +167,12 @@ public class Units {
 			}catch(Exception e){
 				
 			}
+			this.attacks = new Attack[3];
+			attacks[0] = new Attacks.GenericMelee();
+			attacks[1] = new Attacks.MeleeSkill();
+			attacks[2] = new Attacks.RangedSkill();
 		}
+		
 		
 		public void paint(Graphics2D g, int x, int y, double scaleFactor, double xOffset, double yOffset, int xSize, int ySize){
 			super.paint(g, x, y, scaleFactor, xOffset, yOffset, xSize, ySize);
@@ -381,8 +387,10 @@ public class Units {
 			this.health = Integer.MAX_VALUE;
 			this.armour = 1;
 			
-			this.attacks = new Attack[1];
+			this.attacks = new Attack[3];
 			this.attacks[0] = new Attacks.nullAttack();
+			attacks[1] = new Attacks.MeleeSkill();
+			attacks[2] = new Attacks.RangedSkill();
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/mbody3hq.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/mhead3hq.png"));
@@ -553,8 +561,9 @@ public class Units {
 			}catch(Exception e){
 				
 			}
-			this.attacks = new Attack[1];
+			this.attacks = new Attack[2];
 			attacks[0] = new Attacks.BaseRanged();
+			attacks[1] = new Attacks.RangedSkill();
 		}
 		
 		public void paint(Graphics2D g, int x, int y, double scaleFactor, double xOffset, double yOffset, int xSize, int ySize){
