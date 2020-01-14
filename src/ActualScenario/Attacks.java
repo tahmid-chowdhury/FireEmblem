@@ -85,6 +85,24 @@ public class Attacks {
 		
 		
 	}
+	
+	public static class MeleeSkill extends BaseMechanics.Unit.Attack{
+		public MeleeSkill(){
+			this.name = "Agility";
+			try{
+				this.button = ImageIO.read(new File("sprites/Gui/skillButtons/Skill 1 Melee.png"));
+			}catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		@Override
+		public int calcDamage(Unit target, Unit attacker) {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+		
+	}
 	public static class nullAttack extends BaseMechanics.Unit.Attack{
 		public nullAttack() {
 			this.name = "null";

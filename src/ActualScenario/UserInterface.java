@@ -148,7 +148,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 		@Override
 		public void paint(Graphics2D g, AllTogether a) {
 			g.setColor(Color.RED);
-			g.drawString("x:"+mouse.CurrentMouseInputs[0]+" y:"+mouse.CurrentMouseInputs[1]+" "+mouse.pulse+"\n"+mouse.rightPulse, 69, 69);
+		//	g.drawString("x:"+mouse.CurrentMouseInputs[0]+" y:"+mouse.CurrentMouseInputs[1]+" "+mouse.pulse+"\n"+mouse.rightPulse, 69, 69);
 		
 			for(int x = 0; x < a.map.grid.length; x++){
 				for(int y = 0; y < a.map.grid[x].length; y++){
@@ -227,10 +227,11 @@ public class UserInterface extends BaseMechanics.UserInterface {
 							if(controlState == ActualScenario.UserInterface.controlState.COMBAT
 								&&a.map.grid[x2][y2].isHighlighted
 								&&a.map.grid[x2][y2].occupyingUnit!=null
-								&&!a.map.grid[x2][y2].occupyingUnit.hasAttackedThisTurn
 								&&a.map.grid[x][y].occupyingUnit!=null
 								&&a.map.grid[x][y].occupyingUnit.type!=Unit.Type.TYPELESS
-								&&AttackLogic.selectedAttack!=null) {
+								&&AttackLogic.selectedAttack!=null
+								&&(!a.map.grid[x2][y2].occupyingUnit.hasAttackedThisTurn/*||AttackLogic.selectedAttack.abilityOverride*/)
+									) {
 								
 								a.map.grid[x2][y2].occupyingUnit.hasAttackedThisTurn = true;
 								TurnLogicContainer.AttackLogic.log("@"+a.map.grid[x2][y2].occupyingUnit.getNameWithTeam()+" attacked "+a.map.grid[x][y].occupyingUnit.getNameWithTeam()+" with "+AttackLogic.selectedAttack.name+" dealing "+AttackLogic.selectedAttack.calcDamage(a.map.grid[x][y].occupyingUnit, a.map.grid[x2][y2].occupyingUnit)+" damage.");
@@ -432,6 +433,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 						if(a.map.grid[x][y].occupyingUnit!=null){
 							a.map.grid[x][y].occupyingUnit.hasAttackedThisTurn = false;
 							a.map.grid[x][y].occupyingUnit.hasMovedThisTurn = false;
+							a.map.grid[x][y].occupyingUnit.checkTurn();
 						}
 					}
 				}
@@ -461,7 +463,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			
 			public void paintData(Graphics2D g, AllTogether a){
 				if(TurnLogicContainer.selected!=null){
-					g.setColor(Color.CYAN);
+				/*	g.setColor(Color.CYAN);
 					g.drawString("Unit Speed:"+TurnLogicContainer.selected.speed, 69, 138);
 					g.setColor(Color.GREEN);
 					g.drawString("Unit Type:"+TurnLogicContainer.selected.type, 69, 148);
@@ -470,16 +472,17 @@ public class UserInterface extends BaseMechanics.UserInterface {
 					g.setColor(Color.PINK);
 					g.drawString("Team: "+TurnLogicContainer.selected.team, 69, 168);
 					g.setColor(Color.ORANGE);
-					g.drawString("Unit ID:"+TurnLogicContainer.selected.getClass().toString(), 69, 178);
+					g.drawString("Unit ID:"+TurnLogicContainer.selected.getClass().toString(), 69, 178);*/
 					
 					drawText.drawUnbounded(g, selected.getNameWithTeam()+":",(int)(a.parentFrame.getWidth()*0.75),(int)(a.parentFrame.getHeight()*0.05)-22, basicFont);
 					drawText.drawUnbounded(g, "@"+TurnLogicContainer.selected.health, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05), basicFont);
 					drawText.drawUnbounded(g, "$"+TurnLogicContainer.selected.speed, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+22, basicFont);
 					drawText.drawUnbounded(g, "Type:"+TurnLogicContainer.selected.type, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+44, basicFont);
-				//	drawText.drawUnbounded(g, "Team:"+TurnLogicContainer.selected.team, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+66, basicFont);
+					drawText.drawUnbounded(g, "Level:"+TurnLogicContainer.selected.level, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+66, basicFont);
+					drawText.drawUnbounded(g, "Authority:"+TurnLogicContainer.selected.authorityLevel, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+88, basicFont);
 					if(AttackLogic.selectedAttack!=null){
-						drawText.drawUnbounded(g, "Selected Attack: "+AttackLogic.selectedAttack.name, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+66, basicFont);
-						drawText.drawUnbounded(g, AttackLogic.selectedAttack.name, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+88, basicFont);
+						drawText.drawUnbounded(g, "Selected Attack: "+AttackLogic.selectedAttack.name, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+110, basicFont);
+						drawText.drawUnbounded(g, AttackLogic.selectedAttack.name, (int)(a.parentFrame.getWidth()*0.75), (int)(a.parentFrame.getHeight()*0.05)+132, basicFont);
 					}
 				}
 			}
@@ -505,7 +508,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			@Override
 			public void paint(Graphics2D g, AllTogether a) {
 				g.setColor(Color.MAGENTA);
-				g.drawString("Controlling Player: "+currentUser+" Turn Number: "+turnCount+" Control State: "+controlState, 69, 128);
+			//	g.drawString("Controlling Player: "+currentUser+" Turn Number: "+turnCount+" Control State: "+controlState, 69, 128);
 			/**/	
 				for(int x = 0; x < a.map.grid.length; x++){
 					for(int y = 0; y < a.map.grid[x].length; y++){
@@ -614,11 +617,14 @@ public class UserInterface extends BaseMechanics.UserInterface {
 
 				@Override
 				public void onClickAction(AllTogether a) {
-					if(selected.authorityLevel >= attack.authorityThreshold) {
+					if(!attack.abilityOverride && selected.authorityLevel >= attack.authorityThreshold) {
 						selectedAttack = this.attack;
 						controlState = ActualScenario.UserInterface.controlState.COMBAT;
 						AttackLogic.log("#You are now in combat mode. Press 1 to return to movement mode.");
-					}else {
+					}else if(attack.abilityOverride && selected.authorityLevel >= attack.authorityThreshold){
+						attack.calcDamage(null, selected);
+						AttackLogic.log("#"+attack.name+" activated!");
+					}else{
 						AttackLogic.log("#Couldn't select attack... Not enough authority.");
 					}
 
@@ -638,10 +644,10 @@ public class UserInterface extends BaseMechanics.UserInterface {
 				// TODO Auto-generated method stub
 				g.setColor(Color.GREEN);
 				if(selected!=null) {
-					g.drawString(selected.toString(), 256, 59);
+				//	g.drawString(selected.toString(), 256, 59);
 					if(selected.attacks!=null) {
 						for(int n = 0; n < selected.attacks.length; n++) {
-							g.drawString(selected.attacks[n].name, 256, 69+(n*10));
+				//			g.drawString(selected.attacks[n].name, 256, 69+(n*10));
 						}
 					}
 				}

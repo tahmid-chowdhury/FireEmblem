@@ -9,6 +9,7 @@ public abstract class Unit {
 	//Actual Battle Logic
 	public Type type;
 	public int health;
+	public int level;
 	public double baseDMG;
 	public Team team;
 	public double speed;
@@ -42,12 +43,84 @@ public abstract class Unit {
 	}
 	
 	public void checkTurn() {
-		if(authorityLevel >= 10) {
+		if(authorityLevel >= 10&&level < 1) {
+			++level;
+			baseDMG += 2.5;
 			switch(type) {
 			case MELEE:
-				
+				armour -= 0.05;
+				break;
+			case RANGED:
+				speed += 1;
+				break;
+			case MAGIC:
+				baseDMG += 1.5;
+				break;
 			}
+		}else if(authorityLevel >= 20&&level < 2) {
+			++level;
+			baseDMG += 2.5;
+			switch(type) {
+			case MELEE:
+				armour -= 0.05;
+				break;
+			case RANGED:
+				break;
+			case MAGIC:
+				baseDMG += 1.5;
+				break;
+			}
+	}else if(authorityLevel >= 30&&level < 3) {
+		++level;
+	}else if(authorityLevel >= 40&&level < 4) {
+		++level;
+		baseDMG += 2.5;
+		switch(type) {
+		case MELEE:
+			armour -= 0.05;
+			break;
+		case RANGED:
+			break;
+		case MAGIC:
+			baseDMG += 1.5;
+			break;
 		}
+	}else if(authorityLevel >= 50&&level < 5) {
+		++level;
+		baseDMG += 2.5;
+		switch(type) {
+		case MELEE:
+			armour -= 0.05;
+			break;
+		case RANGED:
+			speed += 1;
+			break;
+		case MAGIC:
+		//	baseDMG += 1.5;
+			break;
+		}
+	}else if(authorityLevel >= 60&&level < 6) {
+		++level;
+		baseDMG += 2.5;
+		switch(type) {
+		case MELEE:
+			speed += 1;
+			break;
+		case RANGED:
+			armour -= 0.05;
+			break;
+		case MAGIC:
+			speed += 1;
+			armour -= 0.05;
+			break;
+		}
+	}
+		
+	
+	
+	
+	
+	
 	}
 	
 	//His Majesty's Royal Banter Battalion
@@ -58,6 +131,7 @@ public abstract class Unit {
 		public int authorityThreshold;
 		int baseDamage; //yes, negative basedamage will heal
 		public BufferedImage button;
+		public boolean abilityOverride;
 		attackMethod method;
 		attackType type;
 		public enum attackMethod{
