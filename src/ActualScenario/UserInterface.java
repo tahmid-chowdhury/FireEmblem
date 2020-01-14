@@ -230,7 +230,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 								&&a.map.grid[x][y].occupyingUnit!=null
 								&&a.map.grid[x][y].occupyingUnit.type!=Unit.Type.TYPELESS
 								&&AttackLogic.selectedAttack!=null
-								&&(!a.map.grid[x2][y2].occupyingUnit.hasAttackedThisTurn||AttackLogic.selectedAttack.abilityOverride)
+								&&(!a.map.grid[x2][y2].occupyingUnit.hasAttackedThisTurn/*||AttackLogic.selectedAttack.abilityOverride*/)
 									) {
 								
 								a.map.grid[x2][y2].occupyingUnit.hasAttackedThisTurn = true;
@@ -617,11 +617,14 @@ public class UserInterface extends BaseMechanics.UserInterface {
 
 				@Override
 				public void onClickAction(AllTogether a) {
-					if(selected.authorityLevel >= attack.authorityThreshold) {
+					if(!attack.abilityOverride && selected.authorityLevel >= attack.authorityThreshold) {
 						selectedAttack = this.attack;
 						controlState = ActualScenario.UserInterface.controlState.COMBAT;
 						AttackLogic.log("#You are now in combat mode. Press 1 to return to movement mode.");
-					}else {
+					}else if(attack.abilityOverride && selected.authorityLevel >= attack.authorityThreshold){
+						attack.calcDamage(null, selected);
+						AttackLogic.log("#"+attack.name+" activated!");
+					}else{
 						AttackLogic.log("#Couldn't select attack... Not enough authority.");
 					}
 
