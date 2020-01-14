@@ -66,8 +66,11 @@ public class Units {
 			}catch(Exception e){
 				
 			}
-			this.attacks = new Attack[1];
+			this.attacks = new Attack[3];
 			attacks[0] = new Attacks.BaseMagic();
+			attacks[1] = new Attacks.MageSkill1();
+			attacks[2] = new Attacks.MageSkill2();
+
 		}
 		
 		public void paint(Graphics2D g, int x, int y, double scaleFactor, double xOffset, double yOffset, int xSize, int ySize){
@@ -311,8 +314,10 @@ public class Units {
 			}catch(Exception e){
 				
 			}
-			this.attacks = new Attack[1];
+			this.attacks = new Attack[3];
 			attacks[0] = new Attacks.BaseMagic();
+			attacks[1] = new Attacks.MageSkill1();
+			attacks[2] = new Attacks.MageSkill2();
 		}
 		
 		public void paint(Graphics2D g, int x, int y, double scaleFactor, double xOffset, double yOffset, int xSize, int ySize){
@@ -602,8 +607,10 @@ public class Units {
 			}catch(Exception e){
 				
 			}
-			this.attacks = new Attack[1];
+			this.attacks = new Attack[3];
 			attacks[0] = new Attacks.BaseMagic();
+			attacks[1] = new Attacks.MageSkill1();
+			attacks[2] = new Attacks.MageSkill2();
 		}
 		
 		public void paint(Graphics2D g, int x, int y, double scaleFactor, double xOffset, double yOffset, int xSize, int ySize){

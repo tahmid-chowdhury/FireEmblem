@@ -45,7 +45,7 @@ public abstract class Unit {
 	
 	public void checkTurn() {
 		if(authorityLevel >= 10&&level < 1) {
-			++level;
+			level = 1;
 			baseDMG += 2.5;
 			switch(type) {
 			case MELEE:
@@ -59,7 +59,7 @@ public abstract class Unit {
 				break;
 			}
 		}else if(authorityLevel >= 20&&level < 2) {
-			++level;
+			level = 2;
 			baseDMG += 2.5;
 			switch(type) {
 			case MELEE:
@@ -72,9 +72,9 @@ public abstract class Unit {
 				break;
 			}
 	}else if(authorityLevel >= 30&&level < 3) {
-		++level;
+		level = 3;
 	}else if(authorityLevel >= 40&&level < 4) {
-		++level;
+		level = 4;
 		baseDMG += 2.5;
 		switch(type) {
 		case MELEE:
@@ -87,7 +87,7 @@ public abstract class Unit {
 			break;
 		}
 	}else if(authorityLevel >= 50&&level < 5) {
-		++level;
+		level = 5;
 		baseDMG += 2.5;
 		switch(type) {
 		case MELEE:
@@ -101,7 +101,7 @@ public abstract class Unit {
 			break;
 		}
 	}else if(authorityLevel >= 60&&level < 6) {
-		++level;
+		level = 6;
 		baseDMG += 2.5;
 		switch(type) {
 		case MELEE:

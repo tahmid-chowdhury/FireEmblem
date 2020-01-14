@@ -624,6 +624,15 @@ public class UserInterface extends BaseMechanics.UserInterface {
 					}else if(attack.abilityOverride && selected.authorityLevel >= attack.authorityThreshold&&!selected.hasUsedAbilityThisTurn){
 						if(attack.calcDamage(null, selected) == 0) {
 							AttackLogic.log("#"+attack.name+" activated!");
+						}else if(attack.calcDamage(null, selected) == 2){
+							AttackLogic.log("#"+attack.name+" activated!");
+							for(int x = 0; x < a.map.grid.length; x++){
+								for(int y = 0; y < a.map.grid[x].length; y++){
+									if(a.map.grid[x][y].occupyingUnit.team == currentUser) {
+										a.map.grid[x][y].occupyingUnit.health += 10;
+									}
+								}
+							}
 						}else {
 							AttackLogic.log("#"+attack.name+" could not activate.");
 						}

@@ -133,6 +133,49 @@ public class Attacks {
 		}
 		
 	}
+	
+	public static class MageSkill1 extends BaseMechanics.Unit.Attack{
+		public MageSkill1(){
+			this.name = "Belief";
+			this.authorityThreshold = 20;
+			this.abilityOverride = true;
+			try{
+				this.button = ImageIO.read(new File("sprites/Gui/skillButtons/Skill 1 Mage.png"));
+			}catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		@Override
+		public int calcDamage(Unit target, Unit attacker) {
+			return 2;
+		}
+		
+	}
+	
+	public static class MageSkill2 extends BaseMechanics.Unit.Attack{
+		public MageSkill2(){
+			this.name = "Snapfreeze";
+			this.authorityThreshold = 20;
+			try{
+				this.button = ImageIO.read(new File("sprites/Gui/skillButtons/Skill 2 Mage.png"));
+			}catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		@Override
+		public int calcDamage(Unit target, Unit attacker) {
+			if(target.speed > 1) {
+				target.speed -= 0.5;
+				return 0;
+			}else {
+				return 15;
+			}
+
+		}
+		
+	}
 	public static class nullAttack extends BaseMechanics.Unit.Attack{
 		public nullAttack() {
 			this.name = "null";
