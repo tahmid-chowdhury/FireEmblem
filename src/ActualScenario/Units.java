@@ -100,8 +100,9 @@ public class Units {
 			this.baseDMG = 5;
 			this.armour = 1;
 
-			this.attacks = new Attack[1];
+			this.attacks = new Attack[2];
 			attacks[0] = new Attacks.GenericMelee();
+			attacks[1] = new Attacks.MeleeSkill();
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/fbody3.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/fhead3.png"));
@@ -197,8 +198,9 @@ public class Units {
 			this.health = 100;
 			this.baseDMG = 5;
 			this.armour = 1;
-			this.attacks = new Attack[1];
+			this.attacks = new Attack[2];
 			attacks[0] = new Attacks.GenericMelee();
+			attacks[1] = new Attacks.MeleeSkill();
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/fbody2.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/fhead2.png"));
@@ -237,8 +239,9 @@ public class Units {
 			this.health = 100;
 			this.baseDMG = 5;
 			this.armour = 1;
-			this.attacks = new Attack[1];
+			this.attacks = new Attack[2];
 			attacks[0] = new Attacks.GenericMelee();
+			attacks[1] = new Attacks.MeleeSkill();
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/mbody5.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/mhead5.png"));
@@ -336,8 +339,9 @@ public class Units {
 			this.health = 100;
 			this.baseDMG = 5;
 			this.armour = 1;
-			this.attacks = new Attack[1];
+			this.attacks = new Attack[2];
 			attacks[0] = new Attacks.GenericMelee();
+			attacks[1] = new Attacks.MeleeSkill();
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/mbody3.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/mhead3.png"));
@@ -418,8 +422,9 @@ public class Units {
 			this.health = 100;
 			this.baseDMG = 5;
 			this.armour = 1;
-			this.attacks = new Attack[1];
+			this.attacks = new Attack[2];
 			attacks[0] = new Attacks.GenericMelee();
+			attacks[1] = new Attacks.MeleeSkill();
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/mbody4.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/mhead4.png"));
@@ -458,8 +463,9 @@ public class Units {
 			this.health = 100;
 			this.baseDMG = 5;
 			this.armour = 1;
-			this.attacks = new Attack[1];
+			this.attacks = new Attack[2];
 			attacks[0] = new Attacks.GenericMelee();
+			attacks[1] = new Attacks.MeleeSkill();
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/mbody6.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/mhead6.png"));
@@ -498,8 +504,9 @@ public class Units {
 			this.health = 100;
 			this.baseDMG = 7;
 			this.armour = 0.975;
-			this.attacks = new Attack[1];
+			this.attacks = new Attack[2];
 			attacks[0] = new Attacks.GenericMelee();
+			attacks[1] = new Attacks.MeleeSkill();
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/body.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/head.png"));

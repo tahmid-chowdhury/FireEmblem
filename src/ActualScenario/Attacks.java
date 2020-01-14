@@ -89,6 +89,8 @@ public class Attacks {
 	public static class MeleeSkill extends BaseMechanics.Unit.Attack{
 		public MeleeSkill(){
 			this.name = "Agility";
+			this.authorityThreshold = 20;
+			this.abilityOverride = true;
 			try{
 				this.button = ImageIO.read(new File("sprites/Gui/skillButtons/Skill 1 Melee.png"));
 			}catch (IOException e) {
@@ -98,7 +100,7 @@ public class Attacks {
 		}
 		@Override
 		public int calcDamage(Unit target, Unit attacker) {
-			// TODO Auto-generated method stub
+			attacker.hasMovedThisTurn = false;
 			return 0;
 		}
 		
