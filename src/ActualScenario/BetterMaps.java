@@ -313,7 +313,7 @@ public class BetterMaps {
 			grid[6][30].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
 			grid[7][30].occupyingUnit = new Units.lonelyWanderer();
 			grid[7][30].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
-			grid[8][30].occupyingUnit = new Units.derpSwordsman();
+			grid[8][30].occupyingUnit = new Units.winterRanger();
 			grid[8][30].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
 			grid[9][30].occupyingUnit = new Units.baseSwordsman();
 			grid[9][30].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
