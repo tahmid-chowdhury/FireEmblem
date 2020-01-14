@@ -32,7 +32,7 @@ public class BetterMaps {
 						else if (y == 21) {
 							grid[x][y] = new Tiles.BotRightPathFieldC();
 						}
-						else if (y == 28) {
+						else if (y == 26) {
 							grid[x][y] = new Tiles.TopRightPathFieldC();
 						}
 						else if (y >= 22 && y <= 25) {
@@ -49,8 +49,17 @@ public class BetterMaps {
 						else if (y >= 0 && y <= 2) {
 							grid[x][y] = new Tiles.Stone();
 						}
+						else if (y == 8) {
+							grid[x][y] = new Tiles.BotRightPathFieldC();
+						}
 						else if (y == 9) {
-							grid[x][y] = new Tiles.RightPathField();
+							grid[x][y] = new Tiles.BotRightPathField();
+						}
+						else if (y == 15) {
+							grid[x][y] = new Tiles.TopRightPathField();
+						}
+						else if (y == 16) {
+							grid[x][y] = new Tiles.TopRightPathFieldC();
 						}
 					}
 					else if (x == 2) {
