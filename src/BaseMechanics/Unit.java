@@ -9,6 +9,7 @@ public abstract class Unit {
 	//Actual Battle Logic
 	public Type type;
 	public int health;
+	public double baseDMG;
 	public Team team;
 	public double speed;
 	public double armour;
@@ -17,6 +18,7 @@ public abstract class Unit {
 	public Attack[] attacks;
 	public int authorityLevel;
 	public String name;
+	
 	
 	public enum Team {
 		PLAYER1,
@@ -39,12 +41,21 @@ public abstract class Unit {
 		}
 	}
 	
+	public void checkTurn() {
+		if(authorityLevel >= 10) {
+			switch(type) {
+			case MELEE:
+				
+			}
+		}
+	}
+	
 	//His Majesty's Royal Banter Battalion
 	public static abstract class Attack {
 		public String name;
 		double range;
 		double areaOfEffect;
-		int authorityThreshold;
+		public int authorityThreshold;
 		int baseDamage; //yes, negative basedamage will heal
 		public BufferedImage button;
 		attackMethod method;

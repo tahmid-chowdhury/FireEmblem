@@ -21,8 +21,15 @@ public class Attacks {
 		}
 		@Override
 		public int calcDamage(Unit target, Unit attacker) {
-			// TODO Auto-generated method stub
-			return 5;
+			attacker.authorityLevel += 5;
+			if(target.authorityLevel >= 5*target.armour) {
+				attacker.authorityLevel += 5*target.armour;
+				target.authorityLevel -= 5*target.armour;
+			}else {
+				attacker.authorityLevel += target.authorityLevel;
+				target.authorityLevel = 0;
+			}
+			return (int)(attacker.baseDMG*target.armour);
 		}
 		
 	}
@@ -39,16 +46,54 @@ public class Attacks {
 		}
 		@Override
 		public int calcDamage(Unit target, Unit attacker) {
-			// TODO Auto-generated method stub
-			return 5;
+			attacker.authorityLevel += 5;
+			if(target.authorityLevel >= 5*target.armour) {
+				attacker.authorityLevel += 5*target.armour;
+				target.authorityLevel -= 5*target.armour;
+			}else {
+				attacker.authorityLevel += target.authorityLevel;
+				target.authorityLevel = 0;
+			}
+			return (int)(attacker.baseDMG*target.armour);
 		}
+		
+		
+	}
+	
+	public static class BaseMagic extends BaseMechanics.Unit.Attack{
+		public BaseMagic(){
+			this.name = "Basic Magic";
+			try{
+				this.button = ImageIO.read(new File("sprites/Gui/skillButtons/Basic Mage.png"));
+			}catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		@Override
+		public int calcDamage(Unit target, Unit attacker) {
+			attacker.authorityLevel += 5;
+			if(target.authorityLevel >= 5*target.armour) {
+				attacker.authorityLevel += 5*target.armour;
+				target.authorityLevel -= 5*target.armour;
+			}else {
+				attacker.authorityLevel += target.authorityLevel;
+				target.authorityLevel = 0;
+			}
+			return (int)(attacker.baseDMG*target.armour);
+		}
+		
 		
 	}
 	public static class nullAttack extends BaseMechanics.Unit.Attack{
 		public nullAttack() {
 			this.name = "null";
-			this.button = null;
-		}
+			try {
+				this.button = ImageIO.read(new File("sprites/Gui/skillButtons/Basic Melee.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}		}
 		@Override
 		public int calcDamage(Unit target, Unit attacker) {
 			// TODO Auto-generated method stub
