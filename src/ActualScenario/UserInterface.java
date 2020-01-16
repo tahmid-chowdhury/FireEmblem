@@ -121,7 +121,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			if(mouse.pulse){
 				if(mouse.CurrentMouseInputs[0] < x+sprite.getWidth()&&
 					mouse.CurrentMouseInputs[0] > x&&
-					mouse.CurrentMouseInputs[1] < y+sprite.getWidth()&&
+					mouse.CurrentMouseInputs[1] < y+sprite.getHeight()&&
 					mouse.CurrentMouseInputs[1] > y
 						){
 					onClickAction(a);
