@@ -616,4 +616,88 @@ public class Tiles extends BaseMechanics.Tile {
 			};
 		}
 	}
+	
+	public static class BottomRock extends BaseMechanics.Tile {
+		public BottomRock() {
+			
+			super();
+			
+			 terrainType = 0;
+			 zAxis = 0;
+			 passable = false;
+			 tall = false;			
+			//Drawing Stuff
+			 try {
+				sprite = ImageIO.read(new File(/*benis*/"sprites/land/rockgrassbottom.png"));
+				highlight = ImageIO.read(new File("sprites/Gui/selector.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				
+				e.printStackTrace();
+			};
+		}
+	}
+	
+	public static class TopRock extends BaseMechanics.Tile {
+		public TopRock() {
+			
+			super();
+			
+			 terrainType = 0;
+			 zAxis = 0;
+			 passable = false;
+			 tall = false;			
+			//Drawing Stuff
+			 try {
+				sprite = ImageIO.read(new File(/*benis*/"sprites/land/rockgrasstop.png"));
+				highlight = ImageIO.read(new File("sprites/Gui/selector.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				
+				e.printStackTrace();
+			};
+		}
+	}
+	
+	public static class LeftRock extends BaseMechanics.Tile {
+		public LeftRock() {
+			
+			super();
+			
+			 terrainType = 0;
+			 zAxis = 0;
+			 passable = false;
+			 tall = false;			
+			//Drawing Stuff
+			 try {
+				sprite = ImageIO.read(new File(/*benis*/"sprites/land/rockgrassleft.png"));
+				highlight = ImageIO.read(new File("sprites/Gui/selector.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				
+				e.printStackTrace();
+			};
+		}
+	}
+	
+	public static class RightRock extends BaseMechanics.Tile {
+		public RightRock() {
+			
+			super();
+			
+			 terrainType = 0;
+			 zAxis = 0;
+			 passable = false;
+			 tall = false;			
+			//Drawing Stuff
+			 try {
+				sprite = ImageIO.read(new File(/*benis*/"sprites/land/rockgrassright.png"));
+				highlight = ImageIO.read(new File("sprites/Gui/selector.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				
+				e.printStackTrace();
+			};
+		}
+	}
 }

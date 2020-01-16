@@ -414,6 +414,10 @@ public class BetterMaps {
 			grid[10][20].occupyingUnit = new Units.femRanger();
 			grid[10][20].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
 
+			grid[4][11].occupyingUnit = new Units.DwayneJohnson();
+			grid[4][12].occupyingUnit = new Units.DwayneJohnson();
+			grid[5][12].occupyingUnit = new Units.DwayneJohnson();
+			grid[13][16].occupyingUnit = new Units.DwayneJohnson();
 		}
 	}
 	public static class Pacman extends BaseMechanics.Map {
