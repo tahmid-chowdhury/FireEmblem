@@ -595,6 +595,15 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			}
 			
 			public static class attackButton extends button{
+				static BufferedImage LockandKey;
+				static{
+					try{
+						LockandKey = ImageIO.read(new File("sprites/Gui/target.png"));
+
+					}catch(Exception e){
+						
+					}
+				}
 				
 				Attack attack;
 				public attackButton(Attack attack, int x, int y){
@@ -614,7 +623,9 @@ public class UserInterface extends BaseMechanics.UserInterface {
 				/*public void ManualPaint(Graphics2D g, AllTogether a) {
 					g.drawImage(sprite, x, y, x+sprite.getWidth(), y+sprite.getHeight(), 0, 0, sprite.getWidth(), sprite.getHeight(), null);
 				}*/
-
+				public void paint(Graphics2D g, AllTogether a){
+					super.paint(g, a);
+				}
 				@Override
 				public void onClickAction(AllTogether a) {
 					if(!attack.abilityOverride && selected.authorityLevel >= attack.authorityThreshold) {
