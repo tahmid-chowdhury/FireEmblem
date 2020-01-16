@@ -128,6 +128,12 @@ public class Viewport{
 		}else if(scaleFactor > 4) {
 			scaleFactor = 4;
 		}
+		
+		//Emergency Patch
+		if(a.contains(KeyEvent.VK_ESCAPE)) {
+			xOffset = 0;
+			yOffset = 0;
+		}
 
 	}
 }
