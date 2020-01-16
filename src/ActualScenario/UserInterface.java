@@ -598,7 +598,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 				static BufferedImage LockandKey;
 				static{
 					try{
-						LockandKey = ImageIO.read(new File("sprites/Gui/target.png"));
+						LockandKey = ImageIO.read(new File("sprites/Gui/skillbuttons/LOCK.png"));
 
 					}catch(Exception e){
 						
@@ -625,6 +625,9 @@ public class UserInterface extends BaseMechanics.UserInterface {
 				}*/
 				public void paint(Graphics2D g, AllTogether a){
 					super.paint(g, a);
+					if(attack.authorityThreshold > selected.authorityLevel){
+						g.drawImage(LockandKey, x, y, x+LockandKey.getWidth(), y+LockandKey.getHeight(), 0, 0, LockandKey.getWidth(), LockandKey.getHeight(), null);
+					}
 				}
 				@Override
 				public void onClickAction(AllTogether a) {
