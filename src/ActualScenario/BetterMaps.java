@@ -6,7 +6,7 @@ import BaseMechanics.Unit;
 public class BetterMaps {
 	public static class Plains extends BaseMechanics.Map {
 		{
-			this.grid = new Tile[16][32];
+			this.grid = new Tile[16][24];
 			for(int x = 0; x < grid.length; x++) {
 				for(int y = 0; y < grid[x].length; y++) {
 					grid[x][y] = new Tiles.BasicField();
@@ -32,10 +32,7 @@ public class BetterMaps {
 						else if (y == 21) {
 							grid[x][y] = new Tiles.BotRightPathFieldC();
 						}
-						else if (y == 26) {
-							grid[x][y] = new Tiles.TopRightPathFieldC();
-						}
-						else if (y >= 22 && y <= 25) {
+						else if (y >= 22 && y <= 23) {
 							grid[x][y] = new Tiles.RightPathField();
 						}
 					}
@@ -43,7 +40,7 @@ public class BetterMaps {
 						if (y >= 10 && y <= 14) {
 							grid[x][y] = new Tiles.Path();
 						}
-						else if (y >= 22 && y <= 25) {
+						else if (y >= 22 && y <= 23) {
 							grid[x][y] = new Tiles.Path();
 						}
 						else if (y >= 0 && y <= 2) {
@@ -66,10 +63,7 @@ public class BetterMaps {
 						if (y >= 9 && y <= 15) {
 							grid[x][y] = new Tiles.Path();
 						}
-						else if (y >= 22 && y <= 27) {
-							grid[x][y] = new Tiles.Path();
-						}
-						else if (y >= 30 && y <= 31) {
+						else if (y >= 22 && y <= 23) {
 							grid[x][y] = new Tiles.Path();
 						}
 						else if (y >= 0 && y <= 1) {
@@ -78,15 +72,18 @@ public class BetterMaps {
 						else if (y == 8) {
 							grid[x][y] = new Tiles.RightPathField();
 						}
+						else if (y == 7) {
+							grid[x][y] = new Tiles.BotRightPathFieldC();
+						}
+						else if (y == 8) {
+							grid[x][y] = new Tiles.BotRightPathField();
+						}
 					}
 					else if (x == 3) {
-						if (y >= 8 && y <= 11) {
+						if (y >= 8 && y <= 15) {
 							grid[x][y] = new Tiles.Path();
 						}
-						else if (y >= 13 && y <= 15) {
-							grid[x][y] = new Tiles.Path();
-						}
-						else if (y >= 21 && y <= 31) {
+						else if (y >= 21 && y <= 23) {
 							grid[x][y] = new Tiles.Path();
 						}
 						else if (y >= 0 && y <= 1) {
@@ -97,7 +94,7 @@ public class BetterMaps {
 						}
 					}
 					else if (x == 4) {
-						if (y >= 8 && y <= 9) {
+						if (y >= 8 && y <= 10) {
 							grid[x][y] = new Tiles.Path();
 						}
 						else if (y >= 14 && y <= 16) {
@@ -106,13 +103,10 @@ public class BetterMaps {
 						else if (y >= 21 && y <= 23) {
 							grid[x][y] = new Tiles.Path();
 						}
-						else if (y == 27) {
-							grid[x][y] = new Tiles.Path();
-						}
 						else if (y == 0) {
 							grid[x][y] = new Tiles.Stone();
 						}
-						else if (y == 10 || y == 11 || y == 12 || y == 24 || y == 25 || y == 28 || y == 29) {
+						else if (y == 10 || y == 11 || y == 12) {
 							grid[x][y].occupyingUnit = new Units.DwayneJohnson();
 						}
 						else if (y == 7) {
@@ -129,13 +123,7 @@ public class BetterMaps {
 						else if (y >= 20 && y <= 23) {
 							grid[x][y] = new Tiles.Path();
 						}
-						else if (y >= 26 && y <= 27) {
-							grid[x][y] = new Tiles.Path();
-						}
-						else if (y == 30) {
-							grid[x][y] = new Tiles.Path();
-						}
-						else if (y == 11 || y == 12 || y == 24 || y == 28) {
+						else if (y == 11 || y == 12) {
 							grid[x][y].occupyingUnit = new Units.DwayneJohnson();
 						}
 						else if (y == 7) {
@@ -152,12 +140,6 @@ public class BetterMaps {
 						else if (y >= 20 && y <= 23) {
 							grid[x][y] = new Tiles.Path();
 						}
-						else if (y >= 25 && y <= 27) {
-							grid[x][y] = new Tiles.Path();
-						}
-						else if (y == 29) {
-							grid[x][y] = new Tiles.Path();
-						}
 						else if (y == 11) {
 							grid[x][y].occupyingUnit = new Units.DwayneJohnson();
 						}
@@ -166,20 +148,8 @@ public class BetterMaps {
 						}
 					}
 					else if (x == 7) {
-						if (y >= 7 && y <= 10) {
+						if (y >= 7 && y <= 23) {
 							grid[x][y] = new Tiles.Path();
-						}
-						else if (y >= 12 && y <= 17) {
-							grid[x][y] = new Tiles.Path();
-						}
-						else if (y >= 19 && y <= 25) {
-							grid[x][y] = new Tiles.Path();
-						}
-						else if (y == 29) {
-							grid[x][y] = new Tiles.Path();
-						}
-						else if (y == 26 || y == 27) {
-							grid[x][y].occupyingUnit = new Units.DwayneJohnson();
 						}
 						else if (y == 6) {
 							grid[x][y] = new Tiles.RightPathField();
@@ -189,30 +159,12 @@ public class BetterMaps {
 						if (y >= 6 && y <= 21) {
 							grid[x][y] = new Tiles.Path();
 						}
-						else if (y >= 24 && y <= 25) {
-							grid[x][y] = new Tiles.Path();
-						}
-						else if (y == 28) {
-							grid[x][y] = new Tiles.Path();
-						}
-						else if (y == 26) {
-							grid[x][y].occupyingUnit = new Units.DwayneJohnson();
-						}
 						else if (y == 5) {
 							grid[x][y] = new Tiles.BottomPathField();
 						}
 					}
 					else if (x == 9) {
-						if (y >= 6 && y <= 13) {
-							grid[x][y] = new Tiles.Path();
-						}
-						else if (y >= 15 && y <= 20) {
-							grid[x][y] = new Tiles.Path();
-						}
-						else if (y == 25) {
-							grid[x][y] = new Tiles.Path();
-						}
-						else if (y >= 27 && y <= 28) {
+						if (y >= 6 && y <= 21) {
 							grid[x][y] = new Tiles.Path();
 						}
 						else if (y >= 0 && y <= 5) {
@@ -229,18 +181,12 @@ public class BetterMaps {
 						else if (y >= 16 && y <= 21) {
 							grid[x][y] = new Tiles.Path();
 						}
-						else if (y >= 26 && y <= 28) {
-							grid[x][y] = new Tiles.Path();
-						}
 					}
 					else if (x == 11) {
 						if (y >= 0 && y <= 6) {
 							grid[x][y] = new Tiles.Path();
 						}
 						else if (y >= 18 && y <= 21) {
-							grid[x][y] = new Tiles.Path();
-						}
-						else if (y == 27) {
 							grid[x][y] = new Tiles.Path();
 						}
 					}
@@ -270,9 +216,6 @@ public class BetterMaps {
 						else if (y >= 10 && y <= 12) {
 							grid[x][y] = new Tiles.Stone();
 						}
-						else if (y == 27) {
-							grid[x][y] = new Tiles.Stone();
-						}
 					}
 					else if (x == 15) {
 						if (y >= 20 && y <= 22) {
@@ -282,9 +225,6 @@ public class BetterMaps {
 							grid[x][y] = new Tiles.Stone();
 						}
 						else if (y >= 9 && y <= 12) {
-							grid[x][y] = new Tiles.Stone();
-						}
-						else if (y >= 26 && y <= 27) {
 							grid[x][y] = new Tiles.Stone();
 						}
 					}
@@ -305,23 +245,20 @@ public class BetterMaps {
 			grid[10][3].occupyingUnit = new Units.unicornLady();
 			grid[10][3].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER1;
 
-			grid[4][30].occupyingUnit = new Units.mrDavis();
-			grid[4][30].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
-			grid[5][30].occupyingUnit = new Units.baseAssin();
-			grid[5][30].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
-			grid[6][30].occupyingUnit = new Units.selfEntitled();
-			grid[6][30].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
-			grid[7][30].occupyingUnit = new Units.lonelyWanderer();
-			grid[7][30].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
-			grid[8][30].occupyingUnit = new Units.winterRanger();
-			grid[8][30].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
-			grid[9][30].occupyingUnit = new Units.baseSwordsman();
-			grid[9][30].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
-			grid[10][30].occupyingUnit = new Units.femRanger();
-			grid[10][30].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
-
-			grid[9][9].occupyingUnit = new Units.DwayneJohnson();
-			grid[9][10].occupyingUnit = new Units.DwayneJohnson();
+			grid[4][20].occupyingUnit = new Units.mrDavis();
+			grid[4][20].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
+			grid[5][20].occupyingUnit = new Units.baseAssin();
+			grid[5][20].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
+			grid[6][20].occupyingUnit = new Units.selfEntitled();
+			grid[6][20].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
+			grid[7][20].occupyingUnit = new Units.lonelyWanderer();
+			grid[7][20].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
+			grid[8][20].occupyingUnit = new Units.winterRanger();
+			grid[8][20].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
+			grid[9][20].occupyingUnit = new Units.baseSwordsman();
+			grid[9][20].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
+			grid[10][20].occupyingUnit = new Units.femRanger();
+			grid[10][20].occupyingUnit.team = BaseMechanics.Unit.Team.PLAYER2;
 
 
 		}

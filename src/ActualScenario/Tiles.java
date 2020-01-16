@@ -289,7 +289,7 @@ public class Tiles extends BaseMechanics.Tile {
 			
 			 terrainType = 0;
 			 zAxis = 0;
-			 passable = true;
+			 passable = false;
 			 tall = false;			
 			//Drawing Stuff
 			 try {
@@ -352,7 +352,7 @@ public class Tiles extends BaseMechanics.Tile {
 
 			 terrainType = 0;
 			 zAxis = 0;
-			 passable = true;
+			 passable = false;
 			 tall = false;			
 			//Drawing Stuff
 			 try {
@@ -373,7 +373,7 @@ public class Tiles extends BaseMechanics.Tile {
 
 			 terrainType = 0;
 			 zAxis = 0;
-			 passable = true;
+			 passable = false;
 			 tall = false;			
 			//Drawing Stuff
 			 try {
