@@ -25,11 +25,11 @@ public class Viewport{
 	protected double speed;
 	
 	public Viewport(Map m) {
-		scaleFactor = 0.25;
+		scaleFactor = 0.3001;
 		map = m;
 		speed = 0.01;
 		
-		xOffset=0.05;
+		xOffset=0.2;
 		yOffset=-0.05;
 	}
 	
