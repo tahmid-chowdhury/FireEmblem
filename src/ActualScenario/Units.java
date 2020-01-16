@@ -430,14 +430,15 @@ public class Units {
 		public lonelyWanderer(){
 			this.sprites = new BufferedImage[2];
 			this.speed = 2;
-			this.type = Unit.Type.MELEE;
+			this.type = Unit.Type.MAGIC;
 			this.name = "Joran";
 			this.health = 100;
 			this.baseDMG = 5;
 			this.armour = 1;
-			this.attacks = new Attack[2];
-			attacks[0] = new Attacks.GenericMelee();
-			attacks[1] = new Attacks.MeleeSkill();
+			this.attacks = new Attack[3];
+			attacks[0] = new Attacks.BaseMagic();
+			attacks[1] = new Attacks.MageSkill1();
+			attacks[2] = new Attacks.MageSkill2();
 			try{
 				sprites[0] = ImageIO.read(new File("sprites/characters/body/mbody4.png"));
 				sprites[1] = ImageIO.read(new File("sprites/characters/heads/mhead4.png"));
