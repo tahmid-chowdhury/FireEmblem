@@ -54,7 +54,7 @@ public class Units {
 	public static class baseMage extends BaseMechanics.Unit{
 		public baseMage(){
 			this.sprites = new BufferedImage[2];
-			this.speed = 1.5;
+			this.speed = 2;
 			this.type = Unit.Type.MAGIC;
 			this.name = "Silynia";
 			this.health = 100;
@@ -302,7 +302,7 @@ public class Units {
 	public static class basePriestess extends BaseMechanics.Unit{
 		public basePriestess(){
 			this.sprites = new BufferedImage[2];
-			this.speed = 1.5;
+			this.speed = 2;
 			this.type = Unit.Type.MAGIC;
 			this.name = "Belle";
 			this.health = 100;
@@ -344,7 +344,7 @@ public class Units {
 	public static class baseSwordsman extends BaseMechanics.Unit{
 		public baseSwordsman(){
 			this.sprites = new BufferedImage[2];
-			this.speed = 1.5;
+			this.speed = 2;
 			this.type = Unit.Type.MELEE;
 			this.name = "Tyra";
 			this.health = 100;
@@ -511,7 +511,7 @@ public class Units {
 	public static class robot extends BaseMechanics.Unit{
 		public robot(){
 			this.sprites = new BufferedImage[2];
-			this.speed = 1;
+			this.speed = 2;
 			this.type = Unit.Type.MELEE;
 			this.name = "F1ST-3-CUFF";
 			this.health = 100;
@@ -595,7 +595,7 @@ public class Units {
 	public static class unicornLady extends BaseMechanics.Unit{
 		public unicornLady(){
 			this.sprites = new BufferedImage[2];
-			this.speed = 1.5;
+			this.speed = 2;
 			this.type = Unit.Type.MAGIC;
 			this.name = "Ciel";
 			this.health = 100;
