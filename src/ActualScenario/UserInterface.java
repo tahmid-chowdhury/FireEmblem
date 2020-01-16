@@ -121,7 +121,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			if(mouse.pulse){
 				if(mouse.CurrentMouseInputs[0] < x+sprite.getWidth()&&
 					mouse.CurrentMouseInputs[0] > x&&
-					mouse.CurrentMouseInputs[1] < y+sprite.getWidth()&&
+					mouse.CurrentMouseInputs[1] < y+sprite.getHeight()&&
 					mouse.CurrentMouseInputs[1] > y
 						){
 					onClickAction(a);
@@ -595,6 +595,15 @@ public class UserInterface extends BaseMechanics.UserInterface {
 			}
 			
 			public static class attackButton extends button{
+				static BufferedImage LockandKey;
+				static{
+					try{
+						LockandKey = ImageIO.read(new File("sprites/Gui/skillbuttons/LOCK.png"));
+
+					}catch(Exception e){
+						
+					}
+				}
 				
 				Attack attack;
 				public attackButton(Attack attack, int x, int y){
@@ -614,7 +623,12 @@ public class UserInterface extends BaseMechanics.UserInterface {
 				/*public void ManualPaint(Graphics2D g, AllTogether a) {
 					g.drawImage(sprite, x, y, x+sprite.getWidth(), y+sprite.getHeight(), 0, 0, sprite.getWidth(), sprite.getHeight(), null);
 				}*/
-
+				public void paint(Graphics2D g, AllTogether a){
+					super.paint(g, a);
+					if(attack.authorityThreshold > selected.authorityLevel){
+						g.drawImage(LockandKey, x, y, x+LockandKey.getWidth(), y+LockandKey.getHeight(), 0, 0, LockandKey.getWidth(), LockandKey.getHeight(), null);
+					}
+				}
 				@Override
 				public void onClickAction(AllTogether a) {
 					if(!attack.abilityOverride && selected.authorityLevel >= attack.authorityThreshold) {
@@ -713,7 +727,7 @@ public class UserInterface extends BaseMechanics.UserInterface {
 					buttons.clear();
 					if(selected.attacks!=null){
 						for(int x = 0; x < selected.attacks.length; x++){
-							buttons.add(new attackButton(selected.attacks[x],(int)(a.parentFrame.getWidth()*0.75),(int)(a.parentFrame.getHeight()*0.25)+(/*selected.attacks[x].button.getHeight()*/160*x)));
+							buttons.add(new attackButton(selected.attacks[x],(int)(a.parentFrame.getWidth()*0.75),(int)(a.parentFrame.getHeight()*0.25+selected.attacks[x].button.getHeight()*(x))));
 						}
 					}
 				}
